@@ -1,0 +1,237 @@
+.grid-container {
+    max-width: 50%;
+    margin: 100px auto;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+  
+.grid-container .img-container { 
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr auto;
+    break-inside: avoid;
+    gap: 10px;
+    max-height: 78vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 10px;
+}
+  
+.grid-container .img-container img {
+    will-change: transform;
+    width: 100%;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    object-fit: cover;
+    object-position: center;
+    margin-bottom: 10px;
+    filter: brightness(90%);
+    position: relative;
+}
+
+.grid-container .img-container img:hover {
+    filter: brightness(100%);
+    transform: scale(1.007);
+    cursor: pointer;
+}
+
+.flower-container-1 {
+    position: absolute;
+    right: 7%;
+    bottom: 26%;
+    z-index: 50;
+}
+
+.flower-container-2 {
+    position: absolute;
+    right: 4%;
+    bottom: 56%;
+    z-index: 50;
+}
+
+.flower-container-3 {
+    position: absolute;
+    right: 6%;
+    bottom: 42%;
+    z-index: 50;
+}
+
+.flower-container-5 {
+    position: absolute;
+    left: 17%;
+    top: 16%;
+    z-index: 50;
+}
+
+.flower-container-6 {
+    position: absolute;
+    left: 8%;
+    top: 27%;
+    z-index: 50;
+}
+
+.flower-container-7 {
+    position: absolute;
+    left: 6%;
+    top: 45%;
+    z-index: 50;
+}
+
+.flower-container-8 {
+    position: absolute;
+    left: 6%;
+    top: 45%;
+    z-index: 50;
+}
+
+.flower-container-4 {
+    position: absolute;
+    bottom: 60px;
+    left: 25px;
+}
+
+.tag-container {
+    position: absolute;
+    bottom:30%;
+    left: -160px;
+    z-index: -1;
+}
+
+.tag-container-2 {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 5;
+}
+
+.hidden {
+    display: none;
+}
+
+.tag {
+    transform: scale(0.36);
+    filter: brightness(0.95);
+    animation: wait 0.2s, fade-in-tag 0.8s 0.2s
+}
+
+.tag-2 {
+    transform: scale(0.36);
+    filter: brightness(1.05);
+    animation: wait 0.3s, fade-in-tag 0.8s 0.3s
+}
+
+.flower-1, .flower-2, .flower-3, .flower-5, .flower-6, .flower-7 {
+    transition: transform 0.15s ease-in-out;
+    transform: scale(0.65);
+    z-index: 50;
+}
+
+.flower-5, .flower-2 {
+    animation: wait 0.1s, fade-in-v2-flo 0.8s 0.1s;
+}
+
+.flower-6, .flower-3 {
+    animation: wait 0.25s, fade-in-v2-flo 1s 0.25s
+}
+
+.flower-7, .flower-1 {
+    animation: wait 0.35s, fade-in-v2-flo 0.8s 0.35s
+}
+
+.flower-4 {
+    animation: wait 0.2s, fade-in-v2 0.7s 0.2s;
+} 
+
+
+
+
+.sec-work {
+    position: relative;
+    height: 77vh;
+    margin-top: 13vh;
+    margin-bottom: 10vh;
+    overflow: scroll;
+    width: 100%;
+    
+}
+
+.gallery {
+    display: block;
+    overflow: scroll;
+}
+
+.grid-row {
+    display: grid;
+    position: relative;
+    margin-bottom: 1.694vw;
+    column-gap: 1.694vw;
+    grid-template-columns: repeat(14, 1fr);
+    align-content: start;
+}
+
+.block {
+    overflow: hidden;
+    position: relative;
+}
+
+.a .block {
+    height: 21.472vw;
+    grid-column: 6/11;
+}
+
+.b .block:nth-child(1) {
+    height: 18.569vw;
+    grid-column: 8/12;
+    grid-row: 1;
+    align-self: end;
+}
+
+.b .block:nth-child(2) {
+    height: 27vw;
+    grid-column: 5/8;
+    grid-row: 1; 
+}
+
+.c .block:nth-child(1) {
+    height: 20vw;
+    grid-column: 4/6;
+    grid-row: 1;
+}
+
+.c .block:nth-child(2) {
+    height: 16vw;
+    grid-column: 6/9;
+    grid-row: 1;
+}
+
+.d .block {
+    height: 23vw;
+    grid-column: 7/12;
+    grid-row: 1;
+}
+
+.e .block:nth-child(1) {
+    height: 32vw;
+    grid-column: 4/8;
+    grid-row: 1;
+}
+
+.e .block:nth-child(2) {
+    height: 38vw;
+    grid-column: 9/12;
+    grid-row: 1;
+}
+
+.grid-row .block img {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: auto;
+    width: 100%;
+}
+
+
