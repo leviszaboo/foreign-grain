@@ -149,6 +149,7 @@
     transform: translateZ(0) translateY(-50%) translateX(-50%);
     -webkit-font-smoothing: antialiased; 
     -moz-osx-font-smoothing: grayscale; 
+    z-index: 2500;
 }
 
 .intro-text span {
@@ -157,6 +158,7 @@
     transform: translateZ(0);
     -webkit-font-smoothing: antialiased; 
     -moz-osx-font-smoothing: grayscale; 
+    z-index: 5500;
 }
 
 .intro-text .new-line {

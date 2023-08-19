@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-spring/parallax": "^9.7.3",
+    "@react-spring/web": "^9.7.3",
     "eslint": "8.42.0",
     "eslint-config-next": "13.4.5",
     "framer-motion": "^10.12.16",

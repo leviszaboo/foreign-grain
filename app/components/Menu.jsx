@@ -140,7 +140,7 @@ export default function Menu() {
                             transition={{
                                 duration: 0.7,
                                 ease: "easeOut"}}
-                        >
+                        >   
                             <img 
                                 className="flower flower-5" 
                                 id="1" 

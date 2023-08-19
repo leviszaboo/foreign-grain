@@ -16,7 +16,6 @@ import Intro from "./components/Home/Intro";
 import { useStartButtonStore } from "./hooks/UseStartButton";
 
 export default function Home() {
-
     const { isButtonClicked } = useStartButtonStore();
 
     return (
