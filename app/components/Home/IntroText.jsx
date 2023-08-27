@@ -1,4 +1,6 @@
 import { useEffect, useRef } from "react";
+import { ParallaxLayer } from "@react-spring/parallax";
+
 import { useStartButtonStore } from "@/app/hooks/UseStartButton";
 
 export default function IntroText() {
@@ -47,10 +49,10 @@ export default function IntroText() {
   return (
     <>
       <h1 className="intro-text">
-        <span className="new-line" ref={textRefs[0]} data-value="What?"></span>
-        <span className="new-line" data-value="Where?" ref={textRefs[1]}></span>
-        <span className="new-line" data-value="Who the fuck is" ref={textRefs[2]}></span>
-        <span className="new-line" data-value="Luigi Simiani?" ref={textRefs[3]}></span>
+          <span className="new-line" ref={textRefs[0]} data-value="What?"></span>
+          <span className="new-line" data-value="Where?" ref={textRefs[1]}></span>
+          <span className="new-line" data-value="Who the fuck is" ref={textRefs[2]}></span>
+          <span className="new-line" data-value="Luigi Simiani?" ref={textRefs[3]}></span>
       </h1>
     </>
   )

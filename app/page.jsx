@@ -4,6 +4,8 @@ import "/Users/leventeszabo/Desktop/website/website.html/website-next13/app/styl
 import '/Users/leventeszabo/Desktop/website/website.html/website-next13/app/styles/work.css'
 
 import { AnimatePresence, motion } from "framer-motion"
+import { useScroll } from "@react-spring/web";
+import { useEffect } from "react";
 
 import Header from "./components/Header.jsx";
 import Menu2 from "./components/Menu";
@@ -18,45 +20,51 @@ import { useStartButtonStore } from "./hooks/UseStartButton";
 export default function Home() {
     const { isButtonClicked } = useStartButtonStore();
 
-    return (
+    const { scrollYProgress } = useScroll();
 
-        <>
+    useEffect(() => {
+      console.log(scrollYProgress);
+    }, [scrollYProgress])
+  
+
+    return (
+      <>
+        <AnimatePresence>
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ scale: 3, opacity: 0 }}
+            transition = {{duration: 1}}
+          >
+            <Header />
+            <Menu2 />
             <AnimatePresence>
-                <motion.div 
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ scale: 3, opacity: 0 }}
-                    transition = {{duration: 1}}
-                >
-                    <Header />
-                    <Menu2 />
-                    <AnimatePresence>
-                        {!isButtonClicked && (
-                            <motion.div
-                                initial = {{ 
-                                    opacity: 0 
-                                }}
-                                animate = {{
-                                    opacity: 1
-                                }}
-                                exit= {{
-                                    opacity: 0
-                                }}
-                                transition={{
-                                    duration: 0.5
-                                }}
-                            >
-                                <Slideshow />
-                                <Tagline />
-                                <Startbutton />
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
-                    <Intro />
-                    <HomeFlowers />
-                    <Footer />
-                </motion.div>   
+              {!isButtonClicked && (
+                  <motion.div
+                      initial = {{ 
+                          opacity: 0 
+                      }}
+                      animate = {{
+                          opacity: 1
+                      }}
+                      exit= {{
+                          opacity: 0
+                      }}
+                      transition={{
+                          duration: 0.5
+                      }}
+                  >
+                      <Slideshow />
+                      <Tagline />
+                      <Startbutton />
+                  </motion.div>
+              )}
             </AnimatePresence>
-        </>
+            <Intro />
+            <HomeFlowers />
+            <Footer />
+          </motion.div>   
+        </AnimatePresence>
+      </>
     );
 }

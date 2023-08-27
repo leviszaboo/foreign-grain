@@ -41,11 +41,15 @@ body::-webkit-scrollbar {
     src: url(/Fonts/Retro_Gaming.ttf);
 }
 
+html {
+    height: 600%;
+}
+
 body { 
     background-color: #000000; 
-    overflow: hidden;
     font-family: 'ApercuRegular', sans-serif;
     letter-spacing: normal;
+    height: 100%;
 }
 
 header {

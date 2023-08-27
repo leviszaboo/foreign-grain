@@ -1,14 +1,9 @@
-import { useEffect, useRef } from "react";
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
-import { useStartButtonStore } from "@/app/hooks/UseStartButton";
+import { motion } from "framer-motion";
+import { ParallaxLayer } from "@react-spring/parallax";
 
 export default function ScrollSign() {
   const spanCount = 3;
   const spans = [];
-  const ref = useRef()
-
-  const { scrollYProgress } = useScroll()
-  let y = useTransform(scrollYProgress, [0, 1], ["0%", "0%"])
 
   for (let i = 0; i < spanCount; i++) {
     spans.push(
@@ -44,7 +39,7 @@ export default function ScrollSign() {
           delay: 5,
         }}
       >
-        <span className="down">{spans}</span>
+          <span className="down">{spans}</span>
           <motion.span
             initial={{
               y: 5,
@@ -61,7 +56,7 @@ export default function ScrollSign() {
           >
             scroll down
           </motion.span>
-        <span className="down">{spans}</span>
+          <span className="down">{spans}</span>
       </motion.h2>
     </>
   )
