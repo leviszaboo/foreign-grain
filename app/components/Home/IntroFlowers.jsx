@@ -8,7 +8,7 @@ export default function IntroFlowers() {
   
   return (
     <>
-    <ParallaxLayer speed={2.3}>
+   <ParallaxLayer speed={2.3}>
       <motion.div 
         className="flower-container-1"
         initial={{
@@ -40,7 +40,7 @@ export default function IntroFlowers() {
             src="/Media/flowers/flower.png"
           />
         </motion.div>
-    </ParallaxLayer>
+   </ParallaxLayer>
     <ParallaxLayer speed={1.9}>
       <motion.div 
           className="flower-container-intro-2"
@@ -73,7 +73,7 @@ export default function IntroFlowers() {
             src="/Media/flowers/flower.png"
           />
         </motion.div>
-    </ParallaxLayer>
+   </ParallaxLayer>
     <ParallaxLayer speed={1.6}>
       <motion.div 
           className="flower-container-intro-3"
@@ -106,7 +106,7 @@ export default function IntroFlowers() {
             src="/Media/flowers/flower-3.png"
           />
         </motion.div>
-      </ParallaxLayer>
+     </ParallaxLayer>
     </>
   )
 }

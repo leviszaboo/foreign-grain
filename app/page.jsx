@@ -1,7 +1,7 @@
 "use client";
 
-import "/Users/leventeszabo/Desktop/website/website.html/website-next13/app/styles/mainpage.css";
-import '/Users/leventeszabo/Desktop/website/website.html/website-next13/app/styles/work.css'
+import "@/app/styles/mainpage.css";
+import '@/app/styles/work.css'
 
 import { AnimatePresence, motion } from "framer-motion"
 import { useScroll } from "@react-spring/web";

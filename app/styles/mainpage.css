@@ -54,13 +54,12 @@
     text-shadow: 0px 0px 2px #ffdba5;
 }
 
-.sub-label-wrapper { 
+/*.sub-label-wrapper { 
     position: absolute;
     bottom: 30px;
     width: 250px;
     display: flex;
     justify-content: center;
-    cursor: pointer;
     text-align: center;  
     left: 50%;
     transform: translateX(-50%); 
@@ -72,7 +71,7 @@
     font-family: aightFont, sans-serif;
     font-size: 26px;
     z-index: 100;
-}
+}*/
 
 .button-wrapper {
     display: flex;
@@ -120,10 +119,7 @@
 }
 
 .intro-wrapper {
-    /*position: absolute;
-    width: 100%;
-    height: 100%;*/
-    overflow: scroll;
+    height: 2500px;
 }
 
 .intro-wrapper .p-wrapper {
@@ -272,27 +268,6 @@
     z-index: 50;
 }
 
-.flower-container-5 {
-    position: absolute;
-    left: 17%;
-    top: 16%;
-    z-index: 50;
-}
-
-.flower-container-6 {
-    position: absolute;
-    left: 8%;
-    top: 27%;
-    z-index: 50;
-}
-
-.flower-container-7 {
-    position: absolute;
-    left: 6%;
-    top: 45%;
-    z-index: 50;
-}
-
 .flower-container-4 {
     position: absolute;
     bottom: 10px;
@@ -301,13 +276,6 @@
 
 .flower-wrapper-hidden {
     display: none;
-}
-
-.flower-1, .flower-2, .flower-3, .flower-5, .flower-6, .flower-7 {
-    transition: transform 0.25s ease-in-out;
-    transform: scale(0.65);
-    z-index: 50;
-    opacity: 1;
 }
 
 .flower-1:hover, .flower-2:hover, .flower-3:hover {
@@ -319,3 +287,12 @@
     transform: scale(0.65);
 }
 
+@media (max-width: 650px) {
+    .main-tagline h2 {
+        font-size: 22px;
+    }
+
+    .flower-container-4 {
+        left: 0
+    }
+}

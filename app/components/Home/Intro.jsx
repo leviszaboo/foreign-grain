@@ -1,6 +1,9 @@
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
-import { useScroll, animated } from '@react-spring/web';
-import { motion, AnimatePresence } from "framer-motion";
+import { useInView, animated } from '@react-spring/web';
+import { 
+  motion,
+  AnimatePresence, 
+} from "framer-motion";
 import { useEffect, useRef } from 'react';
 
 import { useStartButtonStore } from "@/app/hooks/UseStartButton";
@@ -13,14 +16,19 @@ import ScrollSign from "./ScrollSign";
 export default function Intro() {
   const { isButtonClicked } = useStartButtonStore();
 
-  const ref = useRef(null);
-
-  const { scrollY } = useScroll();
-
-  useEffect(() => {
-    console.log(scrollY);
-  }, [scrollY])
-
+  const [ref, springs] = useInView(
+    () => ({
+      from: {
+        opacity: 0,
+      },
+      to: {
+        opacity: 1,
+      },
+    }),
+    {
+      rootMargin: "-60% 0%"
+    }
+  )
 
   return (
     <>
@@ -41,17 +49,17 @@ export default function Intro() {
               },
             }}
           >
-            <Parallax ref={ref} pages={3}>
+            <Parallax pages={3}>
               <ParallaxLayer speed={2}>
-                <IntroText />
+            <IntroText />
               </ParallaxLayer>
-              <div style={{opacity: scrollY}}>
+            
               <IntroFlowers />
-              </div>
-              <ParallaxLayer speed={1.2}>
+      
+             <ParallaxLayer speed={1.2}>
                 <ScrollSign />
               </ParallaxLayer>
-              <ParallaxLayer ref={ref}>
+              <ParallaxLayer>
                 <div className="div1">
                   <Gallery2 />
                 </div>
@@ -59,6 +67,7 @@ export default function Intro() {
               <ParallaxLayer>
                 <div className="div2">
                   <div className="text-wrapper">
+                  <animated.div ref={ref} style={springs}>
                     <p>
                       Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
                       totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta
@@ -78,9 +87,13 @@ export default function Intro() {
                       Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae
                       consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
                     </p>
+
+                    </animated.div>
                   </div>
                 </div>
+
               </ParallaxLayer>
+
             </Parallax>
           </motion.div>
         )}

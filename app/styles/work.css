@@ -38,61 +38,6 @@ html::-webkit-scrollbar {
     cursor: pointer;
 }
 
-.flower-container-1 {
-    position: absolute;
-    right: 7%;
-    bottom: 26%;
-    z-index: 50;
-}
-
-.flower-container-2 {
-    position: absolute;
-    right: 4%;
-    bottom: 56%;
-    z-index: 50;
-}
-
-.flower-container-3 {
-    position: absolute;
-    right: 6%;
-    bottom: 42%;
-    z-index: 50;
-}
-
-.flower-container-5 {
-    position: absolute;
-    left: 17%;
-    top: 16%;
-    z-index: 50;
-}
-
-.flower-container-6 {
-    position: absolute;
-    left: 8%;
-    top: 27%;
-    z-index: 50;
-}
-
-.flower-container-7 {
-    position: absolute;
-    left: 6%;
-    top: 45%;
-    z-index: 50;
-}
-
-.flower-container-8 {
-    position: absolute;
-    left: 6%;
-    top: 45%;
-    z-index: 50;
-}
-
-.flower-container-4 {
-    position: absolute;
-    bottom: 60px;
-    left: 25px;
-}
-
 .tag-container {
     position: absolute;
     bottom:30%;
@@ -123,12 +68,6 @@ html::-webkit-scrollbar {
     animation: wait 0.3s, fade-in-tag 0.8s 0.3s
 }
 
-.flower-1, .flower-2, .flower-3, .flower-5, .flower-6, .flower-7 {
-    transition: transform 0.15s ease-in-out;
-    transform: scale(0.65);
-    z-index: 50;
-}
-
 .flower-5, .flower-2 {
     animation: wait 0.1s, fade-in-v2-flo 0.8s 0.1s;
 }
@@ -145,17 +84,10 @@ html::-webkit-scrollbar {
     animation: wait 0.2s, fade-in-v2 0.7s 0.2s;
 } 
 
-
-
-
 .sec-work {
-    position: relative;
-    height: 77vh;
-    margin-top: 13vh;
-    margin-bottom: 10vh;
+    padding-top: 8rem;
     overflow: scroll;
     width: 100%;
-    
 }
 
 .gallery {

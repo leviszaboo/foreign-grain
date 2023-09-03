@@ -3,9 +3,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-import { useMenuStore } from '/Users/leventeszabo/Desktop/website/website.html/website-next13/app/hooks/UseMenu.jsx';
-import { useStartButtonStore } from '/Users/leventeszabo/Desktop/website/website.html/website-next13/app/hooks/UseStartButton.jsx';
-import { useSlideshowStore } from '/Users/leventeszabo/Desktop/website/website.html/website-next13/app/hooks/UseSlideshow.jsx';
+import { useMenuStore } from '@/app/hooks/UseMenu';
+import { useStartButtonStore } from '@/app/hooks/UseStartButton';
+import { useSlideshowStore } from '@/app/hooks/UseSlideshow';
 
 export default function HomeFlowers() {
 

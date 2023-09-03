@@ -1,4 +1,4 @@
-import "/Users/leventeszabo/Desktop/website/website.html/website-next13/app/styles/_global.css"
+import "@/app/styles/_global.css"
 
 export const metadata = {
   title: 'Luigi Simiani',
