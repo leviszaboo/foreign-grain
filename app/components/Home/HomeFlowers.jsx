@@ -24,7 +24,7 @@ export default function HomeFlowers() {
     useRef()
   ];
 
-  const [activeFlow, setActiveFlow] = useState(0);
+  const [activeFlower, setActiveFlower] = useState(0);
 
   useEffect(() => {
     if (!isMenuVisible && !isButtonClicked) {
@@ -32,7 +32,7 @@ export default function HomeFlowers() {
             flowerRef.current.classList.remove('active')
             if (index === currentSlide) {
                 flowerRef.current.classList.add('active')
-                setActiveFlow(index);
+                setActiveFlower(index);
             } 
           });
     }}, [currentSlide, flowerRefs]
@@ -50,7 +50,7 @@ export default function HomeFlowers() {
                         opacity: 0
                     }}
                     animate={{
-                        scale: activeFlow === 2 ? 1.11 : 1,
+                        scale: activeFlower === 2 ? 1.11 : 1,
                         opacity: 1,
                         }}
                     exit={{
@@ -83,7 +83,7 @@ export default function HomeFlowers() {
                         opacity: 0
                     }}
                     animate={{
-                        scale: activeFlow === 0 ? 1.11 : 1,
+                        scale: activeFlower === 0 ? 1.11 : 1,
                         opacity: 1,
                     }}
                     exit={{
@@ -116,7 +116,7 @@ export default function HomeFlowers() {
                         opacity: 0
                     }}
                     animate={{
-                        scale: activeFlow === 1 ? 1.11 : 1,
+                        scale: activeFlower === 1 ? 1.11 : 1,
                         opacity: 1,
                     }}
                     exit={{

@@ -5,25 +5,14 @@ import { useMenuStore } from "@/app/hooks/UseMenu";
 import Footer from "../Footer";
 import RowTypeA from "./rows/RowTypeA";
 import RowTypeB from "./rows/RowTypeB";
+import RowTypeC from "./rows/RowTypeC";
+import RowTypeD from "./rows/RowTypeD";
+import FadeIn from "./rows/FadeIn";
 
 
 export default function Gallery2() {
   
   const { scrollYProgress  } = useScroll()
-
-  const [ref, springs] = useInView(
-    () => ({
-      from: {
-        opacity: 0,
-      },
-      to: {
-        opacity: 1,
-      },
-    }),
-    {
-      rootMargin: "-6% 0%"
-    }
-  )
 
   const { isMenuVisible } = useMenuStore();
 
@@ -61,38 +50,6 @@ export default function Gallery2() {
     "/Media/gallery/smoke.jpeg",
     "/Media/gallery/camera-2.jpeg"
   ];
-
-
-  function RowTypeC({ src1, src2 }) {
-
-    return(
-      <>
-          <animated.div ref={ref} style={springs}>
-        <div className="grid-row c">
-            <div className="block">
-              <img src={src1} alt=""/>
-            </div>
-            <div className="block">
-              <img src={src2} alt=""/>
-            </div>
-        </div>
-            </animated.div>
-      </>
-    )
-  }
-
-  function RowTypeD({ src }) {
-
-    return(
-      <>
-        <div className="grid-row d">
-          <div className="block">
-            <img src={src}/>
-          </div>
-        </div>
-      </>
-    )
-  }
               
   return(
     <>
@@ -103,16 +60,67 @@ export default function Gallery2() {
           <div 
               className="gallery"
           >
-            <RowTypeA src={sources[5]} />
-            <RowTypeB src1={sources[2]} src2={sources[3]} />
-            <RowTypeC src1={sources[17]} src2={sources[5]} />
-            <RowTypeD src={sources[11]} />
+            <FadeIn>
+              <RowTypeA src={sources[5]} />
+            </FadeIn>
+            <FadeIn>
+              <RowTypeB src1={sources[2]} src2={sources[3]} />
+            </FadeIn>
+            <FadeIn>
+              <RowTypeC src1={sources[17]} src2={sources[5]} />
+            </FadeIn>
+            <FadeIn>
+              <RowTypeD src={sources[11]} />
+            </FadeIn>
+            <FadeIn>
+              <RowTypeA src={sources[5]} />
+            </FadeIn>
+            <FadeIn>
+              <RowTypeB src1={sources[2]} src2={sources[3]} />
+            </FadeIn>  
+            <FadeIn>
+              <RowTypeC src1={sources[17]} src2={sources[5]} />
+            </FadeIn> 
+            <FadeIn>
+              <RowTypeD src={sources[11]} />
+            </FadeIn>     
           </div>
           <div className="sub-label-wrapper">
             <h2 className="sub-label">
                 *amsterdam <span>2023</span>
             </h2>
           </div>
+          <motion.div 
+                    className="flower-container-4"
+                    initial={{
+                        scale: 0.65,
+                        opacity: 0
+                    }}
+                    animate={{
+                        scale: 1,
+                        opacity: 1,
+                    }}
+                    exit={{
+                        scale: 0.5, 
+                        opacity: 0, 
+                        transition: {
+                            duration: 0.25,
+                            delay: 0.25,
+                            ease: "easeInOut" 
+                        }
+                    }}
+                    transition={{
+                        duration: 0.7,
+                        delay: 0.35,
+                        ease: "easeOut"
+                    }}
+                >
+                    <img 
+                        style={{transform: "scale(0.7)"}}
+                        className="flower-4" 
+                        src="/Media/flowers/flower-3.png"
+                    />
+                </motion.div>
         </section>
       )}
     </>

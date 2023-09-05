@@ -16,19 +16,20 @@ import ScrollSign from "./ScrollSign";
 export default function Intro() {
   const { isButtonClicked } = useStartButtonStore();
 
-  const [ref, springs] = useInView(
-    () => ({
-      from: {
-        opacity: 0,
-      },
-      to: {
-        opacity: 1,
-      },
-    }),
-    {
-      rootMargin: "-60% 0%"
+  const [ref, springs] = useInView()
+
+  const scrollToTop = () => {
+    console.log(springs)
+    if (springs) {
+      ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-  )
+  };
+
+  useEffect(() => {
+    if (isButtonClicked) {
+      scrollToTop();
+    }
+  }, [springs])
 
   return (
     <>
@@ -60,14 +61,13 @@ export default function Intro() {
                 <ScrollSign />
               </ParallaxLayer>
               <ParallaxLayer>
-                <div className="div1">
+                <div ref={ref} className="div1">
                   <Gallery2 />
                 </div>
               </ParallaxLayer>
               <ParallaxLayer>
                 <div className="div2">
                   <div className="text-wrapper">
-                  <animated.div ref={ref} style={springs}>
                     <p>
                       Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
                       totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta
@@ -87,8 +87,6 @@ export default function Intro() {
                       Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae
                       consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
                     </p>
-
-                    </animated.div>
                   </div>
                 </div>
 
