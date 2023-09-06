@@ -119,7 +119,7 @@
 }
 
 .intro-wrapper {
-    height: 2500px;
+    /*height: 2500px;*/
 }
 
 .intro-wrapper .p-wrapper {
@@ -192,6 +192,7 @@
     transform: translateY(100%);
     transition: transform 0.35s ease-in-out;
     overflow-y: scroll;
+    background-color: red;
 }
 
 .div2 {
@@ -201,6 +202,8 @@
     width: 50%;
     transform: translateY(100%);
     transition: transform 0.35s ease-in-out;
+    overflow-y: scroll;
+    background-color: blue;
 }
 
 .div1::-webkit-scrollbar {

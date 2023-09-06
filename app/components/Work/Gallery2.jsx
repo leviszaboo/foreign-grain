@@ -8,6 +8,7 @@ import RowTypeB from "./rows/RowTypeB";
 import RowTypeC from "./rows/RowTypeC";
 import RowTypeD from "./rows/RowTypeD";
 import FadeIn from "./rows/FadeIn";
+import IntroMainSection from "../Home/IntroMainSection";
 
 
 export default function Gallery2() {
@@ -83,7 +84,7 @@ export default function Gallery2() {
             </FadeIn> 
             <FadeIn>
               <RowTypeD src={sources[11]} />
-            </FadeIn>     
+            </FadeIn>  
           </div>
           <div className="sub-label-wrapper">
             <h2 className="sub-label">

@@ -3,11 +3,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useMenuStore } from "@/app/hooks/UseMenu";
 import { useSlideshowStore } from "@/app/hooks/UseSlideshow";
 import { 
-  getDownloadURL, 
-  listAll,
-  ref
-} from "firebase/storage";
-import { storage } from "@/app/firebase/firebase";
+  getDocs,
+  query,
+  collection,
+  orderBy
+} from "firebase/firestore";
+import { db } from "@/app/firebase/config";
 
 export default function Slideshow() {
 
@@ -19,28 +20,24 @@ export default function Slideshow() {
   const [verticalUrls, setVerticalUrls] = useState([]);
   const [horizontalUrls, setHorizontalUrls] = useState([]);
 
-  const verticalListRef = ref(storage, `${process.env.NEXT_PUBLIC_USER_ID}/featured/vertical/`);
-  const horizontalListRef = ref(storage, `${process.env.NEXT_PUBLIC_USER_ID}/featured/horizontal/`);
+  const verticalRef = `${process.env.NEXT_PUBLIC_USER_ID}/featured/vertical`;
+  const horizontalRef = `${process.env.NEXT_PUBLIC_USER_ID}/featured/horizontal`;
 
-  async function fetchImageUrls(listRef, setterFunction) { 
+  async function fetchImageUrls(ref, destinationSetter) { 
     try {
-      const res = await listAll(listRef)
-      
-      const urlPromises = res.items.map(async (item) => {
-        const url = await getDownloadURL(item);
-        return url;
-      });
-
-      const imageUrls = await Promise.all(urlPromises);
-      setterFunction(imageUrls);
+      const querySnapshot = await getDocs(query(collection(db, ref), orderBy("createdAt", "desc")));
+      querySnapshot.forEach((doc) => {
+        console.log(doc)
+        destinationSetter((prevState) => [doc.data().url, ...prevState])
+      })
     } catch (error) {
       console.error("Error fetching image URLs:", error);
     }
   }
 
   useEffect(() => {
-    fetchImageUrls(verticalListRef, setVerticalUrls);
-    fetchImageUrls(horizontalListRef, setHorizontalUrls)
+    fetchImageUrls(verticalRef, setVerticalUrls);
+    fetchImageUrls(horizontalRef, setHorizontalUrls)
   }, [])
 
   const checkAspectRatio = () => {
