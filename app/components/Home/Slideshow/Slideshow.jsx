@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useMenuStore } from "@/app/hooks/UseMenu";
-import { useSlideshowStore } from "@/app/hooks/UseSlideshow";
 import { getDocs, query, collection, orderBy } from "firebase/firestore";
-import { db } from "@/app/firebase/config";
+
 import { usePageLoadingStore } from "@/app/hooks/usePageLoading";
+import { useMenuStore } from "@/app/hooks/useMenu";
+import { useSlideshowStore } from "@/app/hooks/useSlideshow";
+import { db } from "@/app/firebase/config";
+
+import { backgroundAnimationProps, slideAnimationProps } from "./animation";
 
 export default function Slideshow() {
   const animationTime = 7500;
@@ -73,51 +76,8 @@ export default function Slideshow() {
     <>
       <AnimatePresence>
         {!isMenuVisible && (
-          <motion.div
-            className="background"
-            initial={{
-              opacity: 0,
-            }}
-            animate={{
-              opacity: 1,
-            }}
-            exit={{
-              opacity: 0,
-              transition: {
-                duration: 0.55,
-              },
-            }}
-            transition={{
-              duration: 0.8,
-            }}
-          >
-            <motion.div
-              className="slide-wrapper"
-              key={currentSlide}
-              initial={{
-                opacity: 0,
-                scale: 1.08,
-              }}
-              animate={{
-                x: 0,
-                opacity: 1,
-                scale: 1,
-              }}
-              transition={{
-                opacity: {
-                  duration: 1,
-                },
-                scale: {
-                  duration: 8,
-                },
-              }}
-              exit={{
-                opacity: 0,
-                transition: {
-                  duration: 0.5,
-                },
-              }}
-            >
+            <motion.div className="background" {...backgroundAnimationProps}>
+              <motion.div className="slide-wrapper" {...slideAnimationProps} key={currentSlide}>
               <img
                 src={
                   aspectRatio > 0.85

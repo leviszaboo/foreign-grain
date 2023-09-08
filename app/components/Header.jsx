@@ -2,8 +2,8 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
 
-import Menubutton from "./Menu/Menubutton";
-import { useStartButtonStore } from "../hooks/UseStartButton";
+import MenuButton from "./Menu/MenuButton/MenuButton";
+import { useStartButtonStore } from "../hooks/useStartButton";
 
 export default function Header() {
 
@@ -13,7 +13,7 @@ export default function Header() {
       <>
         <header>
           <nav>
-            <Menubutton/>
+            <MenuButton/>
             <AnimatePresence>
               {!isButtonClicked && (
                 <motion.h1 

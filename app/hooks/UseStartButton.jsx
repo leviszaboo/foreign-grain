@@ -1,7 +1,6 @@
 import { create } from 'zustand'
 
 export const useStartButtonStore = create((set) => ({
-  
   isStarted: false,
   isButtonClicked: false,
   buttonText: 'START!',

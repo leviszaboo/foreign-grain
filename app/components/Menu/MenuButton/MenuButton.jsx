@@ -1,10 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useMenuStore } from "../../hooks/UseMenu";
-import { useStartButtonStore } from "../../hooks/UseStartButton";
+import { useMenuStore } from "../../../hooks/useMenu";
+import { useStartButtonStore } from "../../../hooks/useStartButton";
+import { menuButtonAnimationProps } from "./animation"
 
-export default function Menubutton() {
+export default function MenuButton() {
   const { isMenuVisible, buttonDisabled ,toggleMenu } = useMenuStore();
   const { isButtonClicked, setButtonClicked } = useStartButtonStore();
 
@@ -23,15 +24,7 @@ export default function Menubutton() {
       <motion.div 
         className={`btn-hamburger-menu ${ isMenuVisible ? 'change' : null } ${isButtonClicked ? 'intro-open' : null }`}
         onClick={handleClick}
-        initial={{ 
-          opacity: 0 
-        }}
-        animate={{ 
-          opacity: 1 
-        }}
-        transition={{ 
-          duration: 0.6 
-        }}
+        {...menuButtonAnimationProps}
         >
           <div 
             className="bar-bar-1">

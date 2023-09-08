@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useMenuStore } from "@/app/hooks/UseMenu";
+import { useMenuStore } from "@/app/hooks/useMenu";
 
 export default function Gallery() {
 

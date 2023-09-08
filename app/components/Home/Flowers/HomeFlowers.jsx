@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
 import { AnimatePresence } from 'framer-motion';
 
-import { useMenuStore } from '@/app/hooks/UseMenu';
-import { useStartButtonStore } from '@/app/hooks/UseStartButton';
-import { useSlideshowStore } from '@/app/hooks/UseSlideshow';
+import { useMenuStore } from '@/app/hooks/useMenu';
+import { useStartButtonStore } from '@/app/hooks/useStartButton';
+import { useSlideshowStore } from '@/app/hooks/useSlideshow';
 
 import FlowerContainer from '../../FlowerContainer';
-import { homeFlowerContainerProps } from './props';
+import { homeFlowerContainerProps } from './animation';
 
 export default function HomeFlowers() {
   const { isMenuVisible } = useMenuStore();

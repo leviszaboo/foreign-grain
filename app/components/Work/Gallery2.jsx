@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useEffect, useRef } from "react";
 
-import { useMenuStore } from "@/app/hooks/UseMenu";
+import { useMenuStore } from "@/app/hooks/useMenu";
 import { useIntroScrollStore } from "@/app/hooks/useIntroScroll";
 import RowTypeA from "./rows/RowTypeA";
 import RowTypeB from "./rows/RowTypeB";
