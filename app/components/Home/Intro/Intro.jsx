@@ -9,28 +9,13 @@ import { useEffect, useRef } from 'react';
 import { useStartButtonStore } from "@/app/hooks/UseStartButton";
 
 import IntroFlowers from "./IntroFlowers";
-import Gallery2 from "../Work/Gallery2";
+import Gallery2 from "../../Work/Gallery2";
 import IntroText from "./IntroText";
-import ScrollSign from "./ScrollSign";
 import IntroMainSection from './IntroMainSection';
+import ScrollSign from './ScrollSign';
 
 export default function Intro() {
   const { isButtonClicked } = useStartButtonStore();
-
-  // const [ref, springs] = useInView()
-
-  // const scrollToTop = () => {
-  //   console.log(springs)
-  //   if (springs) {
-  //     ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   if (isButtonClicked) {
-  //     scrollToTop();
-  //   }
-  // }, [springs])
 
   return (
     <>
@@ -53,18 +38,15 @@ export default function Intro() {
           >
             <Parallax pages={2}>
               <ParallaxLayer speed={2}>
-            <IntroText />
+                <IntroText />
               </ParallaxLayer>
-            
               <IntroFlowers />
-      
-             <ParallaxLayer speed={1.2}>
+              <ParallaxLayer speed={1.2}>
                 <ScrollSign />
               </ParallaxLayer>
               <ParallaxLayer>
                 <IntroMainSection/>
               </ParallaxLayer>
-
             </Parallax>
           </motion.div>
         )}

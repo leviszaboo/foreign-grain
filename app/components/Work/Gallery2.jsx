@@ -1,19 +1,29 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useScroll, animated, useInView } from "@react-spring/web";
+import { useInView } from "framer-motion";
+import { useEffect, useRef } from "react";
 
 import { useMenuStore } from "@/app/hooks/UseMenu";
-import Footer from "../Footer";
+import { useIntroScrollStore } from "@/app/hooks/useIntroScroll";
 import RowTypeA from "./rows/RowTypeA";
 import RowTypeB from "./rows/RowTypeB";
 import RowTypeC from "./rows/RowTypeC";
 import RowTypeD from "./rows/RowTypeD";
 import FadeIn from "./rows/FadeIn";
-import IntroMainSection from "../Home/IntroMainSection";
+import IntroMainSection from "../Home/Intro/IntroMainSection";
 
 
 export default function Gallery2() {
-  
-  const { scrollYProgress  } = useScroll()
+  const ref = useRef(null)
+  const inView = useInView(ref);
+  const { setScrollDown } = useIntroScrollStore()
+
+  useEffect(() => {
+    console.log(inView)
+    console.log(ref.current)
+    if (ref.current) {
+      setScrollDown(inView)
+    }
+  }, [inView, ref.current])
 
   const { isMenuVisible } = useMenuStore();
 
@@ -24,24 +34,24 @@ export default function Gallery2() {
     "/Media/gallery/blockparty.jpeg",
     "/Media/gallery/camera.jpeg",
     "/Media/gallery/duck.jpeg",
-    "/Media/gallery/dude.jpeg",
+    "/Media/gallery/boyer.jpeg",
     "/Media/horizontal-final/patta-hor.jpeg",
     "/Media/vertical-final/mask.jpeg",
-    "/Media/gallery/dude-2.jpeg",
+    "/Media/gallery/boyer-2.jpeg",
     "/Media/gallery/frankfurt-2.jpeg",
     "/Media/vertical-final/patta-vert.jpeg",
     "/Media/horizontal-final/pond.jpeg",
-    "/Media/gallery/dude-3.jpeg",
+    "/Media/gallery/boyer-3.jpeg",
     "/Media/gallery/leather.jpeg",
-    "/Media/gallery/dude-4.jpeg",
+    "/Media/gallery/boyer-4.jpeg",
     "/Media/horizontal-final/stonebwoy.jpeg",
     "/Media/vertical-final/tno-vert.jpeg",
-    "/Media/gallery/dude-5.jpeg",
+    "/Media/gallery/boyer-5.jpeg",
     "/Media/gallery/light.jpeg",
     "/Media/gallery/roll.jpeg",
     "/Media/gallery/pink.jpeg",
     "/Media/gallery/street.jpeg",
-    "/Media/gallery/dude-6.jpeg",
+    "/Media/gallery/boyer-6.jpeg",
     "/Media/gallery/sauf.jpeg",
     "/Media/gallery/shoes.jpeg",
     "/Media/gallery/ski.jpeg",
@@ -62,7 +72,9 @@ export default function Gallery2() {
               className="gallery"
           >
             <FadeIn>
+              <div ref={ref}>
               <RowTypeA src={sources[5]} />
+              </div>
             </FadeIn>
             <FadeIn>
               <RowTypeB src1={sources[2]} src2={sources[3]} />
@@ -74,7 +86,9 @@ export default function Gallery2() {
               <RowTypeD src={sources[11]} />
             </FadeIn>
             <FadeIn>
+
               <RowTypeA src={sources[5]} />
+
             </FadeIn>
             <FadeIn>
               <RowTypeB src1={sources[2]} src2={sources[3]} />

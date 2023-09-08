@@ -1,27 +1,12 @@
 import { motion } from "framer-motion";
-import { ParallaxLayer } from "@react-spring/parallax";
+import { useRef, useEffect } from "react";
+import { useInView } from "framer-motion";
+
+import BlinkingArrows from "./BlinkingArrows";
+
+import { useIntroScrollStore } from "@/app/hooks/useIntroScroll";
 
 export default function ScrollSign() {
-  const spanCount = 3;
-  const spans = [];
-
-  for (let i = 0; i < spanCount; i++) {
-    spans.push(
-      <motion.span
-        key={i}
-        animate={{
-          opacity: [0.3, 1, 0.3],
-        }}
-        transition={{
-          duration: 2,
-          repeat: Infinity,
-          delay: 5.1 + 0.35 * i,
-        }}
-      >
-        &gt;
-      </motion.span>
-    );
-  }
   
   return (
     <>
@@ -38,8 +23,9 @@ export default function ScrollSign() {
           ease: "easeIn",
           delay: 5,
         }}
-      >
-          <span className="down">{spans}</span>
+        >
+        <div>
+          <BlinkingArrows count={3} down={true} left={false}/>
           <motion.span
             initial={{
               y: 5,
@@ -56,7 +42,8 @@ export default function ScrollSign() {
           >
             scroll down
           </motion.span>
-          <span className="down">{spans}</span>
+          <BlinkingArrows count={3} down={true} left={false}/>
+        </div>
       </motion.h2>
     </>
   )

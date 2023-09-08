@@ -5,9 +5,9 @@ import '@/app/styles/work.css'
 import { AnimatePresence, motion } from 'framer-motion'
 
 import Header from "../components/Header"
-import Menu2 from "../components/Menu"
+import Menu2 from "../components/Menu/Menu"
 import Footer from '../components/Footer';
-import HomeFlowers from '../components/Home/HomeFlowers';
+import HomeFlowers from '../components/Home/Flowers/HomeFlowers';
 import Gallery2 from '../components/Work/Gallery2';
 
 import { useMenuStore } from '../hooks/UseMenu';

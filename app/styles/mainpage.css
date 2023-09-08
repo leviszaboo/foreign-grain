@@ -155,6 +155,7 @@
     -webkit-font-smoothing: antialiased; 
     -moz-osx-font-smoothing: grayscale; 
     z-index: 5500;
+    white-space: nowrap;
 }
 
 .intro-text .new-line {
@@ -168,10 +169,11 @@
     text-align: center;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 8vh;
+    bottom: 4rem;
     font-family: gaming, sans-serif;
     color: white;
     font-size: 20px;
+    white-space: nowrap;
 }
 
 .start-scroll .down {
@@ -191,8 +193,8 @@
     width: 50%;
     transform: translateY(100%);
     transition: transform 0.35s ease-in-out;
-    overflow-y: scroll;
-    background-color: red;
+    overflow: hidden;
+    background-color: black;
 }
 
 .div2 {
@@ -202,8 +204,8 @@
     width: 50%;
     transform: translateY(100%);
     transition: transform 0.35s ease-in-out;
-    overflow-y: scroll;
-    background-color: blue;
+    overflow: hidden;
+    background-color: black;
 }
 
 .div1::-webkit-scrollbar {
@@ -225,13 +227,17 @@
 }
 
 .div2:hover{
-    transform: translateY(100%) scale(1.05);
+    /*transform: translateY(100%) scale(1.05);*/
+    cursor: pointer;
+    border: solid 4px #daa14b;
     z-index: 2;
     transition: transform 0.35s ease-in-out;
 }
 
 .div1:hover{
-    transform: translateY(100%) scale(1.05);
+    /*transform: translateY(100%) scale(1.05);*/
+    cursor: pointer;
+    border: solid 4px #daa14b;
     z-index: 2;
     transition: transform 0.35s ease-in-out;
 }
@@ -288,6 +294,16 @@
 
 .flower-container-1.active .flower-1:hover, .flower-container-2.active .flower-2:hover, .flower-container-3.active .flower-3:hover{
     transform: scale(0.65);
+}
+
+.loading-screen {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    z-index: 3000;
+    background-color: black;
 }
 
 @media (max-width: 650px) {
