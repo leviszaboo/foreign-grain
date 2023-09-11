@@ -1,14 +1,14 @@
 
-
-      
 export default function RowTypeA({ src }) {
 
   return(
     <>
-      <div className="grid-row a">
-        <div className="block">
-          <img src={src}/>
-        </div>
+
+        <div className="grid-row a">
+          <div className="block">
+            <img src={src}/>
+          </div>
+
         <div className="block">
           <div className="image-title">
             <h3>The New Originals, Amsterdam</h3>

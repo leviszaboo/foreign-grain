@@ -118,10 +118,6 @@
     color: #ffcc7f;
 }
 
-.intro-wrapper {
-    /*height: 2500px;*/
-}
-
 .intro-wrapper .p-wrapper {
     position: absolute;
     width: 80vh;
@@ -139,7 +135,6 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    font-size: 70px;
     color: white;
     backface-visibility: hidden;
     transform: translateZ(0) translateY(-50%) translateX(-50%);
@@ -150,6 +145,7 @@
 
 .intro-text span {
     display: inline-block;
+    font-size: 3.6rem;
     backface-visibility: hidden;
     transform: translateZ(0);
     -webkit-font-smoothing: antialiased; 
@@ -172,7 +168,6 @@
     bottom: 4rem;
     font-family: gaming, sans-serif;
     color: white;
-    font-size: 20px;
     white-space: nowrap;
 }
 
@@ -183,6 +178,7 @@
 }
 
 .start-scroll span {
+    font-size: 20px;
     display: inline-block;
 }
 

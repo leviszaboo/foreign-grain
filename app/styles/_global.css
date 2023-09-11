@@ -112,7 +112,7 @@ header nav {
 }
 
 .popup-menu {
-    position: absolute;
+    position: fixed;
     display: flex;
     flex-direction: column;
     justify-content: center;

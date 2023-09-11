@@ -1,13 +1,13 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 
-import { useMenuStore } from "@/app/hooks/useMenu";
-import { useIntroScrollStore } from "@/app/hooks/useIntroScroll";
-import RowTypeA from "./rows/RowTypeA";
-import RowTypeB from "./rows/RowTypeB";
-import RowTypeC from "./rows/RowTypeC";
-import FadeIn from "./rows/FadeIn";
+import { useMenuStore } from "@/app/hooks/UseMenu";
+import RowTypeA from "../rows/RowTypeA";
+import RowTypeB from "../rows/RowTypeB";
+import RowTypeC from "../rows/RowTypeC";
+import FadeIn from "../rows/FadeIn";
+
+import { galleryAnimationProps } from "./animation";
 
 
 export default function Gallery2() {
@@ -50,40 +50,23 @@ export default function Gallery2() {
   ];
               
   return(
-    <>
-      <AnimatePresence>
+    <AnimatePresence>
       {!isMenuVisible && (
-        <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ 
-          opacity: 0,
-          transition: {
-            duration: 1
-          }
-        }}
-        transition = {{duration: 1}}
-      >
-        <section 
-            className="sec-work">
-          <div 
-              className="gallery"
-          >
-            <FadeIn>
-              <RowTypeA src={sources[2]} />
-            </FadeIn>
-            <FadeIn>
-              <RowTypeB src={sources[12]} />
-            </FadeIn>
-            <FadeIn>
-              <RowTypeC src1={sources[0]} src2={sources[3]}/>
-            </FadeIn>
+        <motion.section className="sec-work" {...galleryAnimationProps}>
+          <div className="gallery">
+              <FadeIn>
+                <RowTypeA src={sources[2]} />
+              </FadeIn>
+              <FadeIn>
+                <RowTypeB src={sources[12]} />
+              </FadeIn>
+              <FadeIn>
+                <RowTypeC src1={sources[0]} src2={sources[3]}/>
+              </FadeIn>
           </div>
-        </section>
-        </motion.div>
+        </motion.section>
       )}
       </AnimatePresence>
-    </>
   )
 
 }
