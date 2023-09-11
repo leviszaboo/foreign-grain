@@ -2,7 +2,7 @@ import FadeIn from "../../Work/rows/FadeIn"
 import { useIntroScrollStore } from "@/app/hooks/useIntroScroll";
 import { useInView } from "framer-motion";
 
-import Gallery2 from "../../Work/Gallery2"
+import Gallery2 from "../../Work/Gallery"
 import RowTypeA from "../../Work/rows/RowTypeA";
 import RowTypeB from "../../Work/rows/RowTypeB";
 import { useEffect, useRef } from "react";

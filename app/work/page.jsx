@@ -8,32 +8,40 @@ import Header from "../components/Header"
 import Menu2 from "../components/Menu/Menu/Menu"
 import Footer from '../components/Footer';
 import HomeFlowers from '../components/Home/Flowers/HomeFlowers';
-import Gallery2 from '../components/Work/Gallery2';
+import Gallery from '../components/Work/Gallery';
 
 import { useMenuStore } from '../hooks/useMenu';
+import MenuButton from '../components/Menu/MenuButton/MenuButton';
+import WorkHeader from '../components/Work/WorkHeader';
 
 
 export default function Work() {
 
-  const { buttonDisabled } = useMenuStore();
+  const { isMenuVisible } = useMenuStore()
 
   return(
     <>
       <AnimatePresence>
-          
-        <motion.div 
-        
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition = {{duration: 1}}
+        <WorkHeader/>
+        {!isMenuVisible && (
+          <>
+             <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ 
+            opacity: 0,
+            transition: {
+              duration: 1
+            }
+          }}
+          transition = {{duration: 1}}
         >
-          <Header />
-          <Menu2 />
-          <Gallery2 />
+          <Gallery />
           {/*<HomeFlowers /> temporary*/}
         </motion.div>
-          
+          </>
+        )}  
+        <Menu2 />
       </AnimatePresence>
     </>
   )

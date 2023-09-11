@@ -11,34 +11,34 @@ export default function Header() {
 
     return (
       <>
-        <header>
-          <nav>
-            <MenuButton/>
-            <AnimatePresence>
-              {!isButtonClicked && (
-                <motion.h1 
-                  className="title"
-                  initial={{ 
-                    opacity: 0 
-                  }}
-                  animate={{ 
-                    opacity: 1 
-                  }}
-                  exit={{ 
-                    opacity: 0 
-                  }}
-                  transition={{ 
-                    duration: 0.6 
-                  }}
-                >
-                  <Link href="/">
-                    Foreign Grain
-                  </Link>
-                </motion.h1>
-              )}
-            </AnimatePresence>
-          </nav>
-      </header>
+      <header>
+        <nav>
+        <MenuButton/>
+        <AnimatePresence>
+          {!isButtonClicked && (
+            <motion.h1 
+              className="title"
+              initial={{ 
+                opacity: 0 
+              }}
+              animate={{ 
+                opacity: 1 
+              }}
+              exit={{ 
+                opacity: 0 
+              }}
+              transition={{ 
+                duration: 0.6 
+              }}
+            >
+              <Link href="/">
+                Foreign Grain
+              </Link>
+            </motion.h1>
+          )}
+        </AnimatePresence>
+        </nav>
+        </header>
     </>
   );
 }

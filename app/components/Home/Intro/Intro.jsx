@@ -9,7 +9,7 @@ import { useEffect, useRef } from 'react';
 import { useStartButtonStore } from "@/app/hooks/useStartButton";
 
 import IntroFlowers from "./IntroFlowers";
-import Gallery2 from "../../Work/Gallery2";
+import Gallery2 from "../../Work/Gallery";
 import IntroText from "./IntroText";
 import IntroMainSection from './IntroMainSection';
 import ScrollSign from './ScrollSign';

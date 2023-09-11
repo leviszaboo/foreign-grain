@@ -35,7 +35,6 @@ export default function Home() {
           <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          exit={{ scale: 3, opacity: 0 }}
           transition = {{duration: 1}}
         >
           <Header />

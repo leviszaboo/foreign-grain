@@ -11,7 +11,7 @@ export default function FadeIn({ children }) {
       },
     }),
     {
-      rootMargin: "-6% 0%"
+      rootMargin: "-18% 0%"
     }
   )
 

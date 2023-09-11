@@ -1,139 +1,90 @@
-"use client";
-
 import { motion, AnimatePresence } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useEffect, useRef } from "react";
+
 import { useMenuStore } from "@/app/hooks/useMenu";
+import { useIntroScrollStore } from "@/app/hooks/useIntroScroll";
+import RowTypeA from "./rows/RowTypeA";
+import RowTypeB from "./rows/RowTypeB";
+import RowTypeC from "./rows/RowTypeC";
+import FadeIn from "./rows/FadeIn";
 
-export default function Gallery() {
 
-    const { isMenuVisible } = useMenuStore();
+export default function Gallery2() {
 
-    function RowTypeA(src) {
+  const { isMenuVisible } = useMenuStore();
 
-        return(
-            <>
-                <div class="grid-row a">
-                    <div class="block">
-                        <img src={src}/>
-                    </div>
-                </div>
-            </>
-        )
-    }
+  const sources = [
+    "/Media/gallery/dj.jpeg",
+    "/Media/gallery/frankfurt.jpeg",
+    "/Media/gallery/aura.jpeg",
+    "/Media/gallery/blockparty.jpeg",
+    "/Media/gallery/camera.jpeg",
+    "/Media/gallery/duck.jpeg",
+    "/Media/gallery/boyer.jpeg",
+    "/Media/horizontal-final/patta-hor.jpeg",
+    "/Media/vertical-final/mask.jpeg",
+    "/Media/gallery/boyer-2.jpeg",
+    "/Media/gallery/frankfurt-2.jpeg",
+    "/Media/vertical-final/patta-vert.jpeg",
+    "/Media/horizontal-final/pond.jpeg",
+    "/Media/gallery/boyer-3.jpeg",
+    "/Media/gallery/leather.jpeg",
+    "/Media/gallery/boyer-4.jpeg",
+    "/Media/horizontal-final/stonebwoy.jpeg",
+    "/Media/vertical-final/tno-vert.jpeg",
+    "/Media/gallery/boyer-5.jpeg",
+    "/Media/gallery/light.jpeg",
+    "/Media/gallery/roll.jpeg",
+    "/Media/gallery/pink.jpeg",
+    "/Media/gallery/street.jpeg",
+    "/Media/gallery/boyer-6.jpeg",
+    "/Media/gallery/sauf.jpeg",
+    "/Media/gallery/shoes.jpeg",
+    "/Media/gallery/ski.jpeg",
+    "/Media/gallery/vinyl-store.jpeg",
+    "/Media/gallery/tno-girls.jpeg",
+    "/Media/gallery/statue.jpeg",
+    "/Media/gallery/smoke.jpeg",
+    "/Media/gallery/camera-2.jpeg"
+  ];
+              
+  return(
+    <>
+      <AnimatePresence>
+      {!isMenuVisible && (
+        <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ 
+          opacity: 0,
+          transition: {
+            duration: 1
+          }
+        }}
+        transition = {{duration: 1}}
+      >
+        <section 
+            className="sec-work">
+          <div 
+              className="gallery"
+          >
+            <FadeIn>
+              <RowTypeA src={sources[2]} />
+            </FadeIn>
+            <FadeIn>
+              <RowTypeB src={sources[12]} />
+            </FadeIn>
+            <FadeIn>
+              <RowTypeC src1={sources[0]} src2={sources[3]}/>
+            </FadeIn>
+          </div>
+        </section>
+        </motion.div>
+      )}
+      </AnimatePresence>
+    </>
+  )
 
-    function RowTypeB(src1, src2) {
-
-        return(
-            <>
-                <div class="grid-row b">
-                    <div class="block">
-                        <img src={src1}/>
-                    </div>
-                    <div class="block">
-                        <img src={src2}/>
-                    </div>
-                </div>
-            </>
-        )
-    }
-
-    function RowTypeC(src1, src2) {
-
-        return(
-            <>
-                 <div class="grid-row c">
-                    <div class="block">
-                        <img src={src1} alt=""/>
-                    </div>
-                    <div class="block">
-                        <img src={src2} alt=""/>
-                     </div>
-                </div>
-            </>
-        )
-       
-    }
-
-    function RowTypeA(src) {
-
-        return(
-            <>
-                <div class="grid-row d">
-                    <div class="block">
-                        <img src={src}/>
-                    </div>
-                </div>
-            </>
-        )
-    }
-
-    return(
-        <>
-            <AnimatePresence>
-                {!isMenuVisible && (
-                
-                <motion.div 
-                    className="grid-container"
-                    initial={{
-                        opacity: 0
-                    }}
-                    animate={{
-                        opacity: 1
-                    }}
-                    exit={{
-                        opacity: 0,
-                        transition: {
-                            duration: 0.7
-                        }
-                    }}
-                    transition={{
-                        duration: 0.7
-                    }}
-                >
-                <div
-                    className="gallery-wrapper"
-                >
-                    <div 
-                        className="img-container"
-                    >
-                        <img src="/Media/gallery/dj.jpeg"/>
-                        <img src="/Media/gallery/frankfurt.jpeg"/>
-                        <img src="/Media/gallery/aura.jpeg"/>
-                        <img src="/Media/gallery/blockparty.jpeg"/>
-                        <img src="/Media/gallery/camera.jpeg"/>
-                        <img src="/Media/gallery/duck.jpeg"/>
-                        <img src="/Media/gallery/dude.jpeg"/>
-                        <img src="/Media/horizontal-final/patta-hor.jpeg"/>
-                        <img src="/Media/vertical-final/mask.jpeg"/>
-                        <img src="/Media/gallery/dude-2.jpeg"/>
-                        {/*<img src="/Media/gallery/frankfurt-2.jpeg"/>
-                        <img src="/Media/vertical-final/patta-vert.jpeg"/>
-                        <img src="/Media/horizontal-final/pond.jpeg"/>
-                        <img src="/Media/gallery/dude-3.jpeg"/>
-                        <img src="/Media/gallery/leather.jpeg"/>
-                        <img src="/Media/gallery/dude-4.jpeg"/>*/}
-                        <img src="/Media/horizontal-final/stonebwoy.jpeg"/>
-                        <img src="/Media/vertical-final/tno-vert.jpeg"/>
-                        <img src="/Media/gallery/dude-5.jpeg"/>
-                        <img src="/Media/gallery/light.jpeg"/>
-                        <img src="/Media/gallery/roll.jpeg"/>
-                        <img src="/Media/gallery/pink.jpeg"/>
-                        <img src="/Media/gallery/street.jpeg"/>
-                        <img src="/Media/gallery/dude-6.jpeg"/>
-                        <img src="/Media/gallery/sauf.jpeg"/>
-                        <img src="/Media/gallery/shoes.jpeg"/>
-                        <img src="/Media/gallery/ski.jpeg"/>
-                        <img src="/Media/gallery/vinyl-store.jpeg"/>
-                        <img src="/Media/gallery/tno-girls.jpeg"/>
-                        <img src="/Media/gallery/statue.jpeg"/>
-                        <img src="/Media/gallery/smoke.jpeg"/>
-                        <img src="/Media/gallery/camera-2.jpeg"/>
-                    </div>
-                </div>
-                </motion.div>
-                
-                )}
-    
-            </AnimatePresence>
-        </>
-    )
 }
+        

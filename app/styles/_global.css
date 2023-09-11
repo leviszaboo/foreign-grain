@@ -11,6 +11,13 @@ body::-webkit-scrollbar {
     display: none;
 }
 
+h1, h2, h3, h4, h5, h6, span, a {
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-font-smoothing: antialiased; 
+    -moz-osx-font-smoothing: grayscale; 
+}
+
 @font-face {
     font-family: neue;
     src: url(/Fonts/NeueHaasDisplay-Mediu.ttf);
@@ -49,12 +56,13 @@ body {
 
 header {
     width: 100%;
-    position: absolute;
-    top: 30px;
+    position: fixed;
+    z-index: 4000;
+    padding-top: 1.8rem;
 }
 
 header nav {
-    height:6vh;
+    height: 6vh;
     width: 96vw;
     margin: auto;
     display: flex;
@@ -115,17 +123,17 @@ header nav {
     top: 50%;
     left: 35%;
     transform: translate(-50%, -50%);
-    font-size: 30px;
+    font-size: 2.65rem;
     z-index: 100;
 }    
 
 .popup-menu a {
     position: relative;
-    font-size: 6vh;
     text-shadow: none;
     font-weight: 1000;
     display: inline-block;
-    padding: 19px 19px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     text-decoration: none;
     color: white;
     text-align: left;
@@ -476,6 +484,8 @@ header nav {
 
     .popup-menu a {
         font-size: 35px;
+        padding-top: 0.8rem;
+        padding-bottom: 0.8rem;
     }
 
     .character-container {
