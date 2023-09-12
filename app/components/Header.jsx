@@ -1,11 +1,25 @@
+"use client"
+
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 
 
 import MenuButton from "./Menu/MenuButton/MenuButton";
-import { useStartButtonStore } from "../hooks/useStartButton";
+import { useStartButtonStore } from "../hooks/useStartButtonStore";
+import ContentSwitcher from "./Work/ContentSwitcher/ContentSwitcher";
+import { usePathname } from "next/navigation";
+import { useMenuStore } from "../hooks/useMenuStore";
 
 export default function Header() {
+
+    const [showWorkHeader, setShowWorkHeader] = useState(false);
+    const { isMenuVisible,  } = useMenuStore()
+    const currentPathname = usePathname();
+
+    useEffect(() => {
+      setShowWorkHeader(currentPathname !== '/'); 
+    }, [currentPathname]);
 
     const { isButtonClicked } = useStartButtonStore();
 
@@ -17,7 +31,7 @@ export default function Header() {
         <AnimatePresence>
           {!isButtonClicked && (
             <motion.h1 
-              className="title"
+              className={`title ${showWorkHeader ? "title-small" : null}`}
               initial={{ 
                 opacity: 0 
               }}
@@ -36,6 +50,7 @@ export default function Header() {
               </Link>
             </motion.h1>
           )}
+          {showWorkHeader && <ContentSwitcher />}
         </AnimatePresence>
         </nav>
         </header>

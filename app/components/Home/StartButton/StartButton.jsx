@@ -2,8 +2,8 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 
-import { useMenuStore } from "../../../hooks/useMenu";
-import { useStartButtonStore } from "@/app/hooks/useStartButton"
+import { useMenuStore } from "../../../hooks/useMenuStore";
+import { useStartButtonStore } from "@/app/hooks/useStartButtonStore"
 import { buttonAnimationProps } from "./animation";
 
 
@@ -53,10 +53,10 @@ export default function Startbutton() {
       <AnimatePresence>
         {!isMenuVisible && (
            <motion.div className="button-wrapper" {...buttonAnimationProps}>
-           <button className="start" onClick={handleClick} onMouseEnter={handleMouseEnter}>
-              <h2 className="start-h2">{buttonText}</h2>
-           </button>
-         </motion.div>
+            <button className="start" onClick={handleClick} onMouseEnter={handleMouseEnter}>
+                <h2 className="start-h2">{buttonText}</h2>
+            </button>
+          </motion.div>
         )}
       </AnimatePresence>
     </>

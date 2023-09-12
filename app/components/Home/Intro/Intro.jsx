@@ -6,10 +6,10 @@ import {
 } from "framer-motion";
 import { useEffect, useRef } from 'react';
 
-import { useStartButtonStore } from "@/app/hooks/useStartButton";
+import { useStartButtonStore } from "@/app/hooks/useStartButtonStore";
 
 import IntroFlowers from "./IntroFlowers";
-import Gallery2 from "../../Work/Gallery/Gallery";
+import Gallery2 from "../../Work/AnalogGallery/AnalogGallery";
 import IntroText from "./IntroText";
 import IntroMainSection from './IntroMainSection';
 import ScrollSign from './ScrollSign';

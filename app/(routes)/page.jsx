@@ -8,19 +8,17 @@ import { useScroll } from "@react-spring/web";
 import { useEffect } from "react";
 
 import Header from "../components/Header.jsx";
-import Menu2 from "../components/Menu/Menu/Menu.jsx";
+import Menu from "../components/Menu/Menu/Menu.jsx";
 import Slideshow from "../components/Home/Slideshow/Slideshow.jsx";
 import Startbutton from "../components/Home/StartButton/StartButton.jsx";
 import Tagline from "../components/Home/Tagline/Tagline.jsx";
-import HomeFlowers from "../components/Home/Flowers/HomeFlowers.jsx";
 import Footer from "../components/Footer.jsx";
 import Intro from "../components/Home/Intro/Intro.jsx";
-import { useStartButtonStore } from "../hooks/useStartButton.jsx";
-import { usePageLoadingStore } from "../hooks/usePageLoading.jsx";
+import { useStartButtonStore } from "../hooks/useStartButtonStore.jsx";
+import HomeFlowers from "../components/Home/Flowers/HomeFlowers.jsx";
 
 export default function Home() {
     const { isButtonClicked } = useStartButtonStore();
-    const { loading } = usePageLoadingStore()
 
     const { scrollYProgress } = useScroll();
 
@@ -31,14 +29,12 @@ export default function Home() {
 
     return (
       <>
-        {!loading && (
           <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition = {{duration: 1}}
         >
-          <Header />
-          <Menu2 />
+          <Menu />
           <AnimatePresence>
             {!isButtonClicked && (
                 <motion.div
@@ -61,11 +57,10 @@ export default function Home() {
                 </motion.div>
             )}
           </AnimatePresence>
-          <Intro />
           <HomeFlowers />
+          <Intro />
           <Footer />
         </motion.div>   
-        )}
       </>
     );
 }

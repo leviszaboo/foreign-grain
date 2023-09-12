@@ -1,16 +1,16 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 
-import { useMenuStore } from "@/app/hooks/UseMenu";
-import RowTypeA from "../rows/RowTypeA";
-import RowTypeB from "../rows/RowTypeB";
-import RowTypeC from "../rows/RowTypeC";
-import FadeIn from "../rows/FadeIn";
+import { useMenuStore } from "@/app/hooks/useMenuStore";
+import RowTypeA from "../GalleryRows/RowTypeA";
+import RowTypeB from "../GalleryRows/RowTypeB";
+import RowTypeC from "../GalleryRows/RowTypeC";
+import FadeIn from "../GalleryRows/FadeIn";
 
 import { galleryAnimationProps } from "./animation";
 
 
-export default function Gallery2() {
+export default function AnalogGallery() {
 
   const { isMenuVisible } = useMenuStore();
 
@@ -66,8 +66,7 @@ export default function Gallery2() {
           </div>
         </motion.section>
       )}
-      </AnimatePresence>
+    </AnimatePresence>
   )
-
 }
         

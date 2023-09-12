@@ -1,6 +1,6 @@
 "use client";
 
-import { useMenuStore } from '../../../hooks/useMenu';
+import { useMenuStore } from '../../../hooks/useMenuStore';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import MenuItem from '../MenuItem/MenuItem';
@@ -32,7 +32,7 @@ export default function Menu() {
               />
               <MenuItem
                 className="work"
-                href="/work"
+                href="/analog"
                 label="Work"
                 toggleMenu={toggleMenu}
                 transition={{ duration: 0.5, delay: 0.1 }}

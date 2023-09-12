@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 
-import { useMenuStore } from "../../../hooks/useMenu";
+import { useMenuStore } from "../../../hooks/useMenuStore";
 import { taglineAnimationProps } from "./animation";
 
 export default function Tagline() {

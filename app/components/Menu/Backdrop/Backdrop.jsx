@@ -1,7 +1,7 @@
 import { motion } from "framer-motion"
 
 import { backdropAnimationProps } from "./animation"
-import { useMenuStore } from "@/app/hooks/useMenu"
+import { useMenuStore } from "@/app/hooks/useMenuStore"
 
 export default function Backdrop() {
   const { toggleMenu } = useMenuStore()

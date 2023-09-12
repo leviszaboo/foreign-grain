@@ -7,22 +7,6 @@ html::-webkit-scrollbar {
     display: none;
 }
 
-.title-work {
-    font-family: aightFont, sans-serif;
-    padding-left: 2.5rem;
-    letter-spacing: 2px;
-}
-
-.title-work a {
-    text-decoration: none;
-    color: white;
-    font-size: 2.65rem;
-    backface-visibility: hidden;
-    transform: translateZ(0);
-    -webkit-font-smoothing: antialiased; 
-    -moz-osx-font-smoothing: grayscale; 
-}
-
 .content-switcher {
     margin-left: auto;
     padding-right: 1rem;
@@ -33,18 +17,16 @@ html::-webkit-scrollbar {
     text-decoration: none;
     color: white;
     font-size: 1.5rem;
-    backface-visibility: hidden;
-    transform: translateZ(0);
-    -webkit-font-smoothing: antialiased; 
-    -moz-osx-font-smoothing: grayscale; 
 }
 
-.content-switcher a:nth-child(1) {
-    color: #ffe0a9
- }
+.content-switcher .active-switch {
+    color: #ffe0a9;
+    transition: color 0.2 ease-in-out;
+}
 
 .content-switcher a:hover {
-   color: #ffe3b9
+   color: #ffe3b9;
+   transition: color 0.2 ease-in-out;
 }
 
 .sec-work {

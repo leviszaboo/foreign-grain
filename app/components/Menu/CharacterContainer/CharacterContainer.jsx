@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 
-import { useMenuStore } from "@/app/hooks/useMenu"
+import { useMenuStore } from "@/app/hooks/useMenuStore"
 import { characterContainerAnimationProps } from "./animation"
 
 export default function CharacterContainer() {

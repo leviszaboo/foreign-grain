@@ -2,9 +2,8 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { getDocs, query, collection, orderBy } from "firebase/firestore";
 
-import { usePageLoadingStore } from "@/app/hooks/usePageLoading";
-import { useMenuStore } from "@/app/hooks/useMenu";
-import { useSlideshowStore } from "@/app/hooks/useSlideshow";
+import { useMenuStore } from "@/app/hooks/useMenuStore";
+import { useSlideshowStore } from "@/app/hooks/useSlideShowStore";
 import { db } from "@/app/firebase/config";
 
 import { backgroundAnimationProps, slideAnimationProps } from "./animation";
@@ -13,7 +12,6 @@ export default function Slideshow() {
   const animationTime = 7500;
   const { isMenuVisible } = useMenuStore();
   const { currentSlide, setCurrentSlide } = useSlideshowStore();
-  const { setLoading } = usePageLoadingStore()
   const [verticalUrls, setVerticalUrls] = useState([]);
   const [horizontalUrls, setHorizontalUrls] = useState([]);
   const [aspectRatio, setAspectRatio] = useState(0);
@@ -34,10 +32,8 @@ export default function Slideshow() {
 
   useEffect(() => {
     const fetchUrls = async () => {
-      setLoading(true)
       await fetchImageUrls(verticalRef, setVerticalUrls);
       await fetchImageUrls(horizontalRef, setHorizontalUrls);
-      setLoading(false)
     };
 
     fetchUrls();

@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion'
-import { useStartButtonStore } from '../hooks/useStartButton'
+import { useStartButtonStore } from '../hooks/useStartButtonStore'
 
 export default function Footer() {
 

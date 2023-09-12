@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { ParallaxLayer } from "@react-spring/parallax";
 
-import { useStartButtonStore } from "@/app/hooks/useStartButton";
+import { useStartButtonStore } from "@/app/hooks/useStartButtonStore";
 
 export default function IntroText() {
 

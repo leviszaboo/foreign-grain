@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useMenuStore } from "../../../hooks/useMenu";
-import { useStartButtonStore } from "../../../hooks/useStartButton";
+import { useMenuStore } from "../../../hooks/useMenuStore";
+import { useStartButtonStore } from "../../../hooks/useStartButtonStore";
 import { menuButtonAnimationProps } from "./animation"
 
 export default function MenuButton() {

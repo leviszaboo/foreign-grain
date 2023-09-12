@@ -4,7 +4,7 @@ import { useInView } from "framer-motion";
 
 import BlinkingArrows from "./BlinkingArrows";
 
-import { useIntroScrollStore } from "@/app/hooks/useIntroScroll";
+import { useIntroScrollStore } from "@/app/hooks/useIntroScrollStore";
 
 export default function ScrollSign() {
   

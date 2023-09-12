@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import { AnimatePresence } from 'framer-motion';
 
-import { useMenuStore } from '@/app/hooks/useMenu';
-import { useStartButtonStore } from '@/app/hooks/useStartButton';
-import { useSlideshowStore } from '@/app/hooks/useSlideshow';
+import { useMenuStore } from '@/app/hooks/useMenuStore';
+import { useStartButtonStore } from '@/app/hooks/useStartButtonStore';
+import { useSlideshowStore } from '@/app/hooks/useSlideShowStore';
 
 import FlowerContainer from '../../FlowerContainer';
 import { homeFlowerContainerProps } from './animation';
