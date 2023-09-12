@@ -8,8 +8,11 @@ html::-webkit-scrollbar {
 }
 
 .content-switcher {
-    margin-left: auto;
     padding-right: 1rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
 }
 
 .content-switcher a, span {
@@ -30,7 +33,7 @@ html::-webkit-scrollbar {
 }
 
 .sec-work {
-    padding-top: 6.6rem;
+    padding-top: 6rem;
     overflow: scroll;
     width: 100%;
 }

@@ -26,34 +26,40 @@ export default function Header() {
     return (
       <>
       <header>
-        <nav>
-        <MenuButton/>
+          <div className="flex-button">
+            <MenuButton />
+          </div>
         <AnimatePresence>
           {!isButtonClicked && (
-            <motion.h1 
-              className={`title ${showWorkHeader ? "title-small" : null}`}
-              initial={{ 
-                opacity: 0 
-              }}
-              animate={{ 
-                opacity: 1 
-              }}
-              exit={{ 
-                opacity: 0 
-              }}
-              transition={{ 
-                duration: 0.6 
-              }}
-            >
-              <Link href="/">
-                Foreign Grain
-              </Link>
-            </motion.h1>
+            <div className="flex-title">
+              <motion.h1 
+                className={`title ${showWorkHeader ? "title-small" : null}`}
+                initial={{ 
+                  opacity: 0 
+                }}
+                animate={{ 
+                  opacity: 1 
+                }}
+                exit={{ 
+                  opacity: 0 
+                }}
+                transition={{ 
+                  duration: 0.6 
+                }}
+              >
+                <Link href="/">
+                  Foreign Grain
+                </Link>
+              </motion.h1>
+            </div>
           )}
-          {showWorkHeader && <ContentSwitcher />}
+          <div className="flex-switcher">
+          {showWorkHeader && (
+            <ContentSwitcher />
+          )}
+          </div>
         </AnimatePresence>
-        </nav>
-        </header>
+      </header>
     </>
   );
 }
