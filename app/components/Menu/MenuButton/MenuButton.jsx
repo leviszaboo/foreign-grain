@@ -6,16 +6,15 @@ import { useStartButtonStore } from "../../../hooks/useStartButtonStore";
 import { menuButtonAnimationProps } from "./animation"
 
 export default function MenuButton() {
-  const { isMenuVisible, buttonDisabled ,toggleMenu } = useMenuStore();
+  const { isMenuVisible, buttonDisabled, toggleMenu } = useMenuStore();
   const { isButtonClicked, setButtonClicked } = useStartButtonStore();
 
   function handleClick() {
+    if (buttonDisabled) return
     if (!buttonDisabled && !isButtonClicked) {
       toggleMenu()
     } else if (!buttonDisabled && isButtonClicked) {
       setButtonClicked(false)
-    } else {
-      return
     }
   }
 

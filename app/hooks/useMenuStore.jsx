@@ -4,6 +4,7 @@ export const useMenuStore = create((set) => ({
   characterIndex: 0,
   isMenuVisible: false,
   buttonDisabled: false,
+  setButtonDisabled: (value) => set({ buttonDisabled: value }),
   toggleMenu: () => {
     set((state) => ({
       isMenuVisible: !state.isMenuVisible,

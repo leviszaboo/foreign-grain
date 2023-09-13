@@ -58,7 +58,7 @@ header {
     position: fixed;
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
-    height: 5rem;
+    height: 5.5rem;
     width: 100vw;
     z-index: 10000;
 }   
@@ -82,26 +82,34 @@ header .flex-switcher {
     margin-left: auto;
 }
 
-.title {
-    font-family: aightFont, sans-serif;
+.title-wrapper {
     position: absolute;
     transform: translateX(0) scale(1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.5s ease-in-out;
+}
+
+.title {
+    font-family: aightFont, sans-serif;
+    margin: auto;
     text-align: center;
     z-index: 4;
     letter-spacing: 3px;
-    transition: transform 0.65s ease;
+    width: 500px; 
 }
 
 .title a {
     text-decoration: none;
     color: white;
-    font-size: 60px;    
+    font-size: 65px;   
 }
 
 .title-small {
     position: absolute;
-    transform: translateX(-30vw) scale(0.66);
-    transition: transform 0.55s ease;
+    transform: translateX(-32vw) scale(0.6);
+    transition: transform 0.6s ease;
 }
 
 .title a span {
@@ -443,8 +451,12 @@ header .flex-switcher {
 }
 
 @keyframes wait {
-    0% { opacity: 0; }
-    100% { opacity: 0; }
+    0% { 
+        opacity: 0; 
+    }
+    100% { 
+        opacity: 0; 
+    }
 }
 
 @media (max-width: 1100px) {
