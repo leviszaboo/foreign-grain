@@ -1,10 +1,10 @@
+"use client"
+
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
-import { useInView, animated } from '@react-spring/web';
 import { 
   motion,
   AnimatePresence, 
 } from "framer-motion";
-import { useEffect, useRef } from 'react';
 
 import { useStartButtonStore } from "@/app/hooks/useStartButtonStore";
 

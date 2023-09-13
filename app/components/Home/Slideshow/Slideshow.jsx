@@ -1,3 +1,5 @@
+"use client"
+
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { getDocs, query, collection, orderBy } from "firebase/firestore";
@@ -8,36 +10,36 @@ import { db } from "@/app/firebase/config";
 
 import { backgroundAnimationProps, slideAnimationProps } from "./animation";
 
-export default function Slideshow() {
+export default function Slideshow({verticalUrls, horizontalUrls}) {
   const animationTime = 7500;
   const { isMenuVisible } = useMenuStore();
   const { currentSlide, setCurrentSlide } = useSlideshowStore();
-  const [verticalUrls, setVerticalUrls] = useState([]);
-  const [horizontalUrls, setHorizontalUrls] = useState([]);
+  // const [verticalUrls, setVerticalUrls] = useState([]);
+  // const [horizontalUrls, setHorizontalUrls] = useState([]);
   const [aspectRatio, setAspectRatio] = useState(0);
 
   const verticalRef = `${process.env.NEXT_PUBLIC_USER_ID}/featured/vertical`;
   const horizontalRef = `${process.env.NEXT_PUBLIC_USER_ID}/featured/horizontal`;
 
-  async function fetchImageUrls(ref, destinationSetter) {
-    try {
-      const querySnapshot = await getDocs(query(collection(db, ref), orderBy("createdAt", "desc")));
-      querySnapshot.forEach((doc) => {
-        destinationSetter((prevState) => [doc.data().url, ...prevState]);
-      });
-    } catch (error) {
-      console.error("Error fetching image URLs:", error);
-    }
-  };
+  // async function fetchImageUrls(ref, destinationSetter) {
+  //   try {
+  //     const querySnapshot = await getDocs(query(collection(db, ref), orderBy("createdAt", "desc")));
+  //     querySnapshot.forEach((doc) => {
+  //       destinationSetter((prevState) => [doc.data().url, ...prevState]);
+  //     });
+  //   } catch (error) {
+  //     console.error("Error fetching image URLs:", error);
+  //   }
+  // };
 
-  useEffect(() => {
-    const fetchUrls = async () => {
-      await fetchImageUrls(verticalRef, setVerticalUrls);
-      await fetchImageUrls(horizontalRef, setHorizontalUrls);
-    };
+  // useEffect(() => {
+  //   const fetchUrls = async () => {
+  //     await fetchImageUrls(verticalRef, setVerticalUrls);
+  //     await fetchImageUrls(horizontalRef, setHorizontalUrls);
+  //   };
 
-    fetchUrls();
-  }, []);
+  //   fetchUrls();
+  // }, []);
 
   const checkAspectRatio = () => {
     const width = window.innerWidth;
