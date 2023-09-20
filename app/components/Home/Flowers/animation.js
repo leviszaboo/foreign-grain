@@ -74,6 +74,7 @@ export const homeFlowerContainerProps = {
   flower4: {
     className: "flower-container-4",
     imageSrc: "/Media/flowers/flower-3.png",
+    imageClassName: "flower-4",
     id: "1",
     initial: {
     scale: 0.65,

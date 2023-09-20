@@ -168,4 +168,47 @@ html::-webkit-scrollbar {
     font-size: 1vw;
 }
 
+@media (max-width: 450px) {
+    .image-title, .image-date, .image-description {
+        display: none;
+    }
+
+    .a .block:nth-child(1) {
+        height: 54.472vw;
+        grid-column: 1/16;
+    }
+
+    .a .block:nth-child(2) {
+        display: none;
+    }
+
+    .b .block:nth-child(1) {
+        height: 54.472vw;
+        grid-column: 2/17;
+    }
+
+    .b .block:nth-child(2) {
+        display: none;
+    }
+
+    .c .block:nth-child(1) {
+        height: 54.472vw;
+        grid-column: 1/9;
+    }
+    
+    .c .block:nth-child(2) {
+        height: 54.472vw;
+        grid-column: 10/17;
+    }
+
+    .c .block:nth-child(3) {
+        display: none;
+    }
+
+    .grid-row {
+        margin-left: 5.694vw;
+        margin-right: 5.694vw;
+    }
+}
+
 

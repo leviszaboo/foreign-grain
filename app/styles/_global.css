@@ -98,6 +98,7 @@ header .flex-switcher {
     z-index: 4;
     letter-spacing: 3px;
     width: 500px; 
+    animation: opacity 0.3s
 }
 
 .title a {
@@ -108,7 +109,7 @@ header .flex-switcher {
 
 .title-small {
     position: absolute;
-    transform: translateX(-32vw) scale(0.6);
+    transform: translateX(-28.5vw) scale(0.6);
     transition: transform 0.6s ease;
 }
 
@@ -491,10 +492,23 @@ header .flex-switcher {
     }
 }
 
-@media (max-width: 650px) {
-    .title a {
-        font-size: 45px;
+@media (max-width: 1000px) {
+    .title-wrapper {
+        left: 50%;
+        transform: translateX(-50%);
+        transition: none;
     }
+
+    .title {
+        transition: opacity 0.3s, transform 0s;
+    }
+
+    .title-small {
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: opacity 0.4s ease-in-out, transform 0s;
+    }
+
 }
 
 @media (max-width: 650px) {
@@ -528,10 +542,41 @@ header .flex-switcher {
 @media (max-width:450px) {
     .title a {
         font-size: 36px;
+        letter-spacing: 1px;
+    }
+
+    .btn-hamburger-menu {
+        transform: scale(0.75);
+        margin-left: 12px;
     }
 
     .flower-container-5 {
         display: none;
     }
 }
+
+@media (max-width:375px) {
+    .title a {
+        font-size: 32px;
+        letter-spacing: 1px;
+    }
+
+    .btn-hamburger-menu {
+        transform: scale(0.70);
+        margin-left: 10px;
+    }
+}
+
+@media (max-width:330px) {
+    .title a {
+        font-size: 28px;
+        letter-spacing: 1px;
+    }
+
+    .btn-hamburger-menu {
+        transform: scale(0.60);
+        margin-left: 6px;
+    }
+}
+
 

@@ -4,7 +4,7 @@ import { descriptionAnimationProps } from "./animation"
 
 export default function DescriptionBlock() {
   return (
-    <motion.div className="block" {...descriptionAnimationProps}>
+    <motion.div className="block description-block" {...descriptionAnimationProps}>
       <div className="image-title">
         <h3>The New Originals, Amsterdam</h3>
       </div>
