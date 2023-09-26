@@ -9,12 +9,9 @@ import MenuButton from "./Menu/MenuButton/MenuButton";
 import { useStartButtonStore } from "../hooks/useStartButtonStore";
 import ContentSwitcher from "./Work/ContentSwitcher/ContentSwitcher";
 import { usePathname } from "next/navigation";
-import { useMenuStore } from "../hooks/useMenuStore";
 
 export default function Header() {
-
     const [showWorkHeader, setShowWorkHeader] = useState(false);
-    const { isMenuVisible,  } = useMenuStore()
     const currentPathname = usePathname();
 
     useEffect(() => {
