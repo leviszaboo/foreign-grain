@@ -21,18 +21,16 @@ export default function Gallery({ docs }) {
         <motion.section className="sec-work" {...galleryAnimationProps}>
          <div className="gallery">
            {docs.map((doc) => (
-            <FadeIn>
-              <div key={doc.id}>
-                {doc.imageUrls.length === 1 && doc.descriptionLayout === "left" ? (
-                  <DescriptionLeftRow src={doc.imageUrls[0]} title={doc.title} subtitle={doc.subTitle} description={doc.description} />
-                ) : doc.imageUrls.length === 2 && doc.descriptionLayout === "left" ? (
-                  <DescriptionLeftDouble src1={doc.imageUrls[0]} src2={doc.imageUrls[1]} title={doc.title} subtitle={doc.subTitle} description={doc.description} />
-                ) : doc.imageUrls.length === 1 && doc.descriptionLayout === "right" ? (
-                  <DescriptionRightRow src={doc.imageUrls[0]} title={doc.title} subtitle={doc.subTitle} description={doc.description} />
-                ) : doc.imageUrls.length === 2 && doc.descriptionLayout === "right" ? (
-                  <DescriptionRightDouble src1={doc.imageUrls[0]} src2={doc.imageUrls[1]} title={doc.title} subtitle={doc.subTitle} description={doc.description} />
-                ) : (<></>)}
-              </div>
+            <FadeIn key={doc.id}>
+              {doc.imageUrls.length === 1 && doc.descriptionLayout === "left" ? (
+                <DescriptionLeftRow src={doc.imageUrls[0]} title={doc.title} subtitle={doc.subTitle} description={doc.description} />
+              ) : doc.imageUrls.length === 2 && doc.descriptionLayout === "left" ? (
+                <DescriptionLeftDouble src1={doc.imageUrls[0]} src2={doc.imageUrls[1]} title={doc.title} subtitle={doc.subTitle} description={doc.description} />
+              ) : doc.imageUrls.length === 1 && doc.descriptionLayout === "right" ? (
+                <DescriptionRightRow src={doc.imageUrls[0]} title={doc.title} subtitle={doc.subTitle} description={doc.description} />
+              ) : doc.imageUrls.length === 2 && doc.descriptionLayout === "right" ? (
+                <DescriptionRightDouble src1={doc.imageUrls[0]} src2={doc.imageUrls[1]} title={doc.title} subtitle={doc.subTitle} description={doc.description} />
+              ) : (<></>)}
              </FadeIn>
            ))}
          </div>
