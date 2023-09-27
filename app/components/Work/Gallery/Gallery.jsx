@@ -9,6 +9,7 @@ import DescriptionLeftRow from "../GalleryRows/DescriptionLeftRow";
 import DescriptionLeftDouble from "../GalleryRows/DescriptionLeftDouble";
 import DescriptionRightRow from "../GalleryRows/DescriptionRightRow";
 import DescriptionRightDouble from "../GalleryRows/DescriptionRightDouble";
+import FadeIn from "../GalleryRows/FadeIn";
 
 export default function Gallery({ docs }) {
 
@@ -20,17 +21,19 @@ export default function Gallery({ docs }) {
         <motion.section className="sec-work" {...galleryAnimationProps}>
          <div className="gallery">
            {docs.map((doc) => (
-             <div key={doc.id}>
-               {doc.imageUrls.length === 1 && doc.descriptionLayout === "left" ? (
-                 <DescriptionLeftRow src={doc.imageUrls[0]} title={doc.title} subtitle={doc.subTitle} description={doc.description} />
-               ) : doc.imageUrls.length === 2 && doc.descriptionLayout === "left" ? (
-                 <DescriptionLeftDouble src1={doc.imageUrls[0]} src2={doc.imageUrls[1]} title={doc.title} subtitle={doc.subTitle} description={doc.description} />
-               ) : doc.imageUrls.length === 1 && doc.descriptionLayout === "right" ? (
-                 <DescriptionRightRow src={doc.imageUrls[0]} title={doc.title} subtitle={doc.subTitle} description={doc.description} />
-               ) : doc.imageUrls.length === 2 && doc.descriptionLayout === "right" ? (
-                 <DescriptionRightDouble src1={doc.imageUrls[0]} src2={doc.imageUrls[1]} title={doc.title} subtitle={doc.subTitle} description={doc.description} />
-               ) : (<></>)}
-             </div>
+            <FadeIn>
+              <div key={doc.id}>
+                {doc.imageUrls.length === 1 && doc.descriptionLayout === "left" ? (
+                  <DescriptionLeftRow src={doc.imageUrls[0]} title={doc.title} subtitle={doc.subTitle} description={doc.description} />
+                ) : doc.imageUrls.length === 2 && doc.descriptionLayout === "left" ? (
+                  <DescriptionLeftDouble src1={doc.imageUrls[0]} src2={doc.imageUrls[1]} title={doc.title} subtitle={doc.subTitle} description={doc.description} />
+                ) : doc.imageUrls.length === 1 && doc.descriptionLayout === "right" ? (
+                  <DescriptionRightRow src={doc.imageUrls[0]} title={doc.title} subtitle={doc.subTitle} description={doc.description} />
+                ) : doc.imageUrls.length === 2 && doc.descriptionLayout === "right" ? (
+                  <DescriptionRightDouble src1={doc.imageUrls[0]} src2={doc.imageUrls[1]} title={doc.title} subtitle={doc.subTitle} description={doc.description} />
+                ) : (<></>)}
+              </div>
+             </FadeIn>
            ))}
          </div>
        </motion.section>
