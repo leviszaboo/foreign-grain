@@ -1,8 +1,8 @@
 import { useRef } from "react"
 
 import FadeIn from "../../Work/GalleryRows/FadeIn"
-import RowTypeA from "../../Work/GalleryRows/RowTypeA"
-import RowTypeB from "../../Work/GalleryRows/RowTypeB"
+import RowTypeA from "../../Work/GalleryRows/DescriptionLeftRow"
+import RowTypeB from "../../Work/GalleryRows/DescriptionRightRow"
 import ArcadeText from "./ArcadeText";
 
 

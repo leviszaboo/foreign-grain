@@ -9,7 +9,6 @@ import {
 import { useStartButtonStore } from "@/app/hooks/useStartButtonStore";
 
 import IntroFlowers from "./IntroFlowers";
-import Gallery2 from "../../Work/AnalogGallery/AnalogGallery";
 import IntroText from "./IntroText";
 import IntroMainSection from './IntroMainSection';
 import ScrollSign from './ScrollSign';

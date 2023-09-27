@@ -4,7 +4,7 @@ import { useMenuStore } from "@/app/hooks/useMenuStore";
 import ImageFrameBlock from "./ImageFrameBlock";
 import DescriptionBlock from "./DescriptionBlock";
 
-export default function RowTypeC({ src1, src2 }) {
+export default function DescriptionRightDouble({ src1, src2, title, subtitle, description }) {
 
   const { isMenuVisible } = useMenuStore();
 
@@ -14,7 +14,7 @@ export default function RowTypeC({ src1, src2 }) {
         <div className="grid-row c">
           <ImageFrameBlock src={src1}/>
           <ImageFrameBlock src={src2} />
-          <DescriptionBlock />
+          <DescriptionBlock title={title} subtitle={subtitle} description={description}/>
         </div>
       )}
     </AnimatePresence>

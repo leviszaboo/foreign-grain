@@ -1,32 +1,36 @@
-"use client";
-
 import '@/app/styles/work.css'
 
-import { useState, useEffect } from 'react';
-
 import Menu from "../../components/Menu/Menu/Menu"
-import AnalogGallery from '../../components/Work/AnalogGallery/AnalogGallery';
+import MemorizePosition from '@/app/components/Work/MemorizePosition';
 
-import { useMenuStore } from '../../hooks/useMenuStore';
-import DigitalGallery from '@/app/components/Work/DigitalGallery/DigitalGallery';
+import { getDocs, query, collection, orderBy } from "firebase/firestore";
+import { cache } from "react";
+import { db } from "@/app/firebase/config";
+import Gallery from '@/app/components/Work/Gallery/Gallery';
 
+export const revalidate = 0
 
-export default function AnalogWork() {
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const { isMenuVisible } = useMenuStore()
+const fetchDocs = cache(async (ref) => {
+  try {
+    const querySnapshot = await getDocs(query(collection(db, ref), orderBy("createdAt", "desc")));
+    
+    const docs = querySnapshot.docs.map((doc) => doc.data());
+    
+    return docs;
+  } catch (error) {
+    console.error("Error fetching image URLs:", error);
+    return []; 
+  }
+})
 
-  useEffect(() => {
-    if (isMenuVisible) {
-      setScrollPosition(window.scrollY);
-    } else {
-      window.scrollTo(0, scrollPosition);
-    }
-  }, [isMenuVisible, scrollPosition]);
+export default async function Work() {
+  const ref = `${process.env.NEXT_PUBLIC_USER_ID}/gallery/analog`;
+  const docs = await fetchDocs(ref)
 
   return(
-    <>
-      <DigitalGallery />
+    <MemorizePosition>
+      <Gallery docs={docs}/>
       <Menu />
-    </>
+    </MemorizePosition>
   )
 }

@@ -103,7 +103,7 @@ html::-webkit-scrollbar {
  
 .block .image-description {
     margin-top: auto;
-    align-self: flex-end;
+    margin-right: auto;
 }
 
 .c .block:nth-child(1) {
@@ -127,21 +127,24 @@ html::-webkit-scrollbar {
     grid-row: 1;
 }
 
-.d .block {
-    height: 23vw;
-    grid-column: 7/12;
+.d .block:nth-child(1) {
+    height: 46.472vw;
+    grid-column: 4/10;
     grid-row: 1;
 }
 
-.e .block:nth-child(1) {
-    height: 32vw;
-    grid-column: 4/8;
+.d .block:nth-child(2) {
+    height: 46.472vw;
+    grid-column: 10/16;
     grid-row: 1;
 }
 
-.e .block:nth-child(2) {
-    height: 38vw;
-    grid-column: 9/12;
+.d .block:nth-child(3) {
+    display: flex;
+    height: 8.772vw;
+    grid-column: 1/4;
+    flex-direction: column;
+    align-self: end;
     grid-row: 1;
 }
 
@@ -169,7 +172,7 @@ html::-webkit-scrollbar {
 }
 
 @media (max-width: 450px) {
-    .image-title, .image-date, .image-description {
+    .image-title, .image-subtitle, .image-description {
         display: none;
     }
 

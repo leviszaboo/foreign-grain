@@ -89,6 +89,7 @@ header .flex-switcher {
     align-items: center;
     justify-content: center;
     transition: transform 0.5s ease-in-out;
+    animation: opacity 0.5s;
 }
 
 .title {
