@@ -75,11 +75,6 @@ html::-webkit-scrollbar {
 .a .block:nth-child(2) div {
     padding-bottom: 0.2rem;
 }
- 
-.a .block .image-description {
-    margin-top: auto;
-    align-self: flex-end;
-}
 
 
 .b .block:nth-child(1) {
