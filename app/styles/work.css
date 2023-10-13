@@ -1,3 +1,7 @@
+/*
+ANALOG
+*/
+
 .grid-container {
     max-width: 50%;
     margin: 100px auto;
@@ -165,6 +169,49 @@ html::-webkit-scrollbar {
     font-weight: 400;
     font-size: 1vw;
 }
+
+/*
+DIGITAL
+*/
+
+.carousel {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 5vh;
+    padding-right: 5vh;
+}
+
+.carousel-img-container {
+    padding-top: 2.5rem;
+    height: 44vw
+}
+
+.carousel-img-container img{
+    height: 100%;
+    width: auto;
+}
+
+.left-switch, .right-switch {
+    color: white;
+    font-size: 50px;
+    font-family: gaming, sans-serif;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/*
+MEDIA
+*/
 
 @media (max-width: 450px) {
     .image-title, .image-subtitle, .image-description {
