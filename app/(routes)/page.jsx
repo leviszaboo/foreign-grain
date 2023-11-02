@@ -30,8 +30,8 @@ const fetchImageUrls = cache(async (ref) => {
 })
 
 export default async function Home() {
-  const verticalRef = `${process.env.NEXT_PUBLIC_USER_ID}/featured/vertical`;
-  const horizontalRef = `${process.env.NEXT_PUBLIC_USER_ID}/featured/horizontal`;
+  const verticalRef = `${process.env.NEXT_PUBLIC_USER_EMAIL}/featured/vertical`;
+  const horizontalRef = `${process.env.NEXT_PUBLIC_USER_EMAIL}/featured/horizontal`;
 
   const verticalUrls = await fetchImageUrls(verticalRef);
   const horizontalUrls = await fetchImageUrls(horizontalRef); 

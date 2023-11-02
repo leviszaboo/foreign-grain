@@ -11,25 +11,33 @@ import ContentSwitcher from "./Work/ContentSwitcher/ContentSwitcher";
 import { usePathname } from "next/navigation";
 
 export default function Header() {
-    const [showWorkHeader, setShowWorkHeader] = useState(false);
+    const [showWorkSwitcher, setshowWorkSwitcher] = useState(false);
+    const [smallTitle, setSmallTitle] = useState(false);
+
+    const [headerOptions, setHeaderOptions] = useState({
+      smallTitlle: false,
+
+    })
+
     const currentPathname = usePathname();
 
     useEffect(() => {
-      setShowWorkHeader(currentPathname !== '/'); 
+      setSmallTitle(currentPathname !== '/'); 
+      setshowWorkSwitcher(currentPathname === '/analog' || currentPathname === '/digital')
     }, [currentPathname]);
 
     const { isButtonClicked } = useStartButtonStore();
 
     return (
       <>
-      <header>
+        <header>
           <div className="flex-button">
             <MenuButton />
           </div>
         <AnimatePresence>
           {!isButtonClicked && (
             <div className="flex-title">
-              <div className={`title-wrapper ${showWorkHeader ? "title-small" : null}`}>
+              <div className={`title-wrapper ${smallTitle ? "title-small" : null}`}>
                 <motion.h1 
                   className={`title`}
                   initial={{ 
@@ -53,7 +61,7 @@ export default function Header() {
             </div>
           )}
           <div className="flex-switcher">
-          {showWorkHeader && (
+          {showWorkSwitcher && (
             <ContentSwitcher />
           )}
           </div>

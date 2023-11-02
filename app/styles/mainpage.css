@@ -155,8 +155,11 @@
 }
 
 .intro-text .new-line {
-    display: block;
     width: 60vw;
+}
+
+.new-line {
+    display: block;
 }
 
 .start-scroll {

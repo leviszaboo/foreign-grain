@@ -23,8 +23,8 @@ const fetchDocs = cache(async (ref) => {
   }
 })
 
-export default async function Work() {
-  const ref = `${process.env.NEXT_PUBLIC_USER_ID}/gallery/analog`;
+export default async function Analog() {
+  const ref = `${process.env.NEXT_PUBLIC_USER_EMAIL}/gallery/analog`;
   const docs = await fetchDocs(ref)
 
   return(

@@ -54,7 +54,7 @@ export default function Startbutton() {
         {!isMenuVisible && (
            <motion.div className="button-wrapper" {...buttonAnimationProps}>
             <button className="start" onClick={handleClick} onMouseEnter={handleMouseEnter}>
-                <h2 className="start-h2">{buttonText}</h2>
+              <h2 className="start-h2">{buttonText}</h2>
             </button>
           </motion.div>
         )}

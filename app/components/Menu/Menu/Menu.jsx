@@ -46,7 +46,7 @@ export default function Menu() {
               />
               <MenuItem
                 className="contact"
-                href="#"
+                href="/contact"
                 label="Contact"
                 toggleMenu={toggleMenu}
                 transition={{ duration: 0.4, delay: 0.2 }}
