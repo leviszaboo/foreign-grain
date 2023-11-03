@@ -1,7 +1,7 @@
 import { useRef, useEffect } from "react"
 import { useInView } from "framer-motion";
 
-import FadeIn from "../../Work/GalleryRows/FadeIn"
+import FadeIn from "../../FadeIn"
 import ArcadeText from "./ArcadeText";
 
 

@@ -9,6 +9,7 @@ import InfoBox from "@/app/components/Contact/InfoBox";
 import Signature from "@/app/components/Contact/Signature";
 import { fadeInAnimationProps } from "./animation";
 import { useEffect } from "react";
+import FadeIn from "../FadeIn";
 
 export default function ContactPage() {
   const { isMenuVisible } = useMenuStore();
@@ -17,7 +18,9 @@ export default function ContactPage() {
     <AnimatePresence>
       {!isMenuVisible && (
         <motion.div {...fadeInAnimationProps}>
-          <ContactLabel />
+          <FadeIn>
+            <ContactLabel />
+          </FadeIn>
           <div className="contact-wrapper">
             <ContactForm />
             <InfoBox />

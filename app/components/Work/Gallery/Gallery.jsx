@@ -9,7 +9,7 @@ import DescriptionLeftRow from "../GalleryRows/DescriptionLeftRow";
 import DescriptionLeftDouble from "../GalleryRows/DescriptionLeftDouble";
 import DescriptionRightRow from "../GalleryRows/DescriptionRightRow";
 import DescriptionRightDouble from "../GalleryRows/DescriptionRightDouble";
-import FadeIn from "../GalleryRows/FadeIn";
+import FadeIn from "../../FadeIn";
 
 export default function Gallery({ docs }) {
 
