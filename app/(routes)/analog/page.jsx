@@ -18,7 +18,6 @@ const fetchDocs = cache(async (ref) => {
     
     return docs;
   } catch (error) {
-    console.error("Error fetching image URLs:", error);
     return []; 
   }
 })

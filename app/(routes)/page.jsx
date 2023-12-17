@@ -14,7 +14,7 @@ import { getDocs, query, collection, orderBy } from "firebase/firestore";
 import { cache } from "react";
 import { db } from "@/app/firebase/config";
 
-export const revalidate = 0
+export const revalidate = 0;
 
 const fetchImageUrls = cache(async (ref) => {
   try {

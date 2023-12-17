@@ -18,7 +18,6 @@ const fetchDocs = cache(async (ref) => {
     
     return docs;
   } catch (error) {
-    console.error("Error fetching image URLs:", error);
     return []; 
   }
 })
@@ -29,7 +28,7 @@ export default async function Digital() {
   const pictures = docs.map(doc => doc.imageUrls[0])
   return(
     <MemorizePosition>
-      <Carousel pictures={pictures} />
+      <Carousel posts={docs} />
       <Menu />
     </MemorizePosition>
   )

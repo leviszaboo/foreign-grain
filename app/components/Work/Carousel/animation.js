@@ -2,7 +2,7 @@ export const carouselAnimationProps = {
   initial: {
     opacity: 0,
     scale: 0.98,
-    y: -6
+    y: -8
   },
   animate: {
     opacity: 1,
@@ -12,7 +12,7 @@ export const carouselAnimationProps = {
   exit: {
     opacity: 0,
     scale: 0.96,
-    y: -6,
+    y: -8,
     transition: {
       duration: 0.7,
       ease: "easeInOut",
@@ -45,6 +45,54 @@ export const carouselSlideAnimationProps = {
     opacity: 0,
     transition: {
       duration: 0.5,
+    },
+  },
+};
+
+export const titleAnimationProps = {
+  initial: {
+    opacity: 0,
+    scale: 0.97,
+    x: 7,
+    y: -5
+  },
+  animate: {
+    opacity: 1,
+    scale: 1,
+    x: 0,
+    y: 0
+  },
+  transition: {
+    duration: 0.73,
+  },
+   exit: {
+    opacity: 0,
+    transition: {
+      duration: 0.54,
+    },
+  },
+};
+
+export const subTitleAnimationProps = {
+  initial: {
+    opacity: 0,
+    scale: 0.97,
+    x: -6,
+    y: -5
+  },
+  animate: {
+    opacity: 1,
+    scale: 1,
+    x: 0,
+    y: 0
+  },
+  transition: {
+    duration: 0.76,
+  },
+   exit: {
+    opacity: 0,
+    transition: {
+      duration: 0.57,
     },
   },
 };

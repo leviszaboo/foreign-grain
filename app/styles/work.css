@@ -186,16 +186,29 @@ DIGITAL
     align-items: center;
     padding-left: 5vh;
     padding-right: 5vh;
+    padding-top: 2.85rem;
+}
+
+.carousel-item {
+    display: flex;
+    gap: 0.4rem;
+    flex-direction: column;
 }
 
 .carousel-img-container {
-    padding-top: 2.5rem;
-    height: 44vw
+    height: 40vw
 }
 
 .carousel-img-container img{
     height: 100%;
     width: auto;
+}
+
+.carousel-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 1.4vw;
 }
 
 .left-switch, .right-switch {
