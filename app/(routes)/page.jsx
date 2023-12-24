@@ -41,7 +41,6 @@ export default async function Home() {
         <Menu />
         <ShowSlideshow>
           <Slideshow verticalUrls={verticalUrls} horizontalUrls={horizontalUrls}/>
-          <Tagline />
           <Startbutton />
         </ShowSlideshow>
         <HomeFlowers />

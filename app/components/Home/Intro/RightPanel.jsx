@@ -8,15 +8,6 @@ import ArcadeText from "./ArcadeText";
 export default function RightPanel() {
 
   const ref = useRef(null)
-  const inView = useInView(ref);
-
-  useEffect(() => {
-    if (inView && ref.current) {
-      ref.current.scrollIntoView({
-        behavior: "smooth",
-      })
-    }
-  }, [inView, ref.current])
 
   return (
     <div className="div2">

@@ -160,7 +160,7 @@ header .flex-switcher {
     color: white;
     text-align: left;
     z-index: 120;
-    background: linear-gradient(to right, #ffdba5, #ffdba5 50%, white 50%);
+    background: linear-gradient(to right, #ffdba5, #fff0d8 50%, white 50%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

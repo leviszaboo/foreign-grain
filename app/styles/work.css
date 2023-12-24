@@ -19,7 +19,7 @@ html::-webkit-scrollbar {
     justify-content: center;
 }
 
-.content-switcher a, span {
+.content-switcher a, .content-switcher span {
     padding: 2px;
     text-decoration: none;
     color: white;
@@ -196,7 +196,8 @@ DIGITAL
 }
 
 .carousel-img-container {
-    height: 40vw
+    height: 40vw;
+    position: relative;
 }
 
 .carousel-img-container img{
@@ -209,6 +210,22 @@ DIGITAL
     justify-content: space-between;
     gap: 1rem;
     font-size: 1.4vw;
+}
+
+.carousel-description {
+    position: absolute;
+    display: flex;
+    padding: 10px;
+    bottom: 0%;
+    right: 0;
+    width: 30%;
+    height: 30%;
+}
+
+.carousel-description h4 {
+    margin-top: auto;
+    color: antiquewhite;
+    font-size: 1.1vw;
 }
 
 .left-switch, .right-switch {

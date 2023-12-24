@@ -1,0 +1,62 @@
+/*
+TEXTBLOCKS
+*/
+
+.aboutme-wrapper {
+    display: flex;
+    padding-top: 6.5rem;
+    margin-left: 5.5rem;
+    padding-bottom: 4rem;
+}
+
+.aboutme-text-wrapper {
+    padding-top: 12rem;
+    width: 60%;
+}
+
+.aboutme-textblock {
+    padding-bottom: 12rem;
+}
+
+.aboutme-textblock p {
+    font-weight: 600;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.aboutme-word {
+    padding-left: 6px;
+    padding-right: 6px;
+    font-size: 3rem;
+    color: #b57412
+}
+
+.aboutme-character {
+    font-size: 3rem;
+    color: antiquewhite;
+}
+
+/*
+GALLERY
+*/
+
+.aboutme-gallery-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    gap: 4rem;
+    padding: 3rem;
+    padding-top: 0;
+}
+
+.aboutme-picture-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+    
+
+.aboutme-picture-wrapper img{
+    height: auto;
+}
+

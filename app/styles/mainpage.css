@@ -78,7 +78,7 @@
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 60%;
+    top: 55%;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -90,8 +90,8 @@
     transition: transform 0.2s ease-in-out;
     outline-offset: -1.66px;
     background-color: transparent;
-    border: 3px solid white;
-    outline: 2.5px solid white;
+    border: 3px solid antiquewhite;
+    outline: 2.5px solid antiquewhite;
     width: calc(1.15*144px);
     height: calc(1.15*53px);
     z-index: 4;

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect } from "react";
 
-import { useMenuStore } from "@/app/hooks/useMenuStore";
+import { useMenuStore } from '../../../hooks/useMenuStore';
 import { contentSwitcherAnimationProps } from "./animation";
 import { useState } from "react";
 

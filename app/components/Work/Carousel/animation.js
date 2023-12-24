@@ -19,7 +19,7 @@ export const carouselAnimationProps = {
     },
   },
   transition: {
-    duration: 0.7,
+    duration: 0.8,
     ease: "easeInOut",
   },
 };
@@ -64,6 +64,7 @@ export const titleAnimationProps = {
   },
   transition: {
     duration: 0.73,
+    delay: 0.15,
   },
    exit: {
     opacity: 0,
@@ -88,11 +89,37 @@ export const subTitleAnimationProps = {
   },
   transition: {
     duration: 0.76,
+    delay: 0.15,
   },
    exit: {
     opacity: 0,
     transition: {
       duration: 0.57,
+    },
+  },
+};
+
+export const descriptionAnimationProps = {
+  initial: {
+    opacity: 0,
+    scale: 0.97,
+    x: -7,
+    y: -5
+  },
+  animate: {
+    opacity: 1,
+    scale: 1,
+    x: 0,
+    y: 0
+  },
+  transition: {
+    duration: 0.73,
+    delay: 0.15,
+  },
+   exit: {
+    opacity: 0,
+    transition: {
+      duration: 0.54,
     },
   },
 };

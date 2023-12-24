@@ -39,7 +39,7 @@ export default function Menu() {
               />
               <MenuItem
                 className="info"
-                href="#"
+                href="/about-me"
                 label="About me"
                 toggleMenu={toggleMenu}
                 transition={{ duration: 0.55, delay: 0.2 }}

@@ -10,8 +10,6 @@ export default function IntroText() {
     useRef(),
     useRef(),
     useRef(),
-    useRef(),
-    useRef(),
   ];
 
   useEffect(() => {
@@ -19,7 +17,7 @@ export default function IntroText() {
     setButtonDisabled(true)
 
     if (isButtonClicked) {
-      const animationTimings = [750, 1700, 2650, 3600, 4550]; 
+      const animationTimings = [750, 1900, 3050]; 
 
       textRefs.forEach((ref, i) => {
         if (ref.current) {
@@ -44,7 +42,7 @@ export default function IntroText() {
               if (iterations > text.length) {
                 clearInterval(interval);
               }
-            }, i > 1 ? 60 : 70);
+            }, i > 1 ? 70 : 80);
           }, animationTimings[i]);
 
           animationTimeouts.push(timeoutId); 
@@ -63,10 +61,9 @@ export default function IntroText() {
   return (
     <>
       <h1 className="intro-text">
-        <span className="new-line" data-value="What?" ref={textRefs[0]}></span>
-        <span className="new-line" data-value="Where?" ref={textRefs[1]}></span>
-        <span className="new-line" data-value="Who the fuck is" ref={textRefs[2]}></span>
-        <span className="new-line" data-value="Luigi Simiani?" ref={textRefs[3]}></span>
+        <span className="new-line" data-value="Real People," ref={textRefs[0]}></span>
+        <span className="new-line" data-value="Raw Emotions," ref={textRefs[1]}></span>
+        <span className="new-line" data-value="Rare Moments." ref={textRefs[2]}></span>
       </h1>
     </>
   );

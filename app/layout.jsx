@@ -2,6 +2,7 @@ import "@/app/styles/_global.css"
 import "@/app/styles/mainpage.css"
 import "@/app/styles/work.css"
 import "@/app/styles/contact.css"
+import "@/app/styles/aboutme.css"
 import Header from "./components/Header"
 
 export const metadata = {
