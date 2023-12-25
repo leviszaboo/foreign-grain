@@ -1,11 +1,13 @@
 "use client"
 
+import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 import { motion, AnimatePresence } from "framer-motion";
 import { useMenuStore } from "@/app/hooks/useMenuStore";
 import FadeIn from "../FadeIn";
-import TextBlock from "./TextBlock";
+import Paragraph from "./Paragraph";
 import { fadeInAnimationProps } from "./animation";
 import AboutMeGallery from "./AboutMeGallery";
+import TextBlock from './TextBlock';
 
 export default function AboutMePage({ paragraphs, sources }) {
   const { isMenuVisible } = useMenuStore();
@@ -14,14 +16,8 @@ export default function AboutMePage({ paragraphs, sources }) {
     <AnimatePresence>
       {!isMenuVisible && (
         <motion.div className="aboutme-wrapper" {...fadeInAnimationProps}>
-          <div className="aboutme-text-wrapper">
-            {paragraphs.map((paragraph, i) => {
-              return (
-                <TextBlock text={paragraph} key={i}/>
-              )
-            })}
-          </div>
-          <AboutMeGallery sources={sources}/>
+          <TextBlock paragraphs={paragraphs} />
+          <AboutMeGallery sources={sources} />
         </motion.div>
       )}
     </AnimatePresence>

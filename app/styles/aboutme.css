@@ -11,7 +11,7 @@ TEXTBLOCKS
 
 .aboutme-text-wrapper {
     padding-top: 12rem;
-    width: 60%;
+    width: 57%;
 }
 
 .aboutme-textblock {
@@ -32,7 +32,7 @@ TEXTBLOCKS
 }
 
 .aboutme-character {
-    font-size: 3rem;
+    font-size: 2.85rem;
     color: antiquewhite;
 }
 
@@ -43,7 +43,7 @@ GALLERY
 .aboutme-gallery-wrapper {
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 43%;
     gap: 4rem;
     padding: 3rem;
     padding-top: 0;
