@@ -1,6 +1,6 @@
 import { animated, useInView } from "@react-spring/web";
 
-export default function FadeIn({ children }) {
+export default function FadeIn({ children, className }) {
   const [ref, springs] = useInView(
     () => ({
       from: {
@@ -16,7 +16,7 @@ export default function FadeIn({ children }) {
   )
 
   return (
-    <animated.div ref={ref} style={springs}>
+    <animated.div ref={ref} style={springs} className={className}>
       {children}
     </animated.div>
   )
