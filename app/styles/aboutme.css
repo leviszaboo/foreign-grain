@@ -4,18 +4,17 @@ TEXTBLOCKS
 
 .aboutme-wrapper {
     display: flex;
-    padding-top: 6.5rem;
+    padding-top: 5.5rem;
     margin-left: 5.5rem;
     padding-bottom: 4rem;
 }
 
 .aboutme-text-wrapper {
-    padding-top: 12rem;
     width: 57%;
 }
 
 .aboutme-textblock {
-    padding-bottom: 12rem;
+    padding-top: 12rem;
 }
 
 .aboutme-textblock p {

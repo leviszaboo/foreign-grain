@@ -9,7 +9,7 @@ export default function Paragraph({ text }) {
   const element = useRef(null);
   const { scrollYProgress } = useScroll({
     target: element,
-    offset: ['start 0.90', 'start 0.42']
+    offset: ['0.1 0.87', 'start 0.4']
   })
 
   const words = text.text.split(" ")
