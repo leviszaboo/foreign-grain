@@ -4,12 +4,12 @@ import { useRef } from 'react';
 import { motion, useScroll } from 'framer-motion';
 import Word from './Word';
 
-export default function Paragraph({ text }) {
+export default function Paragraph({ text, paragraphNumber }) {
 
   const element = useRef(null);
   const { scrollYProgress } = useScroll({
     target: element,
-    offset: ['0.1 0.87', 'start 0.4']
+    offset: ['0.15 0.9', 'start 0.25']
   })
 
   const words = text.text.split(" ")
@@ -24,7 +24,14 @@ export default function Paragraph({ text }) {
             const start = i / ( words.length );
             const end = start + (1 / ( words.length ))
 
-            return <Word key={i} range={[start, end]} progress={scrollYProgress} color={text.color}>{word}</Word>
+            return (
+              <Word 
+                key={i} 
+                range={[start, end]} 
+                progress={scrollYProgress} 
+                color={text.color} 
+                paragraphNumber={paragraphNumber}>{word}</Word>
+            )
           })
         }
       </motion.p>

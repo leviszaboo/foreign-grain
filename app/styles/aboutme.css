@@ -26,8 +26,7 @@ TEXTBLOCKS
 .aboutme-word {
     padding-left: 6px;
     padding-right: 6px;
-    font-size: 3rem;
-    color: #b57412
+    font-size: 3.6vw;
 }
 
 .aboutme-character {
@@ -58,4 +57,18 @@ GALLERY
 .aboutme-picture-wrapper img{
     height: auto;
 }
+
+/*
+MEDIA
+@media (max-width: 1000px) {
+    .aboutme-word {
+        font-size: 2rem;
+    }
+
+    .aboutme-textblock {
+        padding-top: 10rem;
+    }
+}
+*/
+
 

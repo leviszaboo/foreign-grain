@@ -5,7 +5,7 @@ export default function TextBlock({ paragraphs }) {
     <div className="aboutme-text-wrapper">
       {paragraphs.map((paragraph, i) => {
         return (
-          <Paragraph text={paragraph} key={i}/>
+          <Paragraph text={paragraph} key={i} paragraphNumber={i}/>
         )
       })}
     </div>
