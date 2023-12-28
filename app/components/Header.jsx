@@ -14,11 +14,6 @@ export default function Header() {
     const [showWorkSwitcher, setshowWorkSwitcher] = useState(false);
     const [smallTitle, setSmallTitle] = useState(false);
 
-    const [headerOptions, setHeaderOptions] = useState({
-      smallTitlle: false,
-
-    })
-
     const currentPathname = usePathname();
 
     useEffect(() => {

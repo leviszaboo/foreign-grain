@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 import { useStartButtonStore } from "@/app/hooks/useStartButtonStore";
 import { useMenuStore } from "@/app/hooks/useMenuStore";
 
@@ -6,50 +6,40 @@ export default function IntroText() {
   const { isButtonClicked } = useStartButtonStore();
   const { setButtonDisabled } = useMenuStore();
 
-  const textRefs = [
-    useRef(),
-    useRef(),
-    useRef(),
-  ];
+  const texts = ["Real People,", "Raw Emotions,", "Rare Moments."];
+  const [animatedTexts, setAnimatedTexts] = useState(Array(texts.length).fill(""));
 
   useEffect(() => {
-    let animationTimeouts = []; 
-    setButtonDisabled(true)
+    let animationTimeouts = [];
+    setButtonDisabled(true);
 
     if (isButtonClicked) {
-      const animationTimings = [750, 1900, 3050]; 
+      const animationTimings = [750, 1900, 3050];
 
-      textRefs.forEach((ref, i) => {
-        if (ref.current) {
-          const text = ref.current.getAttribute("data-value");
+      texts.forEach((text, i) => {
+        const timeoutId = setTimeout(() => {
           let iterations = 0;
 
-          const timeoutId = setTimeout(() => {
-            let interval = setInterval(() => {
-              ref.current.innerText = text
-                .split("")
-                .map((letter, index) => {
-                  if (index < iterations) {
-                    return letter;
-                  } else {
-                    return " ";
-                  }
-                })
-                .join("");
+          const interval = setInterval(() => {
+            setAnimatedTexts((prevTexts) =>
+              prevTexts.map((prevText, index) =>
+                index === i ? text.slice(0, iterations) : prevText
+              )
+            );
 
-              iterations++;
+            iterations++;
 
-              if (iterations > text.length) {
-                clearInterval(interval);
-              }
-            }, i > 1 ? 70 : 80);
-          }, animationTimings[i]);
+            if (iterations > text.length) {
+              clearInterval(interval);
+            }
+          }, i > 1 ? 70 : 80);
 
-          animationTimeouts.push(timeoutId); 
-        }
+          animationTimeouts.push(timeoutId);
+        }, animationTimings[i]);
       });
     }
-    setButtonDisabled(false)
+
+    setButtonDisabled(false);
 
     return () => {
       animationTimeouts.forEach((timeoutId) => {
@@ -61,12 +51,15 @@ export default function IntroText() {
   return (
     <>
       <h1 className="intro-text">
-        <span className="new-line" data-value="Real People," ref={textRefs[0]}></span>
-        <span className="new-line" data-value="Raw Emotions," ref={textRefs[1]}></span>
-        <span className="new-line" data-value="Rare Moments." ref={textRefs[2]}></span>
+        {animatedTexts.map((animatedText, index) => (
+          <span key={index} className="new-line">
+            {animatedText}
+          </span>
+        ))}
       </h1>
     </>
   );
 }
+
 
 

@@ -1,14 +1,14 @@
+import IntroAnalogPanel from "./IntroAnalogPanel";
+import IntroDigitalPanel from "./IntroDigitalPanel";
 
-import LeftPanel from "./LeftPanel";
-import RightPanel from "./RightPanel";
 
 export default function IntroMainSection() {
 
   return (
     <>
-      <div >
-      <LeftPanel/>
-      <RightPanel />
+      <div className="mainsection-wrapper">
+        <IntroAnalogPanel />
+        <IntroDigitalPanel />
       </div>
    </>
   )

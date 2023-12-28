@@ -6,7 +6,7 @@ import BlinkingArrows from "./BlinkingArrows";
 
 import { useIntroScrollStore } from "@/app/hooks/useIntroScrollStore";
 
-export default function ScrollSign() {
+export default function ScrollSign({ delay1, delay2}) {
   
   return (
     <>
@@ -21,7 +21,7 @@ export default function ScrollSign() {
         transition={{
           duration: 1.3,
           ease: "easeIn",
-          delay: 5,
+          delay: delay1,
         }}
         >
         <div>
@@ -36,7 +36,7 @@ export default function ScrollSign() {
             transition={{
               duration: 0.8,
               ease: "easeIn",
-              delay: 5.1,
+              delay: delay2,
             }}
             onClick={() => {}}
           >

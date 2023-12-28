@@ -9,10 +9,6 @@ export default function AboutMeGallery({ sources }) {
   const { scrollY } = useScroll({ target: ref })
   const y = useTransform(scrollY, [0, 7000], [0, -2000]);
 
-  useEffect(() => {
-    console.log(scrollY)
-  }, [scrollY])
-
   return (
     <motion.div ref={ref} style={{y}} className="aboutme-gallery-wrapper">
       {sources.map((source) => {

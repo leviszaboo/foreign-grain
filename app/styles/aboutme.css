@@ -9,6 +9,20 @@ TEXTBLOCKS
     padding-bottom: 4rem;
 }
 
+.aboutme-title {
+    height: 90vh;
+    position: relative;
+}
+
+.aboutme-title h1 { 
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 2rem;
+    font-size: 4.5rem;
+    color: #ffdba5
+}
+
 .aboutme-text-wrapper {
     width: 57%;
 }

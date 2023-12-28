@@ -12,7 +12,9 @@ export default function Paragraph({ text, paragraphNumber }) {
     offset: ['0.15 0.9', 'start 0.25']
   })
 
-  const words = text.text.split(" ")
+  const words = text.text.split(" ");
+
+  const len = words.length < 25 ? 25 : words.length
 
   return (
     <motion.div className="aboutme-textblock" >
@@ -21,8 +23,8 @@ export default function Paragraph({ text, paragraphNumber }) {
       >
         {
           words.map((word, i) => {
-            const start = i / ( words.length );
-            const end = start + (1 / ( words.length ))
+            const start = i / ( len );
+            const end = start + (1 / ( len))
 
             return (
               <Word 

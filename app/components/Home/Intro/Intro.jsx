@@ -7,6 +7,7 @@ import {
 } from "framer-motion";
 
 import { useStartButtonStore } from "@/app/hooks/useStartButtonStore";
+import { useWindowSize } from 'rooks';
 
 import IntroFlowers from "./IntroFlowers";
 import IntroText from "./IntroText";
@@ -15,6 +16,8 @@ import ScrollSign from './ScrollSign';
 
 export default function Intro() {
   const { isButtonClicked } = useStartButtonStore();
+  const { innerWidth } = useWindowSize();
+  const pages = innerWidth < 650 ? 2 : 1.94;
 
   return (
     <>
@@ -35,15 +38,15 @@ export default function Intro() {
               },
             }}
           >
-            <Parallax pages={2}>
+            <Parallax pages={pages}>
               <ParallaxLayer speed={2}>
                 <IntroText />
               </ParallaxLayer>
               <IntroFlowers />
               <ParallaxLayer speed={1.2}>
-                <ScrollSign />
+                <ScrollSign delay1={5} delay2={5.1}/>
               </ParallaxLayer>
-              <ParallaxLayer>
+              <ParallaxLayer speed={1.1} offset={1}>
                 <IntroMainSection/>
               </ParallaxLayer>
             </Parallax>

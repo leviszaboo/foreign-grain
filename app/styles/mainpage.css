@@ -167,10 +167,9 @@
     display: inline-block;
     text-align: center;
     left: 50%;
-    transform: translateX(-50%);
     bottom: 4rem;
+    transform: translateX(-50%);
     font-family: gaming, sans-serif;
-    color: white;
     white-space: nowrap;
 }
 
@@ -183,62 +182,20 @@
 .start-scroll span {
     font-size: 20px;
     display: inline-block;
+    color: white;
 }
 
-.div1 {
+.mainsection-wrapper {
+    display: flex;
     position: absolute;
-    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.panel-wrapper {
+    position: relative;
     height: 100%;
     width: 50%;
-    transform: translateY(100%);
-    transition: transform 0.35s ease-in-out;
-    overflow: hidden;
-    background-color: black;
-}
-
-.div2 {
-    position: absolute;
-    right: 0;
-    height: 100%;
-    width: 50%;
-    transform: translateY(100%);
-    transition: transform 0.35s ease-in-out;
-    overflow: hidden;
-    background-color: black;
-}
-
-.div1::-webkit-scrollbar {
-    display: none;
-}
-
-.div2 .text-wrapper {
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 65%;
-    height: 85%;
-}
-
-.div2 .text-wrapper p{
-    position: relative;
-    font-size: 26px;
-}
-
-.div2:hover{
-    /*transform: translateY(100%) scale(1.05);*/
-    cursor: pointer;
-    border: solid 4px #daa14b;
-    z-index: 2;
-    transition: transform 0.35s ease-in-out;
-}
-
-.div1:hover{
-    /*transform: translateY(100%) scale(1.05);*/
-    cursor: pointer;
-    border: solid 4px #daa14b;
-    z-index: 2;
-    transition: transform 0.35s ease-in-out;
 }
 
 .flower-container-1 {
@@ -305,9 +262,28 @@
     background-color: black;
 }
 
+@media (max-width: 700px) {
+    .intro-text {
+        left: 42%;
+    }
+
+    .intro-text span {
+        font-size: 2.8rem;
+    }
+}
+
 @media (max-width: 650px) {
     .main-tagline h2 {
         font-size: 22px;
+    }
+
+    .mainsection-wrapper {
+        flex-direction: column;
+    }
+
+    .panel-wrapper {
+        height: 42.5%;
+        width: 100%;
     }
 
     .flower-container-4 {
@@ -331,6 +307,7 @@
         right: 3%
     }
 }
+
 
 @media (max-width: 500px) {
     .intro-text {
