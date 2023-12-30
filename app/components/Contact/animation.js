@@ -43,9 +43,8 @@ export const contactFormAnimationProps = {
       y: -8,
       x: -15,
       transition: {
-        duration: 0.5,
+        duration: 0.6,
         ease: "easeInOut",
-        delay: 0.1
       },
     },
     transition: {

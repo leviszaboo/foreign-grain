@@ -36,9 +36,9 @@ const sources = [
   { source: '/Media/horizontal-final/pond.jpeg', width: 78 },
   { source: '/Media/vertical-final/mask.jpeg', width: 90 },
   { source: '/Media/gallery/blockparty.jpeg', width: 84 },
-  { source: '/Media/gallery/dj.jpeg', width: 74 },
+  /*{ source: '/Media/gallery/dj.jpeg', width: 74 },
   { source: '/Media/gallery/sauf.jpeg', width: 83 },
-  { source: '/Media/gallery/vinyl-store.jpeg', width: 89 }
+  { source: '/Media/gallery/vinyl-store.jpeg', width: 89 }*/
 ]
 
 export default function AboutMe() {

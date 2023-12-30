@@ -32,7 +32,10 @@ export default function Paragraph({ text, paragraphNumber }) {
                 range={[start, end]} 
                 progress={scrollYProgress} 
                 color={text.color} 
-                paragraphNumber={paragraphNumber}>{word}</Word>
+                paragraphNumber={paragraphNumber}
+              >
+                {word} 
+              </Word>
             )
           })
         }

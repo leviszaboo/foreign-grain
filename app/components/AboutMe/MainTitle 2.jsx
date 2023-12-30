@@ -1,13 +1,12 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import ScrollSign from '../Home/Intro/ScrollSign'
-import { titleAnimationProps } from './animation';
 
 export default function MainTitle() {
   const ref = useRef(null)
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 7000], [0, -4500]);
-  const y2 = useTransform(scrollY, [0, 7000], [0, -8500]);
+  const y2 = useTransform(scrollY, [0, 7000], [0, -6500]);
 
   return (
     <div className='aboutme-title'>

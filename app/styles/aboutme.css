@@ -16,8 +16,8 @@ TEXTBLOCKS
 
 .aboutme-title h1 { 
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
     bottom: 2rem;
     font-size: 4.5rem;
     color: #ffdba5
@@ -74,6 +74,15 @@ GALLERY
 
 /*
 MEDIA
+*/
+
+@media (max-width: 1250px) {
+    .aboutme-title h1 {
+        font-size: 4rem;
+    }
+}
+
+
 @media (max-width: 1000px) {
     .aboutme-word {
         font-size: 2rem;
@@ -83,6 +92,42 @@ MEDIA
         padding-top: 10rem;
     }
 }
-*/
+
+@media (max-width: 550px) {
+    .aboutme-wrapper {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-left: 0;
+        padding-top: 0;
+    }
+
+    .aboutme-title {
+        height: 100vh;
+    }
+
+    .aboutme-text-wrapper {
+        width: 100%;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .aboutme-word {
+        padding-left: 6px;
+        padding-right: 6px;
+        font-size: 2.3rem;
+    }
+
+    .aboutme-gallery-wrapper {
+        padding-top: 5rem;
+        width: 100%;
+        align-items: center;
+    }
+
+    .aboutme-picture-wrapper {
+        align-items: center;
+    }
+}
+
 
 
