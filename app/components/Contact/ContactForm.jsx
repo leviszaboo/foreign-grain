@@ -3,6 +3,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { sendEmail } from "@/app/actions/sendEmail";
 import { contactFormAnimationProps } from "./animation";
+import RollingButton from "../RollingButton";
 
 export default function ContactForm() {
   const [loading, setLoading] = useState(false);
@@ -54,9 +55,7 @@ export default function ContactForm() {
             required
           />
           <div className="contact-form-footer">
-            <button className={`send-button ${loading ? "email-loading" : null}`} type="submit" disabled={loading}>
-              <h2>SEND</h2>
-            </button>
+            <RollingButton className={`send-button ${loading ? "email-loading" : null}`} type="submit" disabled={loading} text={"SEND"} />
             {message && <h2 className="form-response">{message}</h2>}
             {error && <h2 className="form-response">{error}</h2>}
           </div>
