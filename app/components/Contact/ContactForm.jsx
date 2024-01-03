@@ -1,32 +1,51 @@
 "use client"
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useState, useTransition } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { sendEmail } from "@/app/actions/sendEmail";
 import { contactFormAnimationProps } from "./animation";
 import RollingButton from "../RollingButton";
+import Loader from "./Loader";
+import { fadeInScaleAnimationProps } from "./animation";
+import ContactFormFooter from "./ContactFormFooter";
+import { contactFormSchema } from "@/app/schema/contactFormSchema";
 
 export default function ContactForm() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [message, setMessage] = useState(null);
 
+  useEffect(() => {
+    if (error || message) {
+      setTimeout(() => {
+        setError(null);
+        setMessage(null);
+      }, 3500)
+    }
+  }, [error, message])
+
+  async function onSubmit(formData) {
+    try {
+      const data = Object.fromEntries(formData);
+      console.log(data)
+      contactFormSchema.parse(data)
+      const res = await sendEmail(formData)
+
+      if (!res.success) {
+        setError("Something went wrong."); 
+      } else {
+        setMessage("talk to you soon!");
+      }
+
+    } catch (err) {
+      setError("Invalid form inputs.")
+    }
+          
+  }
+
   return (
     <motion.div {...contactFormAnimationProps}>
       <div className="form-wrapper">
-        <form className="contact-form" action={
-          async (formData) => {
-            setLoading(true);
-
-            const res = await sendEmail(formData)
-
-            if (!res.success) {
-              setError("Something went wrong."); 
-            } else {
-              setMessage("talk to you soon!");
-            }
-
-            setLoading(false);
-          }}>
+        <form className="contact-form" action={onSubmit}>
           <label className="form-label">
             NAME
           </label>
@@ -54,11 +73,7 @@ export default function ContactForm() {
             name="message"
             required
           />
-          <div className="contact-form-footer">
-            <RollingButton className={`send-button ${loading ? "email-loading" : null}`} type="submit" disabled={loading} text={"SEND"} />
-            {message && <h2 className="form-response">{message}</h2>}
-            {error && <h2 className="form-response">{error}</h2>}
-          </div>
+          <ContactFormFooter message={message} error={error} />
         </form>
       </div>
     </motion.div>

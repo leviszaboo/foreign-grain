@@ -6,7 +6,7 @@ const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY)
 
 export async function sendEmail(formData) {
   try {
-    const name = formData.get("name")
+    const name = formData.get("name");
     const email = formData.get("email");
     const message = formData.get("message");
   
@@ -16,14 +16,14 @@ export async function sendEmail(formData) {
       subject: "Contact Form",
       text: message,
       reply_to: email
-    })
+    });
 
     return {
       success: true,
       error: null
     }
   } catch(err) {
-    console.log(err)
+    
     return {
       success: false,
       error: err.message

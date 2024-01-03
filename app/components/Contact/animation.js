@@ -57,7 +57,7 @@ export const contactFormAnimationProps = {
   export const fadeInScaleAnimationProps = {
     initial: {
       opacity: 0,
-      scale: 0.95,
+      scale: 0.98,
     },
     animate: {
       opacity: 1,
@@ -65,7 +65,7 @@ export const contactFormAnimationProps = {
     },
     exit: {
       opacity: 0,
-      scale: 0.95,
+      scale: 0.98,
       transition: {
         duration: 0.3,
       },

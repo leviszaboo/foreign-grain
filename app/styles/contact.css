@@ -125,6 +125,43 @@
     color: #ffdba5;
 }
 
+.loader {
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.loader-dot {
+    height: 0.75rem;
+    width: 0.75rem;
+    background-color: #ffdba5;
+    border-radius: 9999px;
+}
+  
+.loader > div {
+    animation: bouncing 0.6s infinite alternate;
+}
+
+.loader > div:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.loader > div:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+/*
+ANIMATION
+*/
+
+@keyframes bouncing {
+    to {
+        transform: translateY(-12px);
+    }
+}
+
 /*
 MEDIA
 */
