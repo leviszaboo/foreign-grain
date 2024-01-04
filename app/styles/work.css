@@ -206,6 +206,7 @@ DIGITAL
 }
 
 .carousel-info {
+    z-index: 50;
     display: flex;
     justify-content: space-between;
     gap: 1rem;
@@ -220,6 +221,7 @@ DIGITAL
     right: 0;
     width: 30%;
     height: 30%;
+    z-index: 50;
 }
 
 .carousel-description h4 {
@@ -245,7 +247,39 @@ DIGITAL
 * MEDIA
 */
 
-@media (max-width: 450px) {
+@media (max-width: 800px) {
+    .carousel {
+        flex-direction: column;
+    }
+
+    .carousel-item {
+        margin: auto
+    }
+
+    .carousel-img-container {
+        width: 55vw;
+        height: auto;
+    }
+    
+    .carousel-img-container img{
+        width: 100%;
+        height: auto;
+    }
+
+    .left-switch {
+        position: absolute;
+        bottom: 0rem;
+        padding-right: 3rem;
+        padding-bottom: 4rem;
+    }
+
+    .right-switch {
+        padding-left: 3rem;
+        padding-bottom: 4rem;
+    }
+}
+
+@media (max-width: 550px) {
     .image-title, .image-subtitle, .image-description {
         display: none;
     }
@@ -285,6 +319,18 @@ DIGITAL
     .grid-row {
         margin-left: 5.694vw;
         margin-right: 5.694vw;
+    }
+
+    .carousel-info {
+        font-size: 0.75rem;
+    }
+
+    .carousel-description h4 {
+        font-size: 0.75rem;
+    }
+
+    .carousel-img-container {
+        width: 80vw;
     }
 }
 

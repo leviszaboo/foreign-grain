@@ -26,8 +26,8 @@ export default function ContactForm() {
   async function onSubmit(formData) {
     try {
       const data = Object.fromEntries(formData);
-      console.log(data)
       contactFormSchema.parse(data)
+      
       const res = await sendEmail(formData)
 
       if (!res.success) {

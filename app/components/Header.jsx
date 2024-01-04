@@ -10,6 +10,21 @@ import { useStartButtonStore } from "../hooks/useStartButtonStore";
 import ContentSwitcher from "./Work/ContentSwitcher/ContentSwitcher";
 import { usePathname } from "next/navigation";
 
+const fadeInAnimationProps = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+  },
+  exit: {
+    opacity: 0,
+  },
+  transition: {
+    duration: 0.6,
+  },
+};
+
 export default function Header() {
     const [showWorkSwitcher, setshowWorkSwitcher] = useState(false);
     const [smallTitle, setSmallTitle] = useState(false);
@@ -25,7 +40,7 @@ export default function Header() {
 
     return (
       <>
-        <header>
+        <motion.header {...fadeInAnimationProps}>
           <div className="flex-button">
             <MenuButton />
           </div>
@@ -33,21 +48,7 @@ export default function Header() {
           {!isButtonClicked && (
             <div className="flex-title">
               <div className={`title-wrapper ${smallTitle ? "title-small" : null}`}>
-                <motion.h1 
-                  className={`title`}
-                  initial={{ 
-                    opacity: 0 
-                  }}
-                  animate={{ 
-                    opacity: 1 
-                  }}
-                  exit={{ 
-                    opacity: 0 
-                  }}
-                  transition={{ 
-                    duration: 0.6 
-                  }}
-                >
+                <motion.h1 className={`title`} {...fadeInAnimationProps}>
                   <Link href="/">
                     Foreign Grain
                   </Link>
@@ -61,7 +62,7 @@ export default function Header() {
           )}
           </div>
         </AnimatePresence>
-      </header>
+      </motion.header>
     </>
   );
 }

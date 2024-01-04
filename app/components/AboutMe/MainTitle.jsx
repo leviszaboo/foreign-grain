@@ -1,7 +1,6 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import ScrollSign from '../Home/Intro/ScrollSign'
-import { titleAnimationProps } from './animation';
 
 export default function MainTitle() {
   const ref = useRef(null)
