@@ -2,13 +2,14 @@
 ANALOG
 */
 
+html::-webkit-scrollbar {
+    display: none;
+}
+
+
 .grid-container {
     max-width: 50%;
     margin: 100px auto;
-}
-
-html::-webkit-scrollbar {
-    display: none;
 }
 
 .content-switcher {
@@ -39,13 +40,11 @@ html::-webkit-scrollbar {
 .sec-work {
     padding-top: 6rem;
     padding-bottom: 3rem;
-    overflow: scroll;
     width: 100%;
 }
 
 .gallery {
     display: block;
-    overflow: scroll;
 }
 
 .grid-row {
@@ -247,7 +246,7 @@ DIGITAL
 * MEDIA
 */
 
-@media (max-width: 800px) {
+@media (max-width: 1024px) {
     .carousel {
         flex-direction: column;
     }
@@ -330,7 +329,19 @@ DIGITAL
     }
 
     .carousel-img-container {
-        width: 80vw;
+        width: 75vw;
+    }
+
+    .left-switch {
+        padding-bottom: 1rem;
+    }
+
+    .right-switch {
+        padding-bottom: 1rem;
+    }
+
+    .carousel-description {
+        display: none;
     }
 }
 

@@ -12,7 +12,7 @@ export default function AboutMeGallery({ sources }) {
   const transformed = useTransform(scrollY, [0, 7000], [0, 2000]);
 
   const { innerWidth } = useWindowSize();
-  const shift = innerWidth < 650 ? null : transformed
+  const shift = innerWidth < 1024 ? null : transformed
 
   return (
     <motion.div ref={ref} style={{y: shift}} className="aboutme-gallery-wrapper" {...fadeInAnimationProps}>
