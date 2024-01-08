@@ -5,12 +5,15 @@ import Link from "next/link";
 import { Instagram, Linkedin } from "lucide-react";
 import { infoBoxAnimationProps } from "./animation";
 
-export default function InfoBox() {
+export default function InfoBox({ contactInfo }) {
+
   return (
       <motion.div className="info-box" {...infoBoxAnimationProps}>
-        <h2>Luigi Simiani</h2>
-        <h2>email@email.com</h2>
-        <h2>Amsterdam, <span className="new-line">The Netherlands</span></h2>
+        <h2>{contactInfo.name}</h2>
+        <h2>{contactInfo.email}</h2>
+        <h2>{contactInfo.phoneNumber}</h2>
+        <h2>{contactInfo.address}</h2>
+        {/* <h2>Amsterdam, <span className="new-line">The Netherlands</span></h2> */}
         <div className="socials">
           <Link href={"https://www.instagram.com/greenmario.film/"}>
             <Instagram color="white" size={32}/>

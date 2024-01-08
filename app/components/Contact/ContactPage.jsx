@@ -11,7 +11,7 @@ import { fadeInAnimationProps } from "./animation";
 import { useEffect } from "react";
 import FadeIn from "../FadeIn";
 
-export default function ContactPage() {
+export default function ContactPage({ contactInfo }) {
   const { isMenuVisible } = useMenuStore();
 
   return (
@@ -23,7 +23,7 @@ export default function ContactPage() {
           </FadeIn>
           <div className="contact-wrapper">
             <ContactForm />
-            <InfoBox />
+            <InfoBox contactInfo={contactInfo}/>
           </div>
           <Signature />
         </motion.div>

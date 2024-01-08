@@ -38,6 +38,7 @@ TEXTBLOCKS
 }
 
 .aboutme-word {
+    color: white;
     padding-left: 6px;
     padding-right: 6px;
     font-size: 3.6vw;

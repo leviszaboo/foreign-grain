@@ -1,8 +1,7 @@
 import { motion } from "framer-motion"
-
 import MainTitle from "./MainTitle"
 import Paragraph from "./Paragraph"
-import { fadeInAnimationProps, textBlockAnimationProps } from "./animation"
+import { textBlockAnimationProps } from "./animation"
 
 export default function TextBlock({ paragraphs }) {
   return (
@@ -10,7 +9,7 @@ export default function TextBlock({ paragraphs }) {
       <MainTitle />
       {paragraphs.map((paragraph, i) => {
         return (
-          <Paragraph text={paragraph} key={i} paragraphNumber={i}/>
+          <Paragraph text={paragraph.value} key={i} />
         )
       })}
     </motion.div>

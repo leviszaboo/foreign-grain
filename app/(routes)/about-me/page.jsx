@@ -2,32 +2,22 @@ import AboutMePage from "@/app/components/AboutMe/AboutMePage"
 import Menu from "@/app/components/Menu/Menu/Menu"
 import MemorizePosition from "@/app/components/Work/MemorizePosition"
 
-const paragraphs = [
-  {
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    color: 'white'
-  },
-  {
-    text: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    color: 'white'
-  },
-  {
-    text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. ',
-    color: 'white'
-  },
-  {
-    text: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
-    color: 'white'
-  },
-  {
-    text: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.',
-    color: 'white'
-  },
-  {
-    text: 'Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae cons.',
-    color: 'white'
+import { getDocs, query, collection, orderBy } from "firebase/firestore";
+import { cache } from "react";
+import { db } from "@/app/firebase/config";
+
+export const revalidate = 0
+
+const fetchParagraphs = cache(async (ref) => {
+  try {
+    const querySnapshot = await getDocs(query(collection(db, ref), orderBy("createdAt", "desc")));
+    
+    const docs = querySnapshot.docs.map((doc) => doc.data());
+    return docs;
+  } catch (error) {
+    return []; 
   }
-]
+})
 
 const sources = [
   { source: '/Media/horizontal-final/patta-hor.jpeg', width: 74 },
@@ -36,12 +26,12 @@ const sources = [
   { source: '/Media/horizontal-final/pond.jpeg', width: 78 },
   { source: '/Media/vertical-final/mask.jpeg', width: 90 },
   { source: '/Media/gallery/blockparty.jpeg', width: 84 },
-  /*{ source: '/Media/gallery/dj.jpeg', width: 74 },
-  { source: '/Media/gallery/sauf.jpeg', width: 83 },
-  { source: '/Media/gallery/vinyl-store.jpeg', width: 89 }*/
 ]
 
-export default function AboutMe() {
+export default async function AboutMe() {
+  const ref = `${process.env.NEXT_PUBLIC_USER_EMAIL}/about-me/paragraphs`;
+  const paragraphs = await fetchParagraphs(ref);
+
   return (
     <>
       <MemorizePosition>
