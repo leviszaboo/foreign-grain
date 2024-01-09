@@ -251,7 +251,7 @@ DIGITAL
 * MEDIA
 */
 
-@media (max-width: 1024px) {
+@media (max-aspect-ratio: 12/10) {
     .carousel {
         flex-direction: column;
     }
@@ -261,7 +261,7 @@ DIGITAL
     }
 
     .carousel-img-container {
-        width: 55vw;
+        width: 40vw;
         height: auto;
     }
     
@@ -274,12 +274,26 @@ DIGITAL
         position: absolute;
         bottom: 0rem;
         padding-right: 3rem;
-        padding-bottom: 4rem;
+        padding-bottom: 2rem;
     }
 
     .right-switch {
         padding-left: 3rem;
-        padding-bottom: 4rem;
+        padding-bottom: 2rem;
+    }
+}
+
+@media (max-aspect-ratio: 9/10) {
+    .carousel-img-container {
+        width: 55vw;
+    }
+
+    .left-switch {
+        padding-bottom: 2rem;
+    }
+
+    .right-switch {
+        padding-bottom: 2rem;
     }
 }
 
