@@ -292,7 +292,7 @@ DIGITAL
     }
 }
 
-@media (max-width: 550px) {
+@media only screen and (max-width: 550px) and (max-aspect-ratio: 12/17) {
     .image-title, .image-subtitle, .image-description {
         display: none;
     }
@@ -336,10 +336,7 @@ DIGITAL
 
     .carousel-info {
         font-size: 0.75rem;
-    }
-
-    .carousel-description h4 {
-        font-size: 0.75rem;
+        max-width: 75vw;
     }
 
     .carousel-img-container {
@@ -352,10 +349,6 @@ DIGITAL
 
     .right-switch {
         padding-bottom: 1rem;
-    }
-
-    .carousel-description {
-        display: none;
     }
 }
 
