@@ -12,12 +12,13 @@ export default function IntroAnalogPanel() {
   const offset = innerWidth < 650 ? 0.8 : 0.99;
 
   return (
-    <div className="panel-wrapper">
+ 
+    <div className="panel-wrapper">   
       <ParallaxLayer speed={1.25} offset={offset}>
-        <Link href={"/analog"} onClick={() => setButtonClicked(false)}>  
+        <Link href={"/analog"} onClick={() => setButtonClicked(false)}> 
           <ArcadeText text={"analog work"} />
         </Link>
-      </ParallaxLayer>
-    </div>
+      </ParallaxLayer>  
+    </div>      
   )
 }

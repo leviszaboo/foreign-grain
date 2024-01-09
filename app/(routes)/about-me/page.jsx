@@ -22,7 +22,7 @@ export default async function AboutMe() {
     <>
       <MemorizePosition>
         <Menu/>
-        <AboutMePage paragraphs={paragraphs} sources={sources}/>
+        <AboutMePage paragraphs={paragraphs.reverse()} sources={sources}/>
       </MemorizePosition>
     </>
   )
