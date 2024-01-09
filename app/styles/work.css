@@ -202,6 +202,8 @@ DIGITAL
 .carousel-img-container {
     height: 40vw;
     position: relative;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .carousel-img-container img{
@@ -210,28 +212,17 @@ DIGITAL
 }
 
 .carousel-info {
+    max-width: 60vw;
+    margin-top: 0.25rem;
     z-index: 50;
     display: flex;
     justify-content: space-between;
     gap: 1rem;
-    font-size: 1.4vw;
+    font-size: 1.2vw;
 }
 
-.carousel-description {
-    position: absolute;
-    display: flex;
-    padding: 10px;
-    bottom: 0%;
-    right: 0;
-    width: 30%;
-    height: 30%;
-    z-index: 50;
-}
-
-.carousel-description h4 {
-    margin-top: auto;
-    color: antiquewhite;
-    font-size: 1.1vw;
+.carousel-subtitle {
+    color: #ffe0a9;
 }
 
 .left-switch, .right-switch {
@@ -294,6 +285,10 @@ DIGITAL
 
     .right-switch {
         padding-bottom: 2rem;
+    }
+
+    .carousel-info {
+        font-size: 1.5vw;
     }
 }
 

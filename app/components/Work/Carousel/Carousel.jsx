@@ -40,13 +40,10 @@ export default function Carousel({ posts }) {
             <motion.div className="carousel-item" {...carouselSlideAnimationProps} key={currentIndex}>
               <div className="carousel-img-container">
                 <img src={posts[currentIndex].imageUrls[0]}/>
-                <div className="carousel-description">
-                  <motion.h4 {...descriptionAnimationProps}>{posts[currentIndex].description}</motion.h4>
-                </div>
               </div>
               <div className="carousel-info">
                 <motion.h3 {...titleAnimationProps}>{posts[currentIndex].title}</motion.h3>
-                <motion.h3 {...subTitleAnimationProps} key={currentIndex}>{posts[currentIndex].subTitle}</motion.h3>
+                <motion.h3 className="carousel-subtitle" {...subTitleAnimationProps} key={currentIndex}>{posts[currentIndex].subTitle}</motion.h3>
               </div>
             </motion.div>
             <div className="right-switch" onClick={switchRight}>{">"}</div>
