@@ -8,7 +8,6 @@ import ContactLabel from "@/app/components/Contact/ContactLabel";
 import InfoBox from "@/app/components/Contact/InfoBox";
 import Signature from "@/app/components/Contact/Signature";
 import { fadeInAnimationProps } from "./animation";
-import { useEffect } from "react";
 import FadeIn from "../FadeIn";
 
 export default function ContactPage({ contactInfo }) {

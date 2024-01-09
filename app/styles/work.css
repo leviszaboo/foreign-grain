@@ -52,7 +52,7 @@ html::-webkit-scrollbar {
     position: relative;
     margin-bottom: 2.694vw;
     margin-left: 3.694vw;
-    margin-right: 3.694vw;
+    margin-right: 3vw;
     column-gap: 2.694vw;
     grid-template-columns: repeat(16, 1fr);
     align-content: start;
@@ -71,7 +71,7 @@ html::-webkit-scrollbar {
 
 .a .block:nth-child(2) {
     display: flex;
-    height: 8.772vw;
+    height: 25.772vw;
     grid-column: 14/17;
     flex-direction: column;
     align-self: end;
@@ -90,7 +90,7 @@ html::-webkit-scrollbar {
 
 .b .block:nth-child(2) {
     display: flex;
-    height: 8.772vw;
+    height: 25.772vw;
     grid-column: 1/4;
     flex-direction: column;
     align-self: end;
@@ -102,6 +102,11 @@ html::-webkit-scrollbar {
 }
  
 .block .image-description {
+    margin-top: 0.3rem;
+    margin-right: auto;
+}
+
+.block .image-title-wrapper {
     margin-top: auto;
     margin-right: auto;
 }
@@ -120,7 +125,7 @@ html::-webkit-scrollbar {
 
 .c .block:nth-child(3) {
     display: flex;
-    height: 8.772vw;
+    height: 25.772vw;
     grid-column: 13/16;
     flex-direction: column;
     align-self: end;
@@ -141,7 +146,7 @@ html::-webkit-scrollbar {
 
 .d .block:nth-child(3) {
     display: flex;
-    height: 8.772vw;
+    height: 25.772vw;
     grid-column: 1/4;
     flex-direction: column;
     align-self: end;
