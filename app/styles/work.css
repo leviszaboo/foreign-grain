@@ -77,11 +77,6 @@ html::-webkit-scrollbar {
     align-self: end;
 }
 
-.a .block:nth-child(2) div {
-    padding-bottom: 0.2rem;
-}
-
-
 .b .block:nth-child(1) {
     height: 43vw;
     grid-column: 4/17;
@@ -106,9 +101,18 @@ html::-webkit-scrollbar {
     margin-right: auto;
 }
 
+.block .image-description h4 {
+    font-weight: 600;
+    color: rgb(236, 236, 236);
+}
+
 .block .image-title-wrapper {
     margin-top: auto;
     margin-right: auto;
+}
+
+.block .image-subtitle h3 {
+    color: #c68f30;
 }
 
 .c .block:nth-child(1) {
@@ -271,6 +275,12 @@ DIGITAL
     .right-switch {
         padding-left: 3rem;
         padding-bottom: 2rem;
+    }
+}
+
+@media (max-aspect-ratio: 11/10) {
+    .block .image-description {
+        display: none;
     }
 }
 

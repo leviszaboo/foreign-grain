@@ -2,25 +2,10 @@ import '@/app/styles/work.css'
 
 import Menu from "../../components/Menu/Menu/Menu"
 import MemorizePosition from '@/app/components/Work/MemorizePosition';
-
-import { getDocs, query, collection, orderBy } from "firebase/firestore";
-import { cache } from "react";
-import { db } from "@/app/firebase/config";
 import Gallery from '@/app/components/Work/Gallery/Gallery';
+import { fetchDocs } from '@/app/service/fetchDocs';
 
 export const revalidate = 0
-
-const fetchDocs = cache(async (ref) => {
-  try {
-    const querySnapshot = await getDocs(query(collection(db, ref), orderBy("createdAt", "desc")));
-    
-    const docs = querySnapshot.docs.map((doc) => doc.data());
-    
-    return docs;
-  } catch (error) {
-    return []; 
-  }
-})
 
 export default async function Analog() {
   const ref = `${process.env.NEXT_PUBLIC_USER_EMAIL}/gallery/analog`;

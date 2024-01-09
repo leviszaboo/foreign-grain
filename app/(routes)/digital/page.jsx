@@ -14,7 +14,11 @@ const fetchDocs = cache(async (ref) => {
   try {
     const querySnapshot = await getDocs(query(collection(db, ref), orderBy("createdAt", "desc")));
     
-    const docs = querySnapshot.docs.map((doc) => doc.data());
+    const docs = querySnapshot.docs.map((doc) => {
+      const { createdAt, ...data } = doc.data();
+
+      return data
+    });
     
     return docs;
   } catch (error) {

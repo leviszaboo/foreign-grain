@@ -1,23 +1,9 @@
 import AboutMePage from "@/app/components/AboutMe/AboutMePage"
 import Menu from "@/app/components/Menu/Menu/Menu"
 import MemorizePosition from "@/app/components/Work/MemorizePosition"
-
-import { getDocs, query, collection, orderBy } from "firebase/firestore";
-import { cache } from "react";
-import { db } from "@/app/firebase/config";
+import { fetchDocs } from "@/app/service/fetchDocs";
 
 export const revalidate = 0
-
-const fetchParagraphs = cache(async (ref) => {
-  try {
-    const querySnapshot = await getDocs(query(collection(db, ref), orderBy("createdAt", "desc")));
-    
-    const docs = querySnapshot.docs.map((doc) => doc.data());
-    return docs;
-  } catch (error) {
-    return []; 
-  }
-})
 
 const sources = [
   { source: '/Media/horizontal-final/patta-hor.jpeg', width: 74 },
@@ -30,7 +16,7 @@ const sources = [
 
 export default async function AboutMe() {
   const ref = `${process.env.NEXT_PUBLIC_USER_EMAIL}/about-me/paragraphs`;
-  const paragraphs = await fetchParagraphs(ref);
+  const paragraphs = await fetchDocs(ref);
 
   return (
     <>
