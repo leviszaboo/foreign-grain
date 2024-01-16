@@ -3,7 +3,7 @@ import "@/app/styles/mainpage.css"
 import "@/app/styles/work.css"
 import "@/app/styles/contact.css"
 import "@/app/styles/aboutme.css"
-import Header from "./components/Header"
+import MenuButton from "./components/Menu/MenuButton/MenuButton"
 
 export const metadata = {
   title: 'Luigi Simiani',
@@ -15,7 +15,7 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Header />
+        <MenuButton />
         {children}
       </body>
     </html>

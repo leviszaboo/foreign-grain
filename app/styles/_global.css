@@ -56,37 +56,16 @@ body {
 
 header {
     position: fixed;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); 
     height: 5.5rem;
     width: 100vw;
     z-index: 10000;
 }   
 
-header .flex-button, header .flex-title, header .flex-switcher {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-header .flex-button {
-    margin-right: auto;
-}
-
-header .flex-title {
-    margin-right: auto;
-    margin-left: auto;
-}
-
-header .flex-switcher {
-    margin-left: auto;
-}
-
 .loading {
     position: absolute;
     top: 53%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(0.95);
+    transform: translate(-50%, -50%) scale(0.85);
 }
 
 .loading img {
@@ -95,12 +74,13 @@ header .flex-switcher {
 
 .title-wrapper {
     position: absolute;
-    transform: translateX(0) scale(1);
+    left: 50%;
+    transform: translateX(-50%) scale(1);
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.5s ease-in-out;
-    animation: opacity 0.5s;
+    /* transition: transform 0.5s ease-in-out;
+    animation: opacity 0.5s;*/
 }
 
 .title {
@@ -110,7 +90,6 @@ header .flex-switcher {
     z-index: 4;
     letter-spacing: 3px;
     width: 500px; 
-    animation: opacity 0.3s
 }
 
 .title a {
@@ -120,9 +99,9 @@ header .flex-switcher {
 }
 
 .title-small {
-    position: absolute;
-    transform: translateX(-28.5vw) scale(0.6);
-    transition: transform 0.6s ease;
+    transform: translateX(0) scale(0.6);
+    left: 0;
+    margin-left: 1rem;
 }
 
 .title a span {
@@ -269,8 +248,10 @@ header .flex-switcher {
     margin-left: 20px;
     display: inline-block;
     cursor: pointer;
-    position: relative;
-    z-index: 6;
+    position: fixed;
+    top: 28.2px;
+    left: 20px;
+    z-index: 10001;
 }
   
 .bar-bar-1 {
@@ -516,20 +497,25 @@ header .flex-switcher {
         transition: none;
     }
 
-    .title {
-        transition: opacity 0.3s, transform 0s;
-    }
-
     .title-small {
-        transform: translateX(-50%);
-        opacity: 0;
-        transition: opacity 0.4s ease-in-out, transform 0s;
-        pointer-events: none;
+        display: none;
     }
 
 }
 
 @media (max-width: 650px) {
+    .loading {
+        transform: translate(-50%, -50%) scale(0.7);
+    }
+
+    .btn-hamburger-menu {
+        left: 0;
+    }
+
+    .title-wrapper {
+        top: 14px
+    }
+
     .title a {
         font-size: 45px;
     }
@@ -566,6 +552,7 @@ header .flex-switcher {
     .btn-hamburger-menu {
         transform: scale(0.75);
         margin-left: 12px;
+        top: 22.8px;
     }
 
     .flower-container-5 {
