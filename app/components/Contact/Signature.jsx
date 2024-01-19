@@ -10,7 +10,7 @@ export default function Signature() {
     <div className="signature">
        <h1>
          Developed by&nbsp;
-         <Link href={"https://github.com/leviszaboo"}>
+         <Link href={"https://github.com/leviszaboo"} target="_blank">
           Levi
          </Link>
        </h1>
