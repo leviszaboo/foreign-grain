@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef } from 'react'
+import {  useRef } from 'react'
 import { useScroll, useTransform, motion } from 'framer-motion';
 import { useWindowSize } from 'rooks';
 import FadeIn from '../FadeIn';
@@ -19,7 +19,7 @@ export default function AboutMeGallery({ sources }) {
       {sources.map((source) => {
         return (
           <FadeIn key={source} className="aboutme-picture-wrapper">
-            <img src={source.source} style={{width: `${source.width}%` }}/>
+            <img src={source.url} style={{ width: "80%" }}/>
           </FadeIn>
         )
       })}
