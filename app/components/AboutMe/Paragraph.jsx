@@ -5,11 +5,6 @@ import { motion, useScroll } from 'framer-motion';
 import Word from './Word';
 
 export default function Paragraph({ text }) {
-
-  useEffect(() => {
-    console.log(text)
-  }, [])
-
   const element = useRef(null);
   const { scrollYProgress } = useScroll({
     target: element,

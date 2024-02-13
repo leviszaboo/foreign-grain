@@ -41,7 +41,7 @@ TEXTBLOCKS
     color: white;
     padding-left: 6px;
     padding-right: 6px;
-    font-size: 3.6vw;
+    font-size: 3.4vw;
 }
 
 .aboutme-character {
@@ -71,6 +71,51 @@ GALLERY
 
 .aboutme-picture-wrapper img{
     height: auto;
+}
+
+/*
+BUTTON
+*/
+
+.aboutme-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 6rem;
+    margin-bottom: 4rem;
+}
+
+.send-button {
+    font-size: 23px;
+    text-align: center;
+    text-decoration: none;
+    transition: transform 0.2s ease-in-out;
+    outline-offset: -1.66px;
+    background-color: transparent;
+    border: 3px solid white;
+    outline: 2.5px solid white;
+    width: calc(1.33*144px);
+    height: calc(1.3*53px);
+    z-index: 4;
+    transition: outline-offset 250ms, transform 250ms;
+}
+
+.send-button h2 {
+    color: white;
+}
+
+.send-button:hover, .email-loading {
+    border: 4px solid #ffcc7f;
+    outline: 3.5px solid #ffcc7f;
+    outline-offset: -10px;
+    cursor: pointer;
+    transform: translateY(-2.5px) scale(0.93);;
+    transition: outline-offset 250ms, transform 250ms;
+}
+
+.send-button:hover h2, .email-loading h2 {
+    color: #ffcc7f;
 }
 
 /*

@@ -2,6 +2,7 @@ import { motion } from "framer-motion"
 import MainTitle from "./MainTitle"
 import Paragraph from "./Paragraph"
 import { textBlockAnimationProps } from "./animation"
+import LinkToContact from "./LinkToContact"
 
 export default function TextBlock({ paragraphs }) {
   return (

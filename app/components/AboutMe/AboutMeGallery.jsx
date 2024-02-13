@@ -13,9 +13,10 @@ export default function AboutMeGallery({ sources }) {
 
   const { innerWidth } = useWindowSize();
   const shift = innerWidth < 1024 ? null : transformed
+  //style={{y: shift}}
 
   return (
-    <motion.div ref={ref} style={{y: shift}} className="aboutme-gallery-wrapper" {...fadeInAnimationProps}>
+    <motion.div ref={ref} className="aboutme-gallery-wrapper" {...fadeInAnimationProps}>
       {sources.map((source) => {
         return (
           <FadeIn key={source} className="aboutme-picture-wrapper">
