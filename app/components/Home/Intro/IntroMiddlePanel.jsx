@@ -6,16 +6,16 @@ export default function IntroMiddlePanel({ pictures }) {
 
   const marginsObject = {
     below650: {
-      left: ["12%", "50%", "20%", "47%", "5%"],
-      top: ["-50rem", "-28rem", "-5rem", "16rem", "36rem"],
+      left: ["8%", "35%", "17%", "27%", "5%"],
+      top: ["-53rem", "-28rem", "-5rem", "16rem", "36rem"],
     },
     below850: {
       left: ["12%", "50%", "20%", "57%", "5%"],
-      top: ["-50rem", "-28rem", "-5rem", "16rem", "24rem"],
+      top: ["-53rem", "-28rem", "-5rem", "16rem", "24rem"],
     },
     above850: {
       left: ["12%", "58%", "20%", "57%", "5%"],
-      top: ["-50rem", "-28rem", "-5rem", "16rem", "19rem"],
+      top: ["-53rem", "-28rem", "-5rem", "16rem", "19rem"],
     },
   }
 
