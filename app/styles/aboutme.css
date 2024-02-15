@@ -82,8 +82,8 @@ BUTTON
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin-top: 6rem;
-    margin-bottom: 4rem;
+    margin-top: 5.5rem;
+    margin-bottom: 6rem;
 }
 
 .send-button {
@@ -128,9 +128,6 @@ MEDIA
     }
 }
 
-@media (max-width: 1000px) {
-}
-
 @media (max-width: 1024px) {
     .aboutme-wrapper {
         flex-direction: column;
@@ -169,6 +166,10 @@ MEDIA
 
     .aboutme-picture-wrapper {
         align-items: center;
+    }
+
+    .aboutme-link {
+        margin-top: 1rem;
     }
 }
 

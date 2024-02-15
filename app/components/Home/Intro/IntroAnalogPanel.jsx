@@ -9,14 +9,17 @@ import { useStartButtonStore } from '@/app/hooks/useStartButtonStore';
 export default function IntroAnalogPanel() {
   const { setButtonClicked } = useStartButtonStore();
   const { innerWidth } = useWindowSize()
-  const offset = innerWidth < 650 ? 0.8 : 0.99;
+  const offset = innerWidth < 650 ? 1.03 : 1.025;
 
   return (
  
     <div className="panel-wrapper analog-panel">   
       <ParallaxLayer speed={1.25} offset={offset}>
+          <Link href={"/analog"} className="panel-img-wrapper" onClick={() => setButtonClicked(false)}>
+            <img src="/Media/intro/analog.jpg" alt="" />
+          </Link>
         <Link href={"/analog"} onClick={() => setButtonClicked(false)}> 
-          <ArcadeText text={"analog work"} />
+          <ArcadeText text={"analog work"} className={"intro-link"}/>
         </Link>
       </ParallaxLayer>  
     </div>      

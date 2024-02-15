@@ -36,17 +36,19 @@ export default async function Home() {
   const verticalUrls = await fetchImageUrls(verticalRef);
   const horizontalUrls = await fetchImageUrls(horizontalRef); 
 
-    return (
-      <>
-        <Menu />
-        <Header />
-        <ShowSlideshow>
-          <Slideshow verticalUrls={verticalUrls} horizontalUrls={horizontalUrls}/>
-          <Startbutton />
-        </ShowSlideshow>
-        <HomeFlowers />
-        <Intro />
-        <Footer />
-      </>
-    );
+  const pictures = horizontalUrls.slice(-5);
+
+  return (
+    <>
+      <Menu />
+      <Header />
+      <ShowSlideshow>
+        <Slideshow verticalUrls={verticalUrls} horizontalUrls={horizontalUrls}/>
+        <Startbutton />
+      </ShowSlideshow>
+      <HomeFlowers />
+      <Intro pictures={pictures} />
+      <Footer />
+    </>
+  );
 }

@@ -13,11 +13,12 @@ import IntroFlowers from "./IntroFlowers";
 import IntroText from "./IntroText";
 import IntroMainSection from './IntroMainSection';
 import ScrollSign from './ScrollSign';
+import IntroMiddlePanel from './IntroMiddlePanel';
 
-export default function Intro() {
+export default function Intro({ pictures }) {
   const { isButtonClicked } = useStartButtonStore();
   const { innerWidth } = useWindowSize();
-  const pages = innerWidth < 650 ? 2 : 1.94;
+  const pages = innerWidth < 650 ? 2.58 : 2.44;
 
   return (
     <>
@@ -46,7 +47,8 @@ export default function Intro() {
               <ParallaxLayer speed={1.2}>
                 <ScrollSign delay1={5} delay2={5.1}/>
               </ParallaxLayer>
-              <ParallaxLayer speed={1.1} offset={1}>
+              <IntroMiddlePanel pictures={pictures} />
+              <ParallaxLayer speed={1.1} offset={1.5}>
                 <IntroMainSection/>
               </ParallaxLayer>
             </Parallax>

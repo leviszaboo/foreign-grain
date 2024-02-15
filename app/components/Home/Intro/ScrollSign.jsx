@@ -1,16 +1,11 @@
 import { motion } from "framer-motion";
-import { useRef, useEffect } from "react";
-import { useInView } from "framer-motion";
 
 import BlinkingArrows from "./BlinkingArrows";
 
-import { useIntroScrollStore } from "@/app/hooks/useIntroScrollStore";
-
-export default function ScrollSign({ delay1, delay2}) {
-  
+export default function ScrollSign({ delay1, delay2 }) {
   return (
     <>
-     <motion.h2
+      <motion.h2
         className="start-scroll"
         initial={{
           opacity: 0,
@@ -23,9 +18,9 @@ export default function ScrollSign({ delay1, delay2}) {
           ease: "easeIn",
           delay: delay1,
         }}
-        >
+      >
         <div>
-          <BlinkingArrows count={3} down={true} left={false}/>
+          <BlinkingArrows count={3} down={true} left={false} />
           <motion.span
             initial={{
               y: 5,
@@ -42,9 +37,9 @@ export default function ScrollSign({ delay1, delay2}) {
           >
             scroll down
           </motion.span>
-          <BlinkingArrows count={3} down={true} left={false}/>
+          <BlinkingArrows count={3} down={true} left={false} />
         </div>
       </motion.h2>
     </>
-  )
+  );
 }
