@@ -5,8 +5,9 @@ import ScrollSign from '../Home/Intro/ScrollSign'
 export default function MainTitle() {
   const ref = useRef(null)
   const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 4000], [0, -500]);
-  const y2 = useTransform(scrollY, [0, 4000], [0, -1500]);
+  const y1 = useTransform(scrollY, [0, 7000], [0, -2500]);
+  const y2 = useTransform(scrollY, [0, 7000], [0, -4500]);
+
 
   return (
     <div className='aboutme-title'>
