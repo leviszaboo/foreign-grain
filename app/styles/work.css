@@ -279,6 +279,11 @@ DIGITAL
         padding-left: 3rem;
         padding-bottom: 2rem;
     }
+
+    .carousel-info {
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
 }
 
 @media (max-aspect-ratio: 11/10) {

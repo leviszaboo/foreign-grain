@@ -1,55 +1,98 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { AnimatePresence, motion } from "framer-motion"
-import { useMenuStore } from "@/app/hooks/useMenuStore"
-import { 
-  carouselAnimationProps, 
-  carouselSlideAnimationProps, 
-  subTitleAnimationProps, 
-  titleAnimationProps ,
-  descriptionAnimationProps
-} from "./animation"
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { useWindowSize } from "rooks";
+import { useMenuStore } from "@/app/hooks/useMenuStore";
+import {
+  carouselAnimationProps,
+  carouselSlideAnimationProps,
+  subTitleAnimationProps,
+  titleAnimationProps,
+} from "./animation";
 
 export default function Carousel({ posts }) {
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [aspectRatio, setAspectRatio] = useState(1);
   const { isMenuVisible } = useMenuStore();
+  const { innerWidth, innerHeight } = useWindowSize();
 
   function switchRight() {
     if (currentIndex === posts.length - 1) {
-      setCurrentIndex(0)
+      setCurrentIndex(0);
     } else {
-      setCurrentIndex(currentIndex + 1)
+      setCurrentIndex(currentIndex + 1);
     }
   }
 
   function switchLeft() {
     if (currentIndex === 0) {
-      setCurrentIndex(posts.length - 1)
+      setCurrentIndex(posts.length - 1);
     } else {
-      setCurrentIndex(currentIndex - 1)
+      setCurrentIndex(currentIndex - 1);
     }
   }
+
+  useEffect(() => {
+    setAspectRatio(innerWidth / innerHeight);
+  }, [innerWidth, innerHeight]);
 
   return (
     <>
       {!isMenuVisible && (
         <AnimatePresence>
           <motion.div className="carousel" {...carouselAnimationProps}>
-            <div className="left-switch" onClick={switchLeft}>{"<"}</div> 
-            <motion.div className="carousel-item" {...carouselSlideAnimationProps} key={currentIndex}>
+            <div className="left-switch" onClick={switchLeft}>
+              {"<"}
+            </div>
+            <motion.div
+              className="carousel-item"
+              {...carouselSlideAnimationProps}
+              key={currentIndex}
+            >
               <div className="carousel-img-container">
-                <img src={posts[currentIndex].imageUrls[0]}/>
+                <img src={posts[currentIndex].imageUrls[0]} />
               </div>
-              <div className="carousel-info">
-                <motion.h3 {...titleAnimationProps}>{posts[currentIndex].title}</motion.h3>
-                <motion.h3 className="carousel-subtitle" {...subTitleAnimationProps} key={currentIndex}>{posts[currentIndex].subTitle}</motion.h3>
-              </div>
+              {aspectRatio > 1.2 && (
+              <motion.div
+                className="carousel-info"
+                {...carouselSlideAnimationProps}
+                key={currentIndex}
+              >
+                <h3 {...titleAnimationProps}>
+                  {posts[currentIndex].title}
+                </h3>
+                <h3
+                  className="carousel-subtitle"
+                  {...subTitleAnimationProps}
+                >
+                  {posts[currentIndex].subTitle}
+                </h3>
+              </motion.div>
+            )}
             </motion.div>
-            <div className="right-switch" onClick={switchRight}>{">"}</div>
+            {aspectRatio < 1.2 && (
+              <motion.div
+                className="carousel-info"
+                {...carouselSlideAnimationProps}
+              >
+                <h3 {...titleAnimationProps}>
+                  {posts[currentIndex].title}
+                </h3>
+                <h3
+                  className="carousel-subtitle"
+                  {...subTitleAnimationProps}
+                >
+                  {posts[currentIndex].subTitle}
+                </h3>
+              </motion.div>
+            )}
+            <div className="right-switch" onClick={switchRight}>
+              {">"}
+            </div>
           </motion.div>
         </AnimatePresence>
       )}
     </>
-  )
+  );
 }
