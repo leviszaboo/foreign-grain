@@ -4,6 +4,7 @@ import { useStartButtonStore } from '../hooks/useStartButtonStore'
 
 export default function Footer() {
 
+  const currentYear = new Date().getFullYear();
   const { isButtonClicked } = useStartButtonStore();
 
   return (
@@ -26,7 +27,7 @@ export default function Footer() {
           >
             <div className="sub-label-wrapper" style={{bottom: "30px"}}>
               <h2 className="sub-label">
-                *amsterdam <span>2023</span>
+                *amsterdam <span>{currentYear}</span>
               </h2>
             </div> 
           </motion.div>
