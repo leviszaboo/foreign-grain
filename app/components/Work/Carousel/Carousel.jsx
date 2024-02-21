@@ -18,6 +18,7 @@ export default function Carousel({ posts }) {
   const { innerWidth, innerHeight } = useWindowSize();
 
   function switchRight() {
+    console.log("switching right");
     if (currentIndex === posts.length - 1) {
       setCurrentIndex(0);
     } else {
@@ -26,6 +27,7 @@ export default function Carousel({ posts }) {
   }
 
   function switchLeft() {
+    console.log("switching left");
     if (currentIndex === 0) {
       setCurrentIndex(posts.length - 1);
     } else {
@@ -42,9 +44,11 @@ export default function Carousel({ posts }) {
       {!isMenuVisible && (
         <AnimatePresence>
           <motion.div className="carousel" {...carouselAnimationProps}>
+          {aspectRatio > 1.2 && (
             <div className="left-switch" onClick={switchLeft}>
               {"<"}
             </div>
+          )}
             <motion.div
               className="carousel-item"
               {...carouselSlideAnimationProps}
@@ -87,9 +91,18 @@ export default function Carousel({ posts }) {
                 </h3>
               </motion.div>
             )}
-            <div className="right-switch" onClick={switchRight}>
-              {">"}
-            </div>
+            {aspectRatio < 1.2 && (
+              <div className="switcher">
+                <span onClick={switchLeft}>{"<"}</span>
+                <span>&nbsp;</span>
+                <span onClick={switchRight}>{">"}</span>
+              </div>
+            )}
+            {aspectRatio > 1.2 && (
+              <div className="right-switch" onClick={switchRight}>
+                {">"}
+              </div>
+            )}
           </motion.div>
         </AnimatePresence>
       )}

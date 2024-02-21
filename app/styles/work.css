@@ -232,7 +232,7 @@ DIGITAL
     color: #ffe0a9;
 }
 
-.left-switch, .right-switch {
+.left-switch, .right-switch, .switcher {
     color: white;
     font-size: 50px;
     font-family: gaming, sans-serif;
@@ -268,16 +268,8 @@ DIGITAL
         height: auto;
     }
 
-    .left-switch {
-        position: absolute;
-        bottom: 0rem;
-        padding-right: 3rem;
-        padding-bottom: 2rem;
-    }
-
-    .right-switch {
-        padding-left: 3rem;
-        padding-bottom: 2rem;
+    .switcher {
+        padding-bottom: 1.5rem;
     }
 
     .carousel-info {
