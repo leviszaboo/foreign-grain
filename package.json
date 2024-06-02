@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "husky"
   },
   "dependencies": {
     "@react-spring/parallax": "^9.7.3",
@@ -26,8 +27,13 @@
     "zod": "^3.22.4",
     "zustand": "^4.3.8"
   },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  },
   "devDependencies": {
     "@types/node": "20.3.1",
-    "@types/react": "18.2.13"
+    "@types/react": "18.2.13",
+    "husky": "^9.0.11",
+    "prettier": "^3.3.0"
   }
 }
