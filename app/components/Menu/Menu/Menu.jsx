@@ -1,28 +1,25 @@
 "use client";
 
-import { useMenuStore } from '../../../hooks/useMenuStore';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useMenuStore } from "../../../hooks/useMenuStore";
+import { motion, AnimatePresence } from "framer-motion";
 
-import MenuItem from '../MenuItem/MenuItem';
-import Divider from '../Divider/Divider';
-import CharacterContainer from '../CharacterContainer/CharacterContainer';
-import MenuFlowers from '../Flowers/MenuFlowers';
-import Backdrop from '../Backdrop/Backdrop';
-import { menuAnimationProps } from './animation';
+import MenuItem from "../MenuItem/MenuItem";
+import Divider from "../Divider/Divider";
+import CharacterContainer from "../CharacterContainer/CharacterContainer";
+import MenuFlowers from "../Flowers/MenuFlowers";
+import Backdrop from "../Backdrop/Backdrop";
+import { menuAnimationProps } from "./animation";
 
 export default function Menu() {
   const { isMenuVisible, toggleMenu } = useMenuStore();
 
-  return(
+  return (
     <>
       <AnimatePresence>
         {isMenuVisible && (
           <>
             <Backdrop />
-              <motion.ul 
-                className="popup-menu"
-                {...menuAnimationProps}
-              >
+            <motion.ul className="popup-menu" {...menuAnimationProps}>
               <MenuItem
                 className="home"
                 href="/"
@@ -59,5 +56,5 @@ export default function Menu() {
         )}
       </AnimatePresence>
     </>
-  )
+  );
 }
