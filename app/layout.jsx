@@ -1,17 +1,16 @@
-import "@/app/styles/_global.css"
-import "@/app/styles/mainpage.css"
-import "@/app/styles/work.css"
-import "@/app/styles/contact.css"
-import "@/app/styles/aboutme.css"
-import MenuButton from "./components/Menu/MenuButton/MenuButton"
+import "@/app/styles/_global.css";
+import "@/app/styles/mainpage.css";
+import "@/app/styles/work.css";
+import "@/app/styles/contact.css";
+import "@/app/styles/aboutme.css";
+import MenuButton from "./components/Menu/MenuButton/MenuButton";
 
 export const metadata = {
-  title: 'Luigi Simiani',
-  description: 'Portfolio 2023',
-}
+  title: "Luigi Simiani",
+  description: `Portfolio ${new Date().getFullYear()}`,
+};
 
 export default async function RootLayout({ children }) {
-
   return (
     <html lang="en">
       <body>
@@ -19,5 +18,5 @@ export default async function RootLayout({ children }) {
         {children}
       </body>
     </html>
-  )
+  );
 }
