@@ -1,20 +1,16 @@
-"use client"
+"use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { fadeInAnimationProps } from "./animation";
+import ContentSwitcher from "../Work/ContentSwitcher/ContentSwitcher";
 
-export default function SmallHeader() {
-
-    return (
-      <motion.header {...fadeInAnimationProps}>
-        <div className="title-wrapper title-small">
-          <h1 className="title" {...fadeInAnimationProps}>
-            <Link href="/">
-              Foreign Grain
-            </Link>
-          </h1>
-        </div>
-      </motion.header>
+export default function SmallHeader({ showSwitcher = false }) {
+  return (
+    <motion.header {...fadeInAnimationProps}>
+      <div className="logo-wrapper logo-small">
+        <img src="/logo.png" alt="Foreign Grain Logo" className="logo pb-15" />
+      </div>
+      {showSwitcher && <ContentSwitcher />}
+    </motion.header>
   );
 }

@@ -22,7 +22,7 @@ export default function IntroAnalogPanel() {
           <img src="/Media/intro/analog.jpg" alt="" />
         </Link>
         <Link href={"/analog"} onClick={() => setButtonClicked(false)}>
-          <ArcadeText text={"gallery"} className={"intro-link"} />
+          <ArcadeText text={"analog work"} className={"intro-link"} />
         </Link>
       </ParallaxLayer>
     </div>

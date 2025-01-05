@@ -11,7 +11,7 @@ export async function sendEmail(formData) {
     const message = formData.get("message");
 
     await resend.emails.send({
-      from: `${name} <luigi@luigisimiani.com>`,
+      from: `${name} <onboarding@resend.dev>`,
       to: process.env.NEXT_PUBLIC_USER_EMAIL,
       subject: "Contact Form",
       text: message,

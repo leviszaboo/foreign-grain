@@ -1,6 +1,5 @@
-
 import "@/app/styles/mainpage.css";
-import '@/app/styles/work.css'
+import "@/app/styles/work.css";
 import Header from "../components/Header/Header.jsx";
 import Menu from "../components/Menu/Menu/Menu.jsx";
 import Slideshow from "../components/Home/Slideshow/Slideshow.jsx";
@@ -18,23 +17,25 @@ export const revalidate = 0;
 
 const fetchImageUrls = cache(async (ref) => {
   try {
-    const querySnapshot = await getDocs(query(collection(db, ref), orderBy("createdAt", "desc")));
-    
+    const querySnapshot = await getDocs(
+      query(collection(db, ref), orderBy("createdAt", "desc")),
+    );
+
     const urls = querySnapshot.docs.map((doc) => doc.data().url);
-    
+
     return urls;
   } catch (error) {
     console.error("Error fetching image URLs:", error);
-    return []; 
+    return [];
   }
-})
+});
 
 export default async function Home() {
   const verticalRef = `${process.env.NEXT_PUBLIC_USER_EMAIL}/featured/vertical`;
   const horizontalRef = `${process.env.NEXT_PUBLIC_USER_EMAIL}/featured/horizontal`;
 
   const verticalUrls = await fetchImageUrls(verticalRef);
-  const horizontalUrls = await fetchImageUrls(horizontalRef); 
+  const horizontalUrls = await fetchImageUrls(horizontalRef);
 
   const pictures = horizontalUrls.slice(-5);
 
@@ -43,12 +44,14 @@ export default async function Home() {
       <Menu />
       <Header />
       <ShowSlideshow>
-        <Slideshow verticalUrls={verticalUrls} horizontalUrls={horizontalUrls}/>
+        <Slideshow
+          verticalUrls={verticalUrls}
+          horizontalUrls={horizontalUrls}
+        />
         <Startbutton />
       </ShowSlideshow>
       <HomeFlowers />
       <Intro pictures={pictures} />
-      <Footer />
     </>
   );
 }

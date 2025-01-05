@@ -13,16 +13,18 @@ export default function InfoBox({ contactInfo }) {
       <h2>{contactInfo.phoneNumber}</h2>
       <h2>{contactInfo.address}</h2>
       <div className="socials">
-        {contactInfo.instagram && (
-          <Link href={contactInfo.instagram} target="_blank">
-            <Instagram color="white" size={32} />
-          </Link>
-        )}
-        {contactInfo.linkedIn && (
-          <Link href={contactInfo.linkedIn} target="_blank">
-            <Linkedin color="white" size={32} />
-          </Link>
-        )}
+        <Link
+          href={"https://www.instagram.com/greenmario.film/"}
+          target="_blank"
+        >
+          <Instagram color="white" size={32} />
+        </Link>
+        <Link
+          href={"https://www.linkedin.com/in/luigi-simiani-65643b228/"}
+          target="_blank"
+        >
+          <Linkedin color="white" size={32} />
+        </Link>
       </div>
     </motion.div>
   );

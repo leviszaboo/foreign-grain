@@ -22,7 +22,7 @@ export default function IntroDigitalPanel() {
           <img src="/Media/intro/digital.jpg" alt="" />
         </Link>
         <Link href={"/digital"} onClick={() => setButtonClicked(false)}>
-          <ArcadeText text={"work"} className={"intro-link"} />
+          <ArcadeText text={"digital work"} className={"intro-link"} />
         </Link>
       </ParallaxLayer>
     </div>
