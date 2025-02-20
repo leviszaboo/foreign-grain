@@ -7,6 +7,7 @@ import { cache } from "react";
 import { db } from "@/app/firebase/config";
 import Carousel from "@/app/components/Work/Carousel/Carousel";
 import SmallHeader from "@/app/components/Header/SmallHeader";
+import ProjectGrid from "@/app/components/Work/Grid/ProjectGrid";
 
 export const revalidate = 0;
 
@@ -35,7 +36,8 @@ export default async function Digital() {
   return (
     <MemorizePosition>
       <SmallHeader showSwitcher={true} />
-      <Carousel posts={docs} />
+      <ProjectGrid docs={docs} />
+      {/* <Carousel posts={docs} /> */}
       <Menu />
     </MemorizePosition>
   );
