@@ -38,6 +38,7 @@ export default async function Home() {
   const horizontalUrls = await fetchImageUrls(horizontalRef);
 
   const pictures = horizontalUrls.slice(-5);
+  //const pictures = ["first.jpg", "second.jpg"];
 
   return (
     <>

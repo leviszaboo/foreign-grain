@@ -90,6 +90,7 @@ header {
 
 .logo {
   height: 6.5rem;
+  width: auto;
 }
 
 .logo-small {

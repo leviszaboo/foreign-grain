@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useStartButtonStore } from "../../hooks/useStartButtonStore";
 import { fadeInAnimationProps } from "./animation";
+import Image from "next/image";
 
 export default function Header() {
   const { isButtonClicked } = useStartButtonStore();
@@ -12,10 +13,12 @@ export default function Header() {
       <AnimatePresence>
         {!isButtonClicked && (
           <div className="logo-wrapper">
-            <img
+            <Image
               src="/logo.png"
               alt="Foreign Grain Logo"
               className="logo pt-15"
+              width={247.64}
+              height={89}
             />
           </div>
         )}
