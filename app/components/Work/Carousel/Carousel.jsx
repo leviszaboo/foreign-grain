@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useWindowSize } from "rooks";
 import { useMenuStore } from "@/app/hooks/useMenuStore";
+import Image from "next/image";
 import {
   carouselAnimationProps,
   carouselSlideAnimationProps,
@@ -11,7 +12,7 @@ import {
   titleAnimationProps,
 } from "./animation";
 
-export default function Carousel({ posts }) {
+export default function Carousel({ post }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [aspectRatio, setAspectRatio] = useState(1);
   const { isMenuVisible } = useMenuStore();
@@ -19,7 +20,7 @@ export default function Carousel({ posts }) {
 
   function switchRight() {
     console.log("switching right");
-    if (currentIndex === posts.length - 1) {
+    if (currentIndex === post.imageUrls.length - 1) {
       setCurrentIndex(0);
     } else {
       setCurrentIndex(currentIndex + 1);
@@ -29,7 +30,7 @@ export default function Carousel({ posts }) {
   function switchLeft() {
     console.log("switching left");
     if (currentIndex === 0) {
-      setCurrentIndex(posts.length - 1);
+      setCurrentIndex(post.imageUrls.length - 1);
     } else {
       setCurrentIndex(currentIndex - 1);
     }
@@ -44,50 +45,48 @@ export default function Carousel({ posts }) {
       {!isMenuVisible && (
         <AnimatePresence>
           <motion.div className="carousel" {...carouselAnimationProps}>
-          {aspectRatio > 1.2 && (
-            <div className="left-switch" onClick={switchLeft}>
-              {"<"}
-            </div>
-          )}
+            {aspectRatio > 1.2 && (
+              <div className="left-switch" onClick={switchLeft}>
+                {"<"}
+              </div>
+            )}
             <motion.div
               className="carousel-item"
               {...carouselSlideAnimationProps}
               key={currentIndex}
             >
               <div className="carousel-img-container">
-                <img src={posts[currentIndex].imageUrls[0]} />
+                <Image
+                  className="carousel-img"
+                  src={post.imageUrls[currentIndex]}
+                  width={400}
+                  height={400}
+                  alt=""
+                  loading="lazy"
+                  lqip={{ active: true, quality: 5, blur: 10 }}
+                />
               </div>
               {aspectRatio > 1.2 && (
-              <motion.div
-                className="carousel-info"
-                {...carouselSlideAnimationProps}
-                key={currentIndex}
-              >
-                <h3 {...titleAnimationProps}>
-                  {posts[currentIndex].title}
-                </h3>
-                <h3
-                  className="carousel-subtitle"
-                  {...subTitleAnimationProps}
+                <motion.div
+                  className="carousel-info"
+                  {...carouselSlideAnimationProps}
+                  key={currentIndex}
                 >
-                  {posts[currentIndex].subTitle}
-                </h3>
-              </motion.div>
-            )}
+                  <h3 {...titleAnimationProps}>{post.title}</h3>
+                  <h3 className="carousel-subtitle" {...subTitleAnimationProps}>
+                    {post.subTitle}
+                  </h3>
+                </motion.div>
+              )}
             </motion.div>
             {aspectRatio < 1.2 && (
               <motion.div
                 className="carousel-info"
                 {...carouselSlideAnimationProps}
               >
-                <h3 {...titleAnimationProps}>
-                  {posts[currentIndex].title}
-                </h3>
-                <h3
-                  className="carousel-subtitle"
-                  {...subTitleAnimationProps}
-                >
-                  {posts[currentIndex].subTitle}
+                <h3 {...titleAnimationProps}>{post.title}</h3>
+                <h3 className="carousel-subtitle" {...subTitleAnimationProps}>
+                  {post.subTitle}
                 </h3>
               </motion.div>
             )}

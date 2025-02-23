@@ -254,7 +254,7 @@ header {
   display: inline-block;
   cursor: pointer;
   position: fixed;
-  top: 28.2px;
+  top: 32.2px;
   left: 20px;
   z-index: 10001;
 }
@@ -291,6 +291,18 @@ header {
 .change .bar-bar-2 {
   transform: rotate(-45deg) translateY(-9.2px);
   transform-origin: center;
+}
+
+.navigator .bar-bar-1 {
+  width: 32px;
+  transform: rotate(-37deg) translateY(-2px);
+  animation: fade-in 0.8s ease-out;
+}
+
+.navigator .bar-bar-2 {
+  width: 32px;
+  transform: rotate(37deg) translateY(2px);
+  animation: fade-in 0.8s ease-out;
 }
 
 .intro-open .bar-bar-1 {
