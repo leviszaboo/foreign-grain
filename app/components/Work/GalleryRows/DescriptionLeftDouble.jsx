@@ -7,6 +7,8 @@ import DescriptionBlock from "./DescriptionBlock";
 export default function DescriptionLeftDouble({
   src1,
   src2,
+  base64_1,
+  base64_2,
   title,
   subtitle,
   description,
@@ -17,8 +19,8 @@ export default function DescriptionLeftDouble({
     <AnimatePresence>
       {!isMenuVisible && (
         <div className="grid-row d">
-          <ImageFrameBlock src={src1} vertical={true} />
-          <ImageFrameBlock src={src2} vertical={true} />
+          <ImageFrameBlock src={src1} vertical={true} base64={base64_1} />
+          <ImageFrameBlock src={src2} vertical={true} base64={base64_2} />
           <DescriptionBlock
             title={title}
             subtitle={subtitle}

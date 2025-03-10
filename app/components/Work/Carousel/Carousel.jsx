@@ -55,15 +55,15 @@ export default function Carousel({ post }) {
               {...carouselSlideAnimationProps}
               key={currentIndex}
             >
-              <div className="carousel-img-container">
+              <div className="carousel-img-container" key={post.imageUrls[0]}>
                 <Image
                   className="carousel-img"
                   src={post.imageUrls[currentIndex]}
                   width={400}
                   height={400}
                   alt=""
-                  loading="lazy"
-                  lqip={{ active: true, quality: 5, blur: 10 }}
+                  placeholder="blur"
+                  blurDataURL={post.base64[currentIndex]}
                 />
               </div>
               {aspectRatio > 1.2 && (
@@ -72,8 +72,14 @@ export default function Carousel({ post }) {
                   {...carouselSlideAnimationProps}
                   key={currentIndex}
                 >
-                  <h3 {...titleAnimationProps}>{post.title}</h3>
-                  <h3 className="carousel-subtitle" {...subTitleAnimationProps}>
+                  <h3 {...titleAnimationProps} key={post.title}>
+                    {post.title}
+                  </h3>
+                  <h3
+                    className="carousel-subtitle"
+                    {...subTitleAnimationProps}
+                    key={post.subTitle}
+                  >
                     {post.subTitle}
                   </h3>
                 </motion.div>

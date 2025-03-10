@@ -1,3 +1,5 @@
+// @ts-check
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -6,8 +8,7 @@ const nextConfig = {
         protocol: "https",
         hostname: "ik.imagekit.io",
         port: "",
-        pathname: "/of41wx7fe/**",
-        search: "",
+        pathname: "/**",
       },
     ],
   },
