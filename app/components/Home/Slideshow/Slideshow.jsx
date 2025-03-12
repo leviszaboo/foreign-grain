@@ -63,17 +63,9 @@ export default function Slideshow({ verticalUrls, horizontalUrls }) {
                 width={1920}
                 height={1080}
                 alt=""
-                loading="lazy"
+                loading="eager"
                 lqip={{ active: true, quality: 5, blur: 10 }}
               />
-              {/* <img
-                src={
-                  aspectRatio > 0.85
-                    ? horizontalUrls[currentSlide]
-                    : verticalUrls[currentSlide]
-                }
-                className="slide"
-              /> */}
             </motion.div>
           </motion.div>
         )}

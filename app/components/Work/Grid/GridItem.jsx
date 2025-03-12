@@ -37,6 +37,7 @@ export default function GridItem({ doc, index }) {
                 className="project-grid-img"
                 width={960}
                 height={540}
+                loading="eager"
                 priority={true}
               />
             </div>

@@ -5,10 +5,7 @@ import ImageFrameBlock from "./ImageFrameBlock";
 import DescriptionBlock from "./DescriptionBlock";
 
 export default function DescriptionRightDouble({
-  src1,
-  src2,
-  base64_1,
-  base64_2,
+  doc,
   title,
   subtitle,
   description,
@@ -19,8 +16,16 @@ export default function DescriptionRightDouble({
     <AnimatePresence>
       {!isMenuVisible && (
         <div className="grid-row c">
-          <ImageFrameBlock src={src1} vertical={true} base64={base64_1} />
-          <ImageFrameBlock src={src2} vertical={true} base64={base64_2} />
+          <ImageFrameBlock
+            src={doc.imageUrls[0]}
+            vertical={true}
+            base64={doc.base64[0]}
+          />
+          <ImageFrameBlock
+            src={doc.imageUrls[1]}
+            vertical={true}
+            base64={doc.base64[1]}
+          />
           <DescriptionBlock
             title={title}
             subtitle={subtitle}

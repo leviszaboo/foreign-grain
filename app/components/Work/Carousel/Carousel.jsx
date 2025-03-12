@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useWindowSize } from "rooks";
 import { useMenuStore } from "@/app/hooks/useMenuStore";
-import Image from "next/image";
+import Image from "../../Image";
 import {
   carouselAnimationProps,
   carouselSlideAnimationProps,
@@ -19,7 +19,6 @@ export default function Carousel({ post }) {
   const { innerWidth, innerHeight } = useWindowSize();
 
   function switchRight() {
-    console.log("switching right");
     if (currentIndex === post.imageUrls.length - 1) {
       setCurrentIndex(0);
     } else {
@@ -28,7 +27,6 @@ export default function Carousel({ post }) {
   }
 
   function switchLeft() {
-    console.log("switching left");
     if (currentIndex === 0) {
       setCurrentIndex(post.imageUrls.length - 1);
     } else {
@@ -59,9 +57,10 @@ export default function Carousel({ post }) {
                 <Image
                   className="carousel-img"
                   src={post.imageUrls[currentIndex]}
-                  width={400}
-                  height={400}
+                  width={3000}
+                  height={3000 / post.imageAspectRatios[currentIndex]}
                   alt=""
+                  loading="eager"
                   placeholder="blur"
                   blurDataURL={post.base64[currentIndex]}
                 />

@@ -8,16 +8,15 @@ export default function ImageFrameBlock({
   vertical = false,
 }) {
   return (
-    <motion.div className="block relative" {...frameAnimationProps}>
+    <motion.div className="block" {...frameAnimationProps}>
       <Image
         src={src}
         width={vertical ? 4266 : 5833}
         height={vertical ? 5328 : 3620}
         alt=""
-        loading="lazy"
+        loading="eager"
         placeholder="blur"
         blurDataURL={base64}
-        lqip={{ active: true, quality: 5, blur: 10 }}
       />
     </motion.div>
   );

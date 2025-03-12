@@ -4,14 +4,14 @@ import Header from "../components/Header/Header.jsx";
 import Menu from "../components/Menu/Menu/Menu.jsx";
 import Slideshow from "../components/Home/Slideshow/Slideshow.jsx";
 import Startbutton from "../components/Home/StartButton/StartButton.jsx";
-import Tagline from "../components/Home/Tagline/Tagline.jsx";
-import Footer from "../components/Footer.jsx";
 import Intro from "../components/Home/Intro/Intro.jsx";
 import HomeFlowers from "../components/Home/Flowers/HomeFlowers.jsx";
 import ShowSlideshow from "../components/ShowSlideshow.jsx";
 import { getDocs, query, collection, orderBy } from "firebase/firestore";
 import { cache } from "react";
 import { db } from "@/app/firebase/config";
+import { fetchDocs } from "../service/fetchDocs.js";
+import { fetchBlurDataUrls } from "../utils/getBase64.js";
 
 export const revalidate = 0;
 
@@ -33,12 +33,17 @@ const fetchImageUrls = cache(async (ref) => {
 export default async function Home() {
   const verticalRef = `${process.env.NEXT_PUBLIC_USER_EMAIL}/featured/vertical`;
   const horizontalRef = `${process.env.NEXT_PUBLIC_USER_EMAIL}/featured/horizontal`;
+  const introRef = `${process.env.NEXT_PUBLIC_USER_EMAIL}/featured/intro`;
 
   const verticalUrls = await fetchImageUrls(verticalRef);
   const horizontalUrls = await fetchImageUrls(horizontalRef);
+  const introDocs = await fetchDocs(introRef);
 
-  const pictures = horizontalUrls.slice(-5);
-  //const pictures = ["first.jpg", "second.jpg"];
+  const docs = introDocs.slice(-5) || introDocs;
+
+  const blurData = await fetchBlurDataUrls(docs, true);
+
+  docs.forEach((doc, i) => (doc.base64 = blurData[i]));
 
   return (
     <>
@@ -52,7 +57,7 @@ export default async function Home() {
         <Startbutton />
       </ShowSlideshow>
       <HomeFlowers />
-      <Intro pictures={pictures} />
+      <Intro docs={docs} />
     </>
   );
 }

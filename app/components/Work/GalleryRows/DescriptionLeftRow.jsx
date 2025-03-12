@@ -5,8 +5,7 @@ import DescriptionBlock from "./DescriptionBlock";
 import ImageFrameBlock from "./ImageFrameBlock";
 
 export default function DescriptionLeftRow({
-  src,
-  base64,
+  doc,
   title,
   subtitle,
   description,
@@ -17,7 +16,7 @@ export default function DescriptionLeftRow({
     <AnimatePresence>
       {!isMenuVisible && (
         <div className="grid-row a">
-          <ImageFrameBlock src={src} base64={base64} />
+          <ImageFrameBlock src={doc.imageUrls[0]} base64={doc.base64[0]} />
           <DescriptionBlock
             title={title}
             subtitle={subtitle}

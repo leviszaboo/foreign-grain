@@ -5,11 +5,9 @@ export async function getBase64(url) {
 
   const blurSvg = `
     <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 5'>
-      <filter id='b' color-interpolation-filters='sRGB'>
-        <feGaussianBlur stdDeviation='1' />
-      </filter>
+      
 
-      <image preserveAspectRatio='none' filter='url(#b)' x='0' y='0' height='100%' width='100%' 
+      <image preserveAspectRatio='none' x='0' y='0' height='100%' width='100%' 
       href='data:image/avif;base64,${base64str}' />
     </svg>
   `;
@@ -20,4 +18,32 @@ export async function getBase64(url) {
       : window.btoa(str);
 
   return `data:image/svg+xml;base64,${toBase64(blurSvg)}`;
+}
+
+export async function fetchBlurDataUrls(doc, featured = false) {
+  const urls = [];
+
+  if (!featured) {
+    for (let i = 0; i < doc.imageUrls.length; i++) {
+      const aspectRatio = doc.imageAspectRatios?.[i] || 1;
+      const width = 100;
+      const height = Math.round(width / aspectRatio);
+      const placeholderSrc = `${doc.imageUrls[i].split("?")[0]}?tr=w-${width},h-${height},bl-10`;
+      const base64 = await getBase64(placeholderSrc);
+
+      urls.push(base64);
+    }
+  } else {
+    for (let i = 0; i < doc.length; i++) {
+      const aspectRatio = doc[i]?.aspectRatio || 1;
+      const width = 100;
+      const height = Math.round(width / aspectRatio);
+      const placeholderSrc = `${doc[i].url.split("?")[0]}?tr=w-${width},h-${height},bl-10`;
+      const base64 = await getBase64(placeholderSrc);
+
+      urls.push(base64);
+    }
+  }
+
+  return urls;
 }

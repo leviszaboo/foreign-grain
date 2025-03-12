@@ -24,19 +24,15 @@ export default function Gallery({ docs }) {
                 {doc.imageUrls.length === 1 &&
                 doc.descriptionLayout === "left" ? (
                   <DescriptionLeftRow
-                    src={doc.imageUrls[0]}
+                    doc={doc}
                     title={doc.title}
                     subtitle={doc.subTitle}
                     description={doc.description}
-                    base64={doc.base64_1}
                   />
                 ) : doc.imageUrls.length === 2 &&
                   doc.descriptionLayout === "left" ? (
                   <DescriptionLeftDouble
-                    src1={doc.imageUrls[0]}
-                    src2={doc.imageUrls[1]}
-                    base64_1={doc.base64_1}
-                    base64_2={doc.base64_2}
+                    doc={doc}
                     title={doc.title}
                     subtitle={doc.subTitle}
                     description={doc.description}
@@ -44,8 +40,7 @@ export default function Gallery({ docs }) {
                 ) : doc.imageUrls.length === 1 &&
                   doc.descriptionLayout === "right" ? (
                   <DescriptionRightRow
-                    src={doc.imageUrls[0]}
-                    base64={doc.base64_1}
+                    doc={doc}
                     title={doc.title}
                     subtitle={doc.subTitle}
                     description={doc.description}
@@ -53,10 +48,7 @@ export default function Gallery({ docs }) {
                 ) : doc.imageUrls.length === 2 &&
                   doc.descriptionLayout === "right" ? (
                   <DescriptionRightDouble
-                    src1={doc.imageUrls[0]}
-                    src2={doc.imageUrls[1]}
-                    base64_1={doc.base64_1}
-                    base64_2={doc.base64_2}
+                    doc={doc}
                     title={doc.title}
                     subtitle={doc.subTitle}
                     description={doc.description}
