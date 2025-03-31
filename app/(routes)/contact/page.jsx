@@ -8,7 +8,7 @@ import { fetchDoc } from "@/app/service/fetchDocs";
 export const revalidate = 0;
 
 export default async function Contact() {
-  const ref = `${process.env.NEXT_PUBLIC_USER_EMAIL}/contact-info`;
+  const ref = `${process.env.NEXT_PUBLIC_USER_UID}/contact-info`;
   const contactInfo = await fetchDoc(ref);
 
   return (
@@ -19,5 +19,5 @@ export default async function Contact() {
         <ContactPage contactInfo={contactInfo} />
       </MemorizePosition>
     </>
-  )
+  );
 }

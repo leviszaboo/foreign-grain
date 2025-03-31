@@ -33,7 +33,7 @@ export const fetchDoc = cache(async (ref) => {
 
     if (querySnapshot.exists()) {
       const { createdAt, ...data } = querySnapshot.data();
-      console.log(data);
+
       return data;
     } else {
       return {};

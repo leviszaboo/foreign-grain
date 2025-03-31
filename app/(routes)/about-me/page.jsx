@@ -8,8 +8,8 @@ import { fetchBlurDataUrls } from "@/app/utils/getBase64";
 export const revalidate = 0;
 
 export default async function AboutMe() {
-  const paragraphRef = `${process.env.NEXT_PUBLIC_USER_EMAIL}/about-me/paragraphs`;
-  const sourcesRef = `${process.env.NEXT_PUBLIC_USER_EMAIL}/featured/about-me`;
+  const paragraphRef = `${process.env.NEXT_PUBLIC_USER_UID}/about-me/paragraphs`;
+  const sourcesRef = `${process.env.NEXT_PUBLIC_USER_UID}/featured/about-me`;
   const paragraphs = await fetchDocs(paragraphRef);
   const sources = await fetchDocs(sourcesRef);
 

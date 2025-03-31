@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { frameAnimationProps } from "./animation";
-import Image from "next/image";
+import Image from "../../Image";
 
 export default function ImageFrameBlock({
   src,

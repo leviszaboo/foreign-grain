@@ -9,7 +9,7 @@ export const revalidate = 0;
 
 export default async function ProjectPage({ params }) {
   const { project } = await params;
-  const ref = `${process.env.NEXT_PUBLIC_USER_EMAIL}/gallery/digital/${project}`;
+  const ref = `${process.env.NEXT_PUBLIC_USER_UID}/gallery/digital/${project}`;
   const doc = await fetchDoc(ref);
 
   const urls = await fetchBlurDataUrls(doc);

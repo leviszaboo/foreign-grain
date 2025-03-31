@@ -40,7 +40,7 @@ export default function ContentSwitcher() {
             href="/digital"
             className={`${activeLink === 1 ? "active-switch" : null}`}
           >
-            DIGITAL
+            WORK
           </Link>
         </motion.h1>
       )}

@@ -5,6 +5,7 @@ import { ParallaxLayer } from "@react-spring/parallax";
 import Link from "next/link";
 import { useWindowSize } from "rooks";
 import { useStartButtonStore } from "@/app/hooks/useStartButtonStore";
+import Image from "../../Image";
 
 export default function IntroAnalogPanel() {
   const { setButtonClicked } = useStartButtonStore();
@@ -19,7 +20,18 @@ export default function IntroAnalogPanel() {
           className="panel-img-wrapper"
           onClick={() => setButtonClicked(false)}
         >
-          <img src="/Media/intro/analog.jpg" alt="" />
+          <Image
+            src={
+              process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT +
+              "/" +
+              process.env.NEXT_PUBLIC_USER_UID +
+              "/digital-cover/digital-cover"
+            }
+            alt="analog"
+            width={1080}
+            height={620}
+            loading="eager"
+          />
         </Link>
         <Link href={"/analog"} onClick={() => setButtonClicked(false)}>
           <ArcadeText text={"analog work"} className={"intro-link"} />

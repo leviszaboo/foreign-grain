@@ -30,7 +30,7 @@ export default function Menu() {
               <MenuItem
                 className="work"
                 href="/analog"
-                label="Work"
+                label="Gallery"
                 toggleMenu={toggleMenu}
                 transition={{ duration: 0.5, delay: 0.1 }}
               />

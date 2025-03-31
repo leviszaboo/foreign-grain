@@ -328,6 +328,31 @@ DIGITAL
 * MEDIA
 */
 
+@media (max-width: 800px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+@media (max-width: 550px) {
+  .project-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (max-width: 420px) {
+  .project-grid {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  .project-grid-item-content {
+    font-size: 0.8rem;
+  }
+}
+
 @media (max-aspect-ratio: 12/10) {
   .carousel {
     flex-direction: column;

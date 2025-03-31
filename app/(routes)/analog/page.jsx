@@ -9,7 +9,7 @@ import { fetchBlurDataUrls, getBase64 } from "@/app/utils/getBase64";
 export const revalidate = 0;
 
 export default async function Analog() {
-  const ref = `${process.env.NEXT_PUBLIC_USER_EMAIL}/gallery/analog`;
+  const ref = `${process.env.NEXT_PUBLIC_USER_UID}/gallery/analog`;
   const docs = await fetchDocs(ref);
 
   const blurDataUrls = await Promise.all(

@@ -8,7 +8,7 @@ import ProjectGrid from "@/app/components/Work/Grid/ProjectGrid";
 export const revalidate = 0;
 
 export default async function Digital() {
-  const ref = `${process.env.NEXT_PUBLIC_USER_EMAIL}/gallery/digital`;
+  const ref = `${process.env.NEXT_PUBLIC_USER_UID}/gallery/digital`;
   const docs = await fetchDocs(ref);
 
   return (

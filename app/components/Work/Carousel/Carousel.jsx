@@ -38,6 +38,13 @@ export default function Carousel({ post }) {
     setAspectRatio(innerWidth / innerHeight);
   }, [innerWidth, innerHeight]);
 
+  useEffect(() => {
+    post.imageUrls.forEach((url) => {
+      const img = new window.Image();
+      img.src = url;
+    });
+  }, [post.imageUrls]);
+
   return (
     <>
       {!isMenuVisible && (
@@ -63,6 +70,7 @@ export default function Carousel({ post }) {
                   loading="eager"
                   placeholder="blur"
                   blurDataURL={post.base64[currentIndex]}
+                  priority={true}
                 />
               </div>
               {aspectRatio > 1.2 && (
