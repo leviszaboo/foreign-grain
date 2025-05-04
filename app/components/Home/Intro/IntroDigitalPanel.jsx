@@ -34,7 +34,7 @@ export default function IntroDigitalPanel() {
           />
         </Link>
         <Link href={"/digital"} onClick={() => setButtonClicked(false)}>
-          <ArcadeText text={"digital work"} className={"intro-link"} />
+          <ArcadeText text={"portfolio"} className={"intro-link"} />
         </Link>
       </ParallaxLayer>
     </div>

@@ -33,14 +33,14 @@ export default function ContentSwitcher() {
             href="/analog"
             className={`${activeLink === 0 ? "active-switch" : null}`}
           >
-            ANALOG
+            GALLERY
           </Link>
           <span>/</span>
           <Link
             href="/digital"
             className={`${activeLink === 1 ? "active-switch" : null}`}
           >
-            WORK
+            PORTFOLIO
           </Link>
         </motion.h1>
       )}
