@@ -25,7 +25,7 @@ export default function IntroAnalogPanel() {
               process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT +
               "/" +
               process.env.NEXT_PUBLIC_USER_UID +
-              "/digital-cover/digital-cover"
+              "/analog-cover/analog-cover"
             }
             alt="analog"
             width={1080}
