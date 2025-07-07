@@ -60,8 +60,8 @@ export default function Slideshow({ verticalUrls, horizontalUrls }) {
                     : verticalUrls[currentSlide]
                 }
                 className="slide"
-                width={1920}
-                height={1080}
+                width={aspectRatio > 0.85 ? 1920 : 1080}
+                height={aspectRatio > 0.85 ? 1080 : 1920}
                 alt=""
                 loading="eager"
                 lqip={{ active: true, quality: 5, blur: 10 }}
