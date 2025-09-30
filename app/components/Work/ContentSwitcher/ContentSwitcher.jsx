@@ -15,35 +15,33 @@ export default function ContentSwitcher() {
   const currentPathname = usePathname();
 
   useEffect(() => {
-    if (currentPathname === "/analog") {
-      setActiveLink(0);
-    } else if (currentPathname === "/digital") {
-      setActiveLink(1);
-    }
+    setActiveLink(currentPathname);
   }, [currentPathname]);
 
+  const regex = /^\/digital.*$/;
+
   return (
-    <AnimatePresence>
-      {!isMenuVisible && (
-        <motion.h1
-          className="content-switcher"
-          {...contentSwitcherAnimationProps}
-        >
-          <Link
-            href="/analog"
-            className={`${activeLink === 0 ? "active-switch" : null}`}
-          >
-            GALLERY
-          </Link>
-          <span>/</span>
-          <Link
-            href="/digital"
-            className={`${activeLink === 1 ? "active-switch" : null}`}
-          >
-            PORTFOLIO
-          </Link>
-        </motion.h1>
-      )}
-    </AnimatePresence>
+    // <AnimatePresence>
+    //   {!isMenuVisible && (
+    <h1
+      className="content-switcher"
+      // {...contentSwitcherAnimationProps}
+    >
+      <Link
+        href="/gallery"
+        className={activeLink == "/gallery" ? "active-switch" : ""}
+      >
+        GALLERY
+      </Link>
+      <span>/</span>
+      <Link
+        href="/digital"
+        className={regex.test(activeLink) ? "active-switch" : ""}
+      >
+        PORTFOLIO
+      </Link>
+    </h1>
+    //   )}
+    // </AnimatePresence>
   );
 }

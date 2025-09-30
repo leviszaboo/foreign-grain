@@ -33,7 +33,7 @@ export default function IntroAnalogPanel() {
             loading="eager"
           />
         </Link>
-        <Link href={"/analog"} onClick={() => setButtonClicked(false)}>
+        <Link href={"/gallery"} onClick={() => setButtonClicked(false)}>
           <ArcadeText text={"gallery"} className={"intro-link"} />
         </Link>
       </ParallaxLayer>

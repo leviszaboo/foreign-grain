@@ -1,5 +1,4 @@
 import AboutMePage from "@/app/components/AboutMe/AboutMePage";
-import SmallHeader from "@/app/components/Header/SmallHeader";
 import Menu from "@/app/components/Menu/Menu/Menu";
 import MemorizePosition from "@/app/components/Work/MemorizePosition";
 import { fetchDocs } from "@/app/service/fetchDocs";
@@ -20,7 +19,6 @@ export default async function AboutMe() {
   return (
     <>
       <MemorizePosition>
-        <SmallHeader />
         <Menu />
         <AboutMePage paragraphs={paragraphs.reverse()} sources={sources} />
       </MemorizePosition>

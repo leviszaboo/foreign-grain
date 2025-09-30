@@ -3,8 +3,7 @@ import Menu from "../../components/Menu/Menu/Menu";
 import MemorizePosition from "@/app/components/Work/MemorizePosition";
 import Gallery from "@/app/components/Work/Gallery/Gallery";
 import { fetchDocs } from "@/app/service/fetchDocs";
-import SmallHeader from "@/app/components/Header/SmallHeader";
-import { fetchBlurDataUrls, getBase64 } from "@/app/utils/getBase64";
+import { fetchBlurDataUrls } from "@/app/utils/getBase64";
 
 export const revalidate = 0;
 
@@ -24,7 +23,6 @@ export default async function Analog() {
 
   return (
     <MemorizePosition>
-      <SmallHeader showSwitcher={true} />
       <Gallery docs={docs} />
       <Menu />
     </MemorizePosition>

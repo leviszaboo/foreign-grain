@@ -1,6 +1,5 @@
 import "@/app/styles/mainpage.css";
 import "@/app/styles/work.css";
-import Header from "../components/Header/Header.jsx";
 import Menu from "../components/Menu/Menu/Menu.jsx";
 import Slideshow from "../components/Home/Slideshow/Slideshow.jsx";
 import Startbutton from "../components/Home/StartButton/StartButton.jsx";
@@ -48,7 +47,6 @@ export default async function Home() {
   return (
     <>
       <Menu />
-      <Header />
       <ShowSlideshow>
         <Slideshow
           verticalUrls={verticalUrls}

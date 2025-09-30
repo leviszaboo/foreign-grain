@@ -1,6 +1,4 @@
 import ContactPage from "@/app/components/Contact/ContactPage";
-import Header from "@/app/components/Header/Header";
-import SmallHeader from "@/app/components/Header/SmallHeader";
 import Menu from "@/app/components/Menu/Menu/Menu";
 import MemorizePosition from "@/app/components/Work/MemorizePosition";
 import { fetchDoc } from "@/app/service/fetchDocs";
@@ -14,7 +12,6 @@ export default async function Contact() {
   return (
     <>
       <Menu />
-      <SmallHeader />
       <MemorizePosition>
         <ContactPage contactInfo={contactInfo} />
       </MemorizePosition>
