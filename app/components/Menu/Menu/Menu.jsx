@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import MenuItem from "../MenuItem/MenuItem";
 import Divider from "../Divider/Divider";
-import CharacterContainer from "../CharacterContainer/CharacterContainer";
 import MenuFlowers from "../Flowers/MenuFlowers";
 import Backdrop from "../Backdrop/Backdrop";
 import { menuAnimationProps } from "./animation";
@@ -51,7 +50,6 @@ export default function Menu() {
             </motion.ul>
             <MenuFlowers />
             <Divider />
-            <CharacterContainer />
           </>
         )}
       </AnimatePresence>

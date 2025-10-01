@@ -16,7 +16,7 @@ export default function IntroAnalogPanel() {
     <div className="panel-wrapper analog-panel">
       <ParallaxLayer speed={1.25} offset={offset}>
         <Link
-          href={"/analog"}
+          href={"/gallery"}
           className="panel-img-wrapper"
           onClick={() => setButtonClicked(false)}
         >
