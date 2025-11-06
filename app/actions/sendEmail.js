@@ -1,21 +1,59 @@
 "use server";
 
 import { Resend } from "resend";
+import { contactFormSchema } from "@/app/schema/contactFormSchema";
 
-const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
+// CRITICAL: Use server-side only env variable (no NEXT_PUBLIC_ prefix)
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function sendEmail(formData) {
   try {
-    const name = formData.get("name");
-    const email = formData.get("email");
-    const message = formData.get("message");
+    // Extract and validate form data
+    const rawData = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      message: formData.get("message"),
+      website: formData.get("website") || "",
+    };
 
+    // Validate with Zod schema
+    const validatedData = contactFormSchema.parse(rawData);
+
+    // Bot protection: if honeypot field is filled, reject silently
+    if (validatedData.website) {
+      return {
+        success: true, // Return success to avoid revealing honeypot
+        error: null,
+      };
+    }
+
+    // Additional validation
+    if (!process.env.RESEND_API_KEY) {
+      console.error("RESEND_API_KEY is not configured");
+      return {
+        success: false,
+        error: "Email service is not configured. Please try again later.",
+      };
+    }
+
+    if (!process.env.USER_EMAIL) {
+      console.error("USER_EMAIL is not configured");
+      return {
+        success: false,
+        error: "Email service is not configured. Please try again later.",
+      };
+    }
+
+    // Sanitize name for display (remove potential XSS)
+    const sanitizedName = validatedData.name.replace(/[<>]/g, "");
+
+    // Send email
     await resend.emails.send({
-      from: `${name} <onboarding@resend.dev>`,
-      to: process.env.NEXT_PUBLIC_USER_EMAIL,
-      subject: "Contact Form",
-      text: message,
-      reply_to: email,
+      from: `${sanitizedName} <onboarding@resend.dev>`,
+      to: process.env.USER_EMAIL,
+      subject: "New Contact Form Submission",
+      text: `From: ${sanitizedName}\nEmail: ${validatedData.email}\n\nMessage:\n${validatedData.message}`,
+      reply_to: validatedData.email,
     });
 
     return {
@@ -23,9 +61,19 @@ export async function sendEmail(formData) {
       error: null,
     };
   } catch (err) {
+    console.error("Email send error:", err);
+
+    // Don't expose internal errors to client
+    if (err.name === "ZodError") {
+      return {
+        success: false,
+        error: "Please check your form inputs and try again.",
+      };
+    }
+
     return {
       success: false,
-      error: err.message,
+      error: "Failed to send email. Please try again later.",
     };
   }
 }

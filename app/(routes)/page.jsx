@@ -6,41 +6,23 @@ import Startbutton from "../components/Home/StartButton/StartButton.jsx";
 import Intro from "../components/Home/Intro/Intro.jsx";
 import HomeFlowers from "../components/Home/Flowers/HomeFlowers.jsx";
 import ShowSlideshow from "../components/ShowSlideshow.jsx";
-import { getDocs, query, collection, orderBy } from "firebase/firestore";
-import { cache } from "react";
-import { db } from "@/app/firebase/config";
-import { fetchDocs } from "../service/fetchDocs.js";
-import { fetchBlurDataUrls } from "../utils/getBase64.js";
+import { fetchDocs, fetchUrls } from "../service/fetchDocs.js";
+import { fetchFeaturedBlurDataUrls } from "../utils/getBase64.js";
 
 export const revalidate = 0;
-
-const fetchImageUrls = cache(async (ref) => {
-  try {
-    const querySnapshot = await getDocs(
-      query(collection(db, ref), orderBy("createdAt", "desc")),
-    );
-
-    const urls = querySnapshot.docs.map((doc) => doc.data().url);
-
-    return urls;
-  } catch (error) {
-    console.error("Error fetching image URLs:", error);
-    return [];
-  }
-});
 
 export default async function Home() {
   const verticalRef = `${process.env.NEXT_PUBLIC_USER_UID}/featured/vertical`;
   const horizontalRef = `${process.env.NEXT_PUBLIC_USER_UID}/featured/horizontal`;
   const introRef = `${process.env.NEXT_PUBLIC_USER_UID}/featured/intro`;
 
-  const verticalUrls = await fetchImageUrls(verticalRef);
-  const horizontalUrls = await fetchImageUrls(horizontalRef);
+  const verticalUrls = await fetchUrls(verticalRef);
+  const horizontalUrls = await fetchUrls(horizontalRef);
   const introDocs = await fetchDocs(introRef);
 
   const docs = introDocs.slice(-5) || introDocs;
 
-  const blurData = await fetchBlurDataUrls(docs, true);
+  const blurData = await fetchFeaturedBlurDataUrls(docs);
 
   docs.forEach((doc, i) => (doc.base64 = blurData[i]));
 

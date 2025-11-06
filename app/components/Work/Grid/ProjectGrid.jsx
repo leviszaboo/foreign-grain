@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useMenuStore } from "@/app/hooks/useMenuStore";
 import { AnimatePresence } from "framer-motion";
 import GridItem from "./GridItem";

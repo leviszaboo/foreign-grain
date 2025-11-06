@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo, useCallback } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useWindowSize } from "rooks";
 import { useMenuStore } from "@/app/hooks/useMenuStore";
@@ -11,46 +11,56 @@ import {
   subTitleAnimationProps,
   titleAnimationProps,
 } from "./animation";
+import { ASPECT_RATIO } from "@/app/utils/constants";
 
 export default function Carousel({ post }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [aspectRatio, setAspectRatio] = useState(1);
   const { isMenuVisible } = useMenuStore();
   const { innerWidth, innerHeight } = useWindowSize();
+  const isWideLayout = aspectRatio > ASPECT_RATIO.LANDSCAPE_THRESHOLD;
 
-  function switchRight() {
-    if (currentIndex === post.imageUrls.length - 1) {
-      setCurrentIndex(0);
-    } else {
-      setCurrentIndex(currentIndex + 1);
-    }
-  }
+  const switchRight = useCallback(() => {
+    setCurrentIndex((prev) =>
+      prev === post.imageUrls.length - 1 ? 0 : prev + 1,
+    );
+  }, [post.imageUrls.length]);
 
-  function switchLeft() {
-    if (currentIndex === 0) {
-      setCurrentIndex(post.imageUrls.length - 1);
-    } else {
-      setCurrentIndex(currentIndex - 1);
-    }
-  }
+  const switchLeft = useCallback(() => {
+    setCurrentIndex((prev) =>
+      prev === 0 ? post.imageUrls.length - 1 : prev - 1,
+    );
+  }, [post.imageUrls.length]);
 
   useEffect(() => {
     setAspectRatio(innerWidth / innerHeight);
   }, [innerWidth, innerHeight]);
 
+  // Preload next and previous images only (not all)
   useEffect(() => {
-    post.imageUrls.forEach((url) => {
+    const nextIndex = (currentIndex + 1) % post.imageUrls.length;
+    const prevIndex =
+      currentIndex === 0 ? post.imageUrls.length - 1 : currentIndex - 1;
+
+    const preloadImage = (url) => {
       const img = new window.Image();
       img.src = url;
-    });
-  }, [post.imageUrls]);
+    };
+
+    if (post.imageUrls[nextIndex]) {
+      preloadImage(post.imageUrls[nextIndex]);
+    }
+    if (post.imageUrls[prevIndex] && prevIndex !== nextIndex) {
+      preloadImage(post.imageUrls[prevIndex]);
+    }
+  }, [currentIndex, post.imageUrls]);
 
   return (
     <>
       {!isMenuVisible && (
         <AnimatePresence>
           <motion.div className="carousel" {...carouselAnimationProps}>
-            {aspectRatio > 1.2 && (
+            {isWideLayout && (
               <div className="left-switch" onClick={switchLeft}>
                 {"<"}
               </div>
@@ -73,7 +83,7 @@ export default function Carousel({ post }) {
                   priority={true}
                 />
               </div>
-              {aspectRatio > 1.2 && (
+              {isWideLayout && (
                 <motion.div
                   className="carousel-info"
                   {...carouselSlideAnimationProps}
@@ -92,7 +102,7 @@ export default function Carousel({ post }) {
                 </motion.div>
               )}
             </motion.div>
-            {aspectRatio < 1.2 && (
+            {!isWideLayout && (
               <motion.div
                 className="carousel-info"
                 {...carouselSlideAnimationProps}
@@ -103,14 +113,14 @@ export default function Carousel({ post }) {
                 </h3>
               </motion.div>
             )}
-            {aspectRatio < 1.2 && (
+            {!isWideLayout && (
               <div className="switcher">
                 <span onClick={switchLeft}>{"<"}</span>
                 <span>&nbsp;</span>
                 <span onClick={switchRight}>{">"}</span>
               </div>
             )}
-            {aspectRatio > 1.2 && (
+            {isWideLayout && (
               <div className="right-switch" onClick={switchRight}>
                 {">"}
               </div>

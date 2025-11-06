@@ -5,41 +5,113 @@ import "@/app/styles/work.css";
 import "@/app/styles/contact.css";
 import "@/app/styles/aboutme.css";
 import Header from "./components/Header/Header";
+import Script from "next/script";
+
+const SITE_URL = "https://luigisimiani.com";
+const SITE_NAME = "Luigi Simiani Photography";
+const SITE_DESCRIPTION =
+  "Portfolio of Luigi Simiani, a professional photographer based in Amsterdam specializing in fashion, editorial, and commercial photography.";
 
 export const metadata = {
-  title: "Luigi Simiani | Photography",
-  description:
-    "Portfolio of Luigi Simiani, professional photographer based in Amsterdam.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "Luigi Simiani | Professional Photographer Amsterdam",
+    template: `%s | ${SITE_NAME}`,
+  },
+  description: SITE_DESCRIPTION,
   keywords: [
     "Luigi Simiani",
-    "photographer",
-    "photography portfolio",
+    "photographer Amsterdam",
     "fashion photography",
-    "street photography",
+    "editorial photography",
     "commercial photography",
-    "photography in Amsterdam",
+    "portrait photography",
+    "Amsterdam photographer",
+    "professional photography",
+    "photography portfolio",
   ],
+  authors: [{ name: "Luigi Simiani", url: SITE_URL }],
+  creator: "Luigi Simiani",
+  publisher: "Luigi Simiani",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   openGraph: {
     type: "website",
-    locale: "nl_NL",
-    url: "https://luigisimiani.com",
-    siteName: "Luigi Simiani Photography",
-    // TODO
-    // images: [
-    //   {
-    //     url: "https://luigisimiani.com/og-default.jpg",
-    //     width: 1200,
-    //     height: 630,
-    //     alt: "Luigi Simiani Photography",
-    //   },
-    // ],
+    locale: "en_US",
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    title: "Luigi Simiani | Professional Photographer Amsterdam",
+    description: SITE_DESCRIPTION,
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Luigi Simiani Photography Portfolio",
+      },
+    ],
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/icon.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+  },
+  manifest: "/manifest.json",
+  verification: {
+    // Add your verification codes when available
+    // google: "your-google-verification-code",
+    // yandex: "your-yandex-verification-code",
+    // bing: "your-bing-verification-code",
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Luigi Simiani",
+  url: SITE_URL,
+  image: `${SITE_URL}/og-image.jpg`,
+  jobTitle: "Professional Photographer",
+  worksFor: {
+    "@type": "Organization",
+    name: SITE_NAME,
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Amsterdam",
+    addressCountry: "NL",
+  },
+  sameAs: [
+    // Add social media profiles when available
+    "https://instagram.com/goombasteppa",
+  ],
 };
 
 export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
+        <Script
+          id="structured-data"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <Header />
         {children}
       </body>

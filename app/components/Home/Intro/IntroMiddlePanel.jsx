@@ -1,6 +1,7 @@
 import { ParallaxLayer } from "@react-spring/parallax";
 import { useWindowSize } from "rooks";
 import Image from "../../Image";
+import { BREAKPOINTS } from "@/app/utils/constants";
 
 export default function IntroMiddlePanel({ docs }) {
   const { innerWidth } = useWindowSize();
@@ -23,13 +24,13 @@ export default function IntroMiddlePanel({ docs }) {
   const offsets = [1, 1.02, 1.07, 1.15, 1.2];
   const speeds = [1.7, 1.5, 1.3, 1.1, 1];
   const leftMargins =
-    innerWidth < 650
+    innerWidth < BREAKPOINTS.MOBILE
       ? marginsObject.below650.left
       : innerWidth < 850
         ? marginsObject.below850.left
         : marginsObject.above850.left;
   const topMargins =
-    innerWidth < 650
+    innerWidth < BREAKPOINTS.MOBILE
       ? marginsObject.below650.top
       : innerWidth < 850
         ? marginsObject.below850.top

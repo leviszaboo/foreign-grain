@@ -1,10 +1,15 @@
+import { memo } from "react";
 import FadeIn from "../../FadeIn";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { gridItemAnimationProps } from "./animation"; // Import the new animation
+import { gridItemAnimationProps } from "./animation";
 
-export default function GridItem({ doc, index }) {
+function GridItem({ doc, index }) {
+  // Only prioritize first 3 items for better initial page load
+  const isPriority = index < 3;
+  const loadingStrategy = isPriority ? "eager" : "lazy";
+
   return (
     <FadeIn>
       <Link href={`/digital/${doc.id}`} style={{ textDecorationLine: "none" }}>
@@ -33,12 +38,12 @@ export default function GridItem({ doc, index }) {
             <div className="project-grid-img-container">
               <Image
                 src={doc.coverPhoto}
-                alt="project"
+                alt={`${doc.title} - ${doc.subTitle}`}
                 className="project-grid-img"
                 width={960}
                 height={540}
-                loading="eager"
-                priority={true}
+                loading={loadingStrategy}
+                priority={isPriority}
               />
             </div>
           </div>
@@ -51,3 +56,5 @@ export default function GridItem({ doc, index }) {
     </FadeIn>
   );
 }
+
+export default memo(GridItem);
