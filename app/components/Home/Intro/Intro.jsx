@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import { useStartButtonStore } from "@/app/hooks/useStartButtonStore";
 import { useWindowSize } from "rooks";
+import { BREAKPOINTS } from "@/app/utils/constants";
 
 import IntroFlowers from "./IntroFlowers";
 import IntroText from "./IntroText";
@@ -15,7 +16,7 @@ import IntroMiddlePanel from "./IntroMiddlePanel";
 export default function Intro({ docs }) {
   const { isButtonClicked } = useStartButtonStore();
   const { innerWidth } = useWindowSize();
-  const pages = innerWidth < 650 ? 2.58 : 2.44;
+  const pages = innerWidth < BREAKPOINTS.MOBILE ? 2.58 : 2.44;
 
   return (
     <>

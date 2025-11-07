@@ -252,6 +252,7 @@ DIGITAL
   display: flex;
   gap: 0.4rem;
   flex-direction: column;
+  will-change: opacity, transform;
 }
 
 .carousel-img-container {
@@ -259,6 +260,7 @@ DIGITAL
   position: relative;
   margin-left: auto;
   margin-right: auto;
+  will-change: transform;
 }
 
 .carousel-img {
@@ -270,6 +272,7 @@ DIGITAL
   max-width: 60vw;
   margin-top: 0.25rem;
   z-index: 50;
+  will-change: opacity;
   display: flex;
   justify-content: space-between;
   gap: 1rem;

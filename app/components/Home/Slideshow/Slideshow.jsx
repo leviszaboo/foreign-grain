@@ -8,6 +8,7 @@ import { useSlideshowStore } from "@/app/hooks/useSlideShowStore";
 
 import { backgroundAnimationProps, slideAnimationProps } from "./animation";
 import Image from "../../Image";
+import { ASPECT_RATIO, IMAGE_DIMENSIONS } from "@/app/utils/constants";
 
 export default function Slideshow({ verticalUrls, horizontalUrls }) {
   const animationTime = 7500;
@@ -29,7 +30,9 @@ export default function Slideshow({ verticalUrls, horizontalUrls }) {
 
     handleResize();
     const totalSlides =
-      aspectRatio > 0.85 ? horizontalUrls.length : verticalUrls.length;
+      aspectRatio > ASPECT_RATIO.PORTRAIT_THRESHOLD
+        ? horizontalUrls.length
+        : verticalUrls.length;
 
     const interval = setInterval(() => {
       setCurrentSlide(totalSlides === 0 ? 0 : (currentSlide + 1) % totalSlides);
@@ -55,13 +58,21 @@ export default function Slideshow({ verticalUrls, horizontalUrls }) {
             >
               <Image
                 src={
-                  aspectRatio > 0.85
+                  aspectRatio > ASPECT_RATIO.PORTRAIT_THRESHOLD
                     ? horizontalUrls[currentSlide]
                     : verticalUrls[currentSlide]
                 }
                 className="slide"
-                width={aspectRatio > 0.85 ? 1920 : 1080}
-                height={aspectRatio > 0.85 ? 1080 : 1920}
+                width={
+                  aspectRatio > ASPECT_RATIO.PORTRAIT_THRESHOLD
+                    ? IMAGE_DIMENSIONS.HORIZONTAL.WIDTH
+                    : IMAGE_DIMENSIONS.VERTICAL.WIDTH
+                }
+                height={
+                  aspectRatio > ASPECT_RATIO.PORTRAIT_THRESHOLD
+                    ? IMAGE_DIMENSIONS.HORIZONTAL.HEIGHT
+                    : IMAGE_DIMENSIONS.VERTICAL.HEIGHT
+                }
                 alt=""
                 loading="eager"
                 lqip={{ active: true, quality: 5, blur: 10 }}

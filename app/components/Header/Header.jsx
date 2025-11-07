@@ -11,6 +11,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import MenuButton from "../Menu/MenuButton/MenuButton";
 import ContentSwitcher from "../Work/ContentSwitcher/ContentSwitcher";
+import { BREAKPOINTS } from "@/app/utils/constants";
 
 export default function Header() {
   const { isButtonClicked } = useStartButtonStore();
@@ -22,14 +23,15 @@ export default function Header() {
   const currentPathname = usePathname();
 
   useEffect(() => {
-    console.log(activeLink);
     setActiveLink(currentPathname);
   }, [currentPathname]);
 
   const regex = /^\/gallery.*|^\/digital.*$/;
 
   const showContentSwitcher =
-    innerWidth < 1000 && regex.test(currentPathname) && !isMenuVisible;
+    innerWidth < BREAKPOINTS.TABLET &&
+    regex.test(currentPathname) &&
+    !isMenuVisible;
 
   return (
     <>

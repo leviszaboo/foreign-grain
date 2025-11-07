@@ -159,13 +159,11 @@ nav .active-switch {
 }
 
 .content-switcher .active-switch {
-  /* color: #ffe0a9; */
   text-decoration: underline;
   text-underline-offset: 3.5px;
 }
 
 .content-switcher a:hover {
-  /* color: #ffe3b9; */
   text-decoration: underline;
   text-underline-offset: 3.5px;
 }
@@ -234,14 +232,8 @@ nav .active-switch {
   padding-right: 5.5px;
 }
 
-.arrow {
-  opacity: 0;
-  transition: opacity 0.15s ease-in-out;
-}
-
 .popup-menu a:hover {
   transform: scale(1);
-  /*background-color: white;*/
   background-position: 0 100%;
 }
 
@@ -653,14 +645,9 @@ nav .active-switch {
 }
 
 @media (max-width: 450px) {
-  /* .logo {
-    height: 4.9rem;
-  } */
-
   .btn-hamburger-menu {
     transform: scale(0.75);
     margin-left: 12px;
-    /* top: 22.8px; */
   }
 
   .flower-container-5 {

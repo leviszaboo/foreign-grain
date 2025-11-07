@@ -1,10 +1,14 @@
-import { motion } from "framer-motion"
+import { memo } from "react";
+import { motion } from "framer-motion";
 
-import { descriptionAnimationProps } from "./animation"
+import { descriptionAnimationProps } from "./animation";
 
-export default function DescriptionBlock({title, subtitle, description}) {
+function DescriptionBlock({ title, subtitle, description }) {
   return (
-    <motion.div className="block description-block" {...descriptionAnimationProps}>
+    <motion.div
+      className="block description-block"
+      {...descriptionAnimationProps}
+    >
       <div className="image-title-wrapper">
         {title !== "" && (
           <div className="image-title">
@@ -23,5 +27,7 @@ export default function DescriptionBlock({title, subtitle, description}) {
         </div>
       )}
     </motion.div>
-  )
+  );
 }
+
+export default memo(DescriptionBlock);

@@ -2,16 +2,10 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
-import { useEffect } from "react";
-
-import { useMenuStore } from "../../../hooks/useMenuStore";
-import { contentSwitcherAnimationProps } from "./animation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function ContentSwitcher() {
   const [activeLink, setActiveLink] = useState(null);
-  const { isMenuVisible } = useMenuStore();
   const currentPathname = usePathname();
 
   useEffect(() => {
@@ -21,12 +15,7 @@ export default function ContentSwitcher() {
   const regex = /^\/digital.*$/;
 
   return (
-    // <AnimatePresence>
-    //   {!isMenuVisible && (
-    <h1
-      className="content-switcher"
-      // {...contentSwitcherAnimationProps}
-    >
+    <h1 className="content-switcher">
       <Link
         href="/gallery"
         className={activeLink == "/gallery" ? "active-switch" : ""}
@@ -41,7 +30,5 @@ export default function ContentSwitcher() {
         PORTFOLIO
       </Link>
     </h1>
-    //   )}
-    // </AnimatePresence>
   );
 }
