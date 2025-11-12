@@ -79,6 +79,7 @@ export const metadata = {
     // yandex: "your-yandex-verification-code",
     // bing: "your-bing-verification-code",
   },
+  themeColor: "#000000",
 };
 
 const jsonLd = {
