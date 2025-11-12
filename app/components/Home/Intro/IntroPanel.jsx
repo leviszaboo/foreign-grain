@@ -3,10 +3,12 @@
 import ArcadeText from "./ArcadeText";
 import { ParallaxLayer } from "@react-spring/parallax";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 import { useWindowSize } from "rooks";
 import { useStartButtonStore } from "@/app/hooks/useStartButtonStore";
 import Image from "../../Image";
 import { BREAKPOINTS } from "@/app/utils/constants";
+import { fetchDoc } from "@/app/service/fetchDocs";
 
 const PANEL_CONFIG = {
   analog: {
@@ -28,6 +30,21 @@ const PANEL_CONFIG = {
 };
 
 export default function IntroPanel({ type = "analog" }) {
+  const [digitalVersion, setDigitalVersion] = useState(0);
+  const [analogVersion, setAnalogVersion] = useState(0);
+
+  useEffect(() => {
+    const docRef = `${process.env.NEXT_PUBLIC_USER_UID}/coverVersions`;
+    fetchDoc(docRef).then((data) => {
+      if (data.digitalCoverVersion) {
+        setDigitalVersion(data.digitalCoverVersion);
+      }
+      if (data.analogCoverVersion) {
+        setAnalogVersion(data.analogCoverVersion);
+      }
+    });
+  }, [setAnalogVersion, setDigitalVersion]);
+
   const { setButtonClicked } = useStartButtonStore();
   const { innerWidth } = useWindowSize();
 
@@ -48,7 +65,8 @@ export default function IntroPanel({ type = "analog" }) {
               "/" +
               process.env.NEXT_PUBLIC_USER_UID +
               "/" +
-              config.imagePath
+              config.imagePath +
+              `?v${type === "analog" ? analogVersion : digitalVersion}`
             }
             alt={type}
             width={1080}
