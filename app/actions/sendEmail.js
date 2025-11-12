@@ -13,7 +13,7 @@ export async function sendEmail(formData) {
       name: formData.get("name"),
       email: formData.get("email"),
       message: formData.get("message"),
-      website: formData.get("website") || "",
+      website: formData.get("website") || "", // Honeypot field
     };
 
     // Validate with Zod schema

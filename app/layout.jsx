@@ -8,14 +8,14 @@ import Header from "./components/Header/Header";
 import Script from "next/script";
 
 const SITE_URL = "https://luigisimiani.com";
-const SITE_NAME = "Luigi Simiani Photography";
+const SITE_NAME = "Luigi Simiani";
 const SITE_DESCRIPTION =
   "Portfolio of Luigi Simiani, a professional photographer based in Amsterdam specializing in fashion, editorial, and commercial photography.";
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Luigi Simiani | Professional Photographer Amsterdam",
+    default: "Luigi Simiani",
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
@@ -43,7 +43,7 @@ export const metadata = {
     locale: "en_US",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: "Luigi Simiani | Professional Photographer Amsterdam",
+    title: "Luigi Simiani",
     description: SITE_DESCRIPTION,
     images: [
       {
