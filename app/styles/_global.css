@@ -55,8 +55,11 @@ a {
   z-index: 1000;
 }
 
-body {
+html {
   background-color: #000000;
+}
+
+body {
   font-family: "ApercuRegular", sans-serif;
   letter-spacing: normal;
 }
