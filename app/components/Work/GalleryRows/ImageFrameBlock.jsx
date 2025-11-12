@@ -8,8 +8,8 @@ function ImageFrameBlock({ src, base64 = "", vertical = false }) {
     <motion.div className="block" {...frameAnimationProps}>
       <Image
         src={src}
-        width={vertical ? 4266 : 5833}
-        height={vertical ? 5328 : 3620}
+        width={vertical ? 4160 : 5616}
+        height={vertical ? 5200 : 3744}
         alt=""
         loading="lazy"
         placeholder="blur"
