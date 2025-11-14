@@ -181,7 +181,7 @@ DIGITAL
 
 .project-grid-img-wrapper {
   position: relative;
-  padding-left: 10px;
+  padding-left: 6px;
   margin-bottom: 4px;
 }
 
@@ -225,6 +225,7 @@ DIGITAL
 .project-grid-item-content {
   display: flex;
   justify-content: space-between;
+  padding-left: 6px;
   padding-top: 0.5rem;
   font-size: 1rem;
 }
