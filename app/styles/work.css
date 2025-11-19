@@ -53,7 +53,7 @@ html::-webkit-scrollbar {
 
 .b .block:nth-child(1) {
   height: 43vw;
-  grid-column: 4/15;
+  grid-column: 5/16;
   grid-row: 1;
 }
 
