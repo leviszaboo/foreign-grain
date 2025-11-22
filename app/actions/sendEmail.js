@@ -36,7 +36,7 @@ export async function sendEmail(formData) {
       };
     }
 
-    if (!process.env.USER_EMAIL) {
+    if (!process.env.NEXT_PUBLIC_USER_EMAIL) {
       console.error("USER_EMAIL is not configured");
       return {
         success: false,
@@ -50,7 +50,7 @@ export async function sendEmail(formData) {
     // Send email
     await resend.emails.send({
       from: `${sanitizedName} <onboarding@resend.dev>`,
-      to: process.env.USER_EMAIL,
+      to: process.env.NEXT_PUBLIC_USER_EMAIL,
       subject: "New Contact Form Submission",
       text: `From: ${sanitizedName}\nEmail: ${validatedData.email}\n\nMessage:\n${validatedData.message}`,
       reply_to: validatedData.email,
