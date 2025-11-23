@@ -74,7 +74,6 @@ export default function Slideshow({ verticalUrls, horizontalUrls }) {
                     : IMAGE_DIMENSIONS.VERTICAL.HEIGHT
                 }
                 alt=""
-                loading="eager"
                 lqip={{ active: true, quality: 5, blur: 10 }}
               />
             </motion.div>

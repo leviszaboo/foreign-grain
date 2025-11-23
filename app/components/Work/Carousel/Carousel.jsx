@@ -71,17 +71,32 @@ export default function Carousel({ post }) {
               key={currentIndex}
             >
               <div className="carousel-img-container" key={post.imageUrls[0]}>
-                <Image
-                  className="carousel-img"
-                  src={post.imageUrls[currentIndex]}
-                  width={3000}
-                  height={3000 / post.imageAspectRatios[currentIndex]}
-                  alt=""
-                  loading="eager"
-                  placeholder="blur"
-                  blurDataURL={post.base64[currentIndex]}
-                  priority={true}
-                />
+                {(() => {
+                  const aspectRatio = post.imageAspectRatios[currentIndex];
+                  const isVertical = aspectRatio < 1;
+
+                  // Base sizes
+                  const maxWidth = 3000;
+                  const maxHeight = 3000;
+
+                  // Decide scaling
+                  const width = isVertical ? maxHeight * aspectRatio : maxWidth;
+                  const height = isVertical
+                    ? maxHeight
+                    : maxWidth / aspectRatio;
+
+                  return (
+                    <Image
+                      className="carousel-img"
+                      src={post.imageUrls[currentIndex]}
+                      width={Math.round(width)}
+                      height={Math.round(height)}
+                      alt=""
+                      placeholder="blur"
+                      blurDataURL={post.base64[currentIndex]}
+                    />
+                  );
+                })()}
               </div>
               {isWideLayout && (
                 <motion.div

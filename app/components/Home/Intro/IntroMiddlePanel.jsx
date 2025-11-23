@@ -46,7 +46,6 @@ export default function IntroMiddlePanel({ docs }) {
               height={1000 / doc.aspectRatio}
               src={doc.url}
               alt=""
-              loading="eager"
               placeholder="blur"
               blurDataURL={doc.base64}
               style={{ marginLeft: leftMargins[i], marginTop: topMargins[i] }}

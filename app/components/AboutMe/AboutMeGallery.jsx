@@ -16,7 +16,6 @@ export default function AboutMeGallery({ sources }) {
               alt=""
               width={1000}
               height={1000 / source.aspectRatio}
-              loading="eager"
               placeholder="blur"
               blurDataURL={source.base64}
               style={{ width: "80%" }}

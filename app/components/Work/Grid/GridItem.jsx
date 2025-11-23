@@ -8,7 +8,6 @@ import { gridItemAnimationProps } from "./animation";
 function GridItem({ doc, index }) {
   // Only prioritize first 3 items for better initial page load
   const isPriority = index < 3;
-  const loadingStrategy = isPriority ? "eager" : "lazy";
 
   return (
     <FadeIn>
@@ -42,7 +41,6 @@ function GridItem({ doc, index }) {
                 className="project-grid-img"
                 width={960}
                 height={540}
-                loading={loadingStrategy}
                 priority={isPriority}
               />
             </div>

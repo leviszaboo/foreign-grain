@@ -71,7 +71,6 @@ export default function IntroPanel({ type = "analog" }) {
             alt={type}
             width={1080}
             height={620}
-            loading="eager"
           />
         </Link>
         <Link href={config.href} onClick={() => setButtonClicked(false)}>
