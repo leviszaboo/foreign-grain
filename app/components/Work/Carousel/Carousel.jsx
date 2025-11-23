@@ -1,104 +1,141 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo, useCallback } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useWindowSize } from "rooks";
 import { useMenuStore } from "@/app/hooks/useMenuStore";
+import Image from "../../Image";
 import {
   carouselAnimationProps,
   carouselSlideAnimationProps,
   subTitleAnimationProps,
   titleAnimationProps,
 } from "./animation";
+import { ASPECT_RATIO } from "@/app/utils/constants";
 
-export default function Carousel({ posts }) {
+export default function Carousel({ post }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [aspectRatio, setAspectRatio] = useState(1);
   const { isMenuVisible } = useMenuStore();
   const { innerWidth, innerHeight } = useWindowSize();
+  const isWideLayout = aspectRatio > ASPECT_RATIO.LANDSCAPE_THRESHOLD;
 
-  function switchRight() {
-    console.log("switching right");
-    if (currentIndex === posts.length - 1) {
-      setCurrentIndex(0);
-    } else {
-      setCurrentIndex(currentIndex + 1);
-    }
-  }
+  const switchRight = useCallback(() => {
+    setCurrentIndex((prev) =>
+      prev === post.imageUrls.length - 1 ? 0 : prev + 1,
+    );
+  }, [post.imageUrls.length]);
 
-  function switchLeft() {
-    console.log("switching left");
-    if (currentIndex === 0) {
-      setCurrentIndex(posts.length - 1);
-    } else {
-      setCurrentIndex(currentIndex - 1);
-    }
-  }
+  const switchLeft = useCallback(() => {
+    setCurrentIndex((prev) =>
+      prev === 0 ? post.imageUrls.length - 1 : prev - 1,
+    );
+  }, [post.imageUrls.length]);
 
   useEffect(() => {
     setAspectRatio(innerWidth / innerHeight);
   }, [innerWidth, innerHeight]);
+
+  // Preload next and previous images only (not all)
+  useEffect(() => {
+    const nextIndex = (currentIndex + 1) % post.imageUrls.length;
+    const prevIndex =
+      currentIndex === 0 ? post.imageUrls.length - 1 : currentIndex - 1;
+
+    const preloadImage = (url) => {
+      const img = new window.Image();
+      img.src = url;
+    };
+
+    if (post.imageUrls[nextIndex]) {
+      preloadImage(post.imageUrls[nextIndex]);
+    }
+    if (post.imageUrls[prevIndex] && prevIndex !== nextIndex) {
+      preloadImage(post.imageUrls[prevIndex]);
+    }
+  }, [currentIndex, post.imageUrls]);
 
   return (
     <>
       {!isMenuVisible && (
         <AnimatePresence>
           <motion.div className="carousel" {...carouselAnimationProps}>
-          {aspectRatio > 1.2 && (
-            <div className="left-switch" onClick={switchLeft}>
-              {"<"}
-            </div>
-          )}
+            {isWideLayout && (
+              <div className="left-switch" onClick={switchLeft}>
+                {"<"}
+              </div>
+            )}
             <motion.div
               className="carousel-item"
               {...carouselSlideAnimationProps}
               key={currentIndex}
             >
-              <div className="carousel-img-container">
-                <img src={posts[currentIndex].imageUrls[0]} />
+              <div className="carousel-img-container" key={post.imageUrls[0]}>
+                {(() => {
+                  const aspectRatio = post.imageAspectRatios[currentIndex];
+                  const isVertical = aspectRatio < 1;
+
+                  // Base sizes
+                  const maxWidth = 3000;
+                  const maxHeight = 3000;
+
+                  // Decide scaling
+                  const width = isVertical ? maxHeight * aspectRatio : maxWidth;
+                  const height = isVertical
+                    ? maxHeight
+                    : maxWidth / aspectRatio;
+
+                  return (
+                    <Image
+                      className="carousel-img"
+                      src={post.imageUrls[currentIndex]}
+                      width={Math.round(width)}
+                      height={Math.round(height)}
+                      alt=""
+                      placeholder="blur"
+                      blurDataURL={post.base64[currentIndex]}
+                    />
+                  );
+                })()}
               </div>
-              {aspectRatio > 1.2 && (
-              <motion.div
-                className="carousel-info"
-                {...carouselSlideAnimationProps}
-                key={currentIndex}
-              >
-                <h3 {...titleAnimationProps}>
-                  {posts[currentIndex].title}
-                </h3>
-                <h3
-                  className="carousel-subtitle"
-                  {...subTitleAnimationProps}
+              {isWideLayout && (
+                <motion.div
+                  className="carousel-info"
+                  {...carouselSlideAnimationProps}
+                  key={currentIndex}
                 >
-                  {posts[currentIndex].subTitle}
-                </h3>
-              </motion.div>
-            )}
+                  <h3 {...titleAnimationProps} key={post.title}>
+                    {post.title}
+                  </h3>
+                  <h3
+                    className="carousel-subtitle"
+                    {...subTitleAnimationProps}
+                    key={post.subTitle}
+                  >
+                    {post.subTitle}
+                  </h3>
+                </motion.div>
+              )}
             </motion.div>
-            {aspectRatio < 1.2 && (
+            {!isWideLayout && (
               <motion.div
                 className="carousel-info"
                 {...carouselSlideAnimationProps}
               >
-                <h3 {...titleAnimationProps}>
-                  {posts[currentIndex].title}
-                </h3>
-                <h3
-                  className="carousel-subtitle"
-                  {...subTitleAnimationProps}
-                >
-                  {posts[currentIndex].subTitle}
+                <h3 {...titleAnimationProps}>{post.title}</h3>
+                <h3 className="carousel-subtitle" {...subTitleAnimationProps}>
+                  {post.subTitle}
                 </h3>
               </motion.div>
             )}
-            {aspectRatio < 1.2 && (
+            {!isWideLayout && (
               <div className="switcher">
                 <span onClick={switchLeft}>{"<"}</span>
                 <span>&nbsp;</span>
                 <span onClick={switchRight}>{">"}</span>
               </div>
             )}
-            {aspectRatio > 1.2 && (
+            {isWideLayout && (
               <div className="right-switch" onClick={switchRight}>
                 {">"}
               </div>

@@ -1,6 +1,18 @@
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
+import Image from "next/image";
 
-export default function FlowerContainer({ className, imageClassName, imageSrc, id, initial, animate, exit, transition, onClick, forwardedRef }) {
+export default function FlowerContainer({
+  className,
+  imageClassName,
+  imageSrc,
+  id,
+  initial,
+  animate,
+  exit,
+  transition,
+  onClick,
+  forwardedRef,
+}) {
   return (
     <motion.div
       id={id}
@@ -12,10 +24,7 @@ export default function FlowerContainer({ className, imageClassName, imageSrc, i
       onClick={onClick}
       ref={forwardedRef}
     >
-      <img
-        className={`flower ${imageClassName}`}
-        src={imageSrc}
-      />
+      <img className={`flower ${imageClassName}`} src={imageSrc} alt="flower" />
     </motion.div>
-  )
-};
+  );
+}

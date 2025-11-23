@@ -1,24 +1,22 @@
-"use client"
+"use client";
 
-import { Parallax, ParallaxLayer } from '@react-spring/parallax'
-import { 
-  motion,
-  AnimatePresence, 
-} from "framer-motion";
+import { Parallax, ParallaxLayer } from "@react-spring/parallax";
+import { motion, AnimatePresence } from "framer-motion";
 
 import { useStartButtonStore } from "@/app/hooks/useStartButtonStore";
-import { useWindowSize } from 'rooks';
+import { useWindowSize } from "rooks";
+import { BREAKPOINTS } from "@/app/utils/constants";
 
 import IntroFlowers from "./IntroFlowers";
 import IntroText from "./IntroText";
-import IntroMainSection from './IntroMainSection';
-import ScrollSign from './ScrollSign';
-import IntroMiddlePanel from './IntroMiddlePanel';
+import IntroMainSection from "./IntroMainSection";
+import ScrollSign from "./ScrollSign";
+import IntroMiddlePanel from "./IntroMiddlePanel";
 
-export default function Intro({ pictures }) {
+export default function Intro({ docs }) {
   const { isButtonClicked } = useStartButtonStore();
   const { innerWidth } = useWindowSize();
-  const pages = innerWidth < 650 ? 2.58 : 2.44;
+  const pages = innerWidth < BREAKPOINTS.MOBILE ? 2.58 : 2.44;
 
   return (
     <>
@@ -45,11 +43,11 @@ export default function Intro({ pictures }) {
               </ParallaxLayer>
               <IntroFlowers />
               <ParallaxLayer speed={1.2}>
-                <ScrollSign delay1={5} delay2={5.1}/>
+                <ScrollSign delay1={5} delay2={5.1} />
               </ParallaxLayer>
-              <IntroMiddlePanel pictures={pictures} />
+              <IntroMiddlePanel docs={docs} />
               <ParallaxLayer speed={1.1} offset={1.5}>
-                <IntroMainSection/>
+                <IntroMainSection />
               </ParallaxLayer>
             </Parallax>
           </motion.div>
