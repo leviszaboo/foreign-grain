@@ -49,7 +49,7 @@ export async function sendEmail(formData) {
 
     // Send email
     await resend.emails.send({
-      from: `${sanitizedName} <onboarding@resend.dev>`,
+      from: `${sanitizedName} <contact-form@luigisimiani.com>`,
       to: process.env.NEXT_PUBLIC_USER_EMAIL,
       subject: "New Contact Form Submission",
       text: `From: ${sanitizedName}\nEmail: ${validatedData.email}\n\nMessage:\n${validatedData.message}`,
