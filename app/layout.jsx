@@ -74,10 +74,7 @@ export const metadata = {
   },
   manifest: "/manifest.json",
   verification: {
-    // Add your verification codes when available
-    // google: "your-google-verification-code",
-    // yandex: "your-yandex-verification-code",
-    // bing: "your-bing-verification-code",
+    google: "N8PEBDygSlA7Cu6s0FGBYKH5vbLXKQyw3j9GBT_zJZQ",
   },
   appleWebApp: {
     capable: true,
