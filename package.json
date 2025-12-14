@@ -21,7 +21,7 @@
     "framer-motion": "^10.12.16",
     "imagekitio-next": "^1.0.1",
     "lucide-react": "^0.290.0",
-    "next": "^15.2.1",
+    "next": "15.2.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-intersection-observer": "^9.5.2",
