@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react";
-import { useMenuStore } from "@/app/hooks/useMenuStore";
+import { useMenuStore } from "@/app/context/UIContext";
 
 export default function MemorizePosition({ children }) {
     const [scrollPosition, setScrollPosition] = useState(0);

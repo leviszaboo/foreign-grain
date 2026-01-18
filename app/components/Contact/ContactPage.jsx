@@ -1,7 +1,7 @@
 "use client"
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useMenuStore } from "@/app/hooks/useMenuStore";
+import { useMenuStore } from "@/app/context/UIContext";
 
 import ContactForm from "@/app/components/Contact/ContactForm";
 import ContactLabel from "@/app/components/Contact/ContactLabel";
@@ -20,7 +20,7 @@ export default function ContactPage({ contactInfo }) {
           <FadeIn>
             <ContactLabel />
           </FadeIn>
-          <div className="contact-wrapper">
+          <div className="flex flex-col lg:flex-row gap-8 px-8 py-8 max-w-6xl mx-auto">
             <ContactForm />
             <InfoBox contactInfo={contactInfo}/>
           </div>

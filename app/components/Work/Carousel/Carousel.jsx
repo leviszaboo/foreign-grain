@@ -3,7 +3,7 @@
 import { useEffect, useState, useMemo, useCallback } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useWindowSize } from "rooks";
-import { useMenuStore } from "@/app/hooks/useMenuStore";
+import { useMenuStore } from "@/app/context/UIContext";
 import Image from "../../Image";
 import {
   carouselAnimationProps,

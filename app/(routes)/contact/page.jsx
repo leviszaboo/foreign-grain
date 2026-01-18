@@ -1,9 +1,10 @@
 import ContactPage from "@/app/components/Contact/ContactPage";
 import Menu from "@/app/components/Menu/Menu/Menu";
 import MemorizePosition from "@/app/components/Work/MemorizePosition";
-import { fetchDoc } from "@/app/service/fetchDocs";
+import { fetchDoc } from "@/app/lib/content";
 
-export const revalidate = 0;
+// Use ISR with 1 hour revalidation
+export const revalidate = 3600;
 
 export const metadata = {
   title: "Contact",
@@ -18,8 +19,7 @@ export const metadata = {
 };
 
 export default async function Contact() {
-  const ref = `${process.env.NEXT_PUBLIC_USER_UID}/contact-info`;
-  const contactInfo = await fetchDoc(ref);
+  const contactInfo = await fetchDoc("contact");
 
   return (
     <>

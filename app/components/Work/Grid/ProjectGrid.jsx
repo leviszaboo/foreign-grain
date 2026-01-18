@@ -1,6 +1,6 @@
 "use client";
 
-import { useMenuStore } from "@/app/hooks/useMenuStore";
+import { useMenuStore } from "@/app/context/UIContext";
 import { AnimatePresence } from "framer-motion";
 import GridItem from "./GridItem";
 

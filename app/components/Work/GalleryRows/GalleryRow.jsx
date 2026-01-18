@@ -1,6 +1,6 @@
 import { AnimatePresence } from "framer-motion";
 
-import { useMenuStore } from "@/app/hooks/useMenuStore";
+import { useMenuStore } from "@/app/context/UIContext";
 import DescriptionBlock from "./DescriptionBlock";
 import ImageFrameBlock from "./ImageFrameBlock";
 

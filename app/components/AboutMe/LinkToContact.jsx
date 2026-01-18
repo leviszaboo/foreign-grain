@@ -1,15 +1,14 @@
 "use client"
 
-import { motion, useScroll } from 'framer-motion';
 import Link from 'next/link';
 import RollingButton from '../RollingButton';
 
-export default function LinkToContact({ text }) {
+export default function LinkToContact() {
 
   return (
-    <div className="aboutme-link" >
+    <div className="flex justify-center py-16">
       <Link href="/contact">
-        <RollingButton className="send-button" text="CONTACT" />
+        <RollingButton text="CONTACT" />
       </Link>
     </div>
   )

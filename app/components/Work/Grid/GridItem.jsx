@@ -11,7 +11,7 @@ function GridItem({ doc, index }) {
 
   return (
     <FadeIn>
-      <Link href={`/digital/${doc.id}`} style={{ textDecorationLine: "none" }}>
+      <Link href={`/gallery/${doc.id}`} style={{ textDecorationLine: "none" }}>
         <motion.div
           key={doc.id}
           className="project-grid-item group"

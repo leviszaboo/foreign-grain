@@ -1,17 +1,17 @@
-import { motion } from "framer-motion"
+"use client";
 
-import { backdropAnimationProps } from "./animation"
-import { useMenuStore } from "@/app/hooks/useMenuStore"
+import { motion } from "framer-motion";
+import { backdropAnimation } from "@/app/lib/animations";
+import { useMenuStore } from "@/app/context/UIContext";
 
 export default function Backdrop() {
-  const { toggleMenu } = useMenuStore()
-  
+  const { toggleMenu } = useMenuStore();
+
   return (
     <motion.div
-      className="menu-backdrop"
-      {...backdropAnimationProps}
+      className="fixed inset-0 bg-black/90 z-[50] cursor-pointer"
+      {...backdropAnimation}
       onClick={toggleMenu}
-    >
-    </motion.div>
-  )
+    />
+  );
 }
