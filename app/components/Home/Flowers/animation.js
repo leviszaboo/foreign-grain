@@ -1,6 +1,6 @@
 export const homeFlowerContainerProps = {
   flower1: {
-    className: "fixed top-28 right-12 w-20 md:w-24 lg:w-28 z-10",
+    className: "fixed top-28 right-12 w-12 md:w-14 lg:w-16 z-10",
     imageSrc: "/images/galleries/flower.png",
     floatDelay: 0,
     initial: {
@@ -27,7 +27,7 @@ export const homeFlowerContainerProps = {
     },
   },
   flower2: {
-    className: "fixed bottom-32 left-8 w-16 md:w-20 lg:w-24 z-10",
+    className: "fixed bottom-32 left-8 w-10 md:w-12 lg:w-14 z-10",
     imageSrc: "/images/galleries/flower.png",
     floatDelay: 0.5,
     initial: {
@@ -54,7 +54,7 @@ export const homeFlowerContainerProps = {
     },
   },
   flower3: {
-    className: "fixed top-1/3 left-6 w-14 md:w-18 lg:w-20 z-10",
+    className: "fixed top-1/3 left-6 w-8 md:w-10 lg:w-12 z-10",
     imageSrc: "/images/galleries/flower-3.png",
     floatDelay: 1,
     initial: {
@@ -81,7 +81,7 @@ export const homeFlowerContainerProps = {
     },
   },
   flower4: {
-    className: "fixed bottom-24 right-16 w-14 md:w-16 lg:w-20 z-10",
+    className: "fixed bottom-24 right-16 w-8 md:w-10 lg:w-12 z-10",
     imageSrc: "/images/galleries/flower-3.png",
     floatDelay: 1.5,
     initial: {

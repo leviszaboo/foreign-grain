@@ -5,24 +5,25 @@ import FilmStrip from "./FilmStrip";
 
 export default function HeroSection({ sources }) {
   return (
-    <section className="h-screen flex flex-col lg:flex-row items-center justify-between px-8 lg:px-16 relative">
-      {/* Left side - Title */}
-      <div className="flex-1 flex flex-col items-center lg:items-start justify-center gap-8">
+    <section className="h-screen relative overflow-hidden">
+      {/* Background Film Strip */}
+      <div className="absolute inset-0 z-0">
+        <FilmStrip sources={sources} />
+      </div>
+
+      {/* Overlay gradient */}
+      <div className="absolute inset-0 bg-black/50 z-10" />
+
+      {/* Title */}
+      <div className="absolute inset-0 flex items-center justify-center z-20">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-2xl md:text-8xl uppercase"
+          className="text-4xl md:text-8xl uppercase text-center"
         >
           About <span className="text-[#ffd700]">Me</span>
         </motion.h1>
-      </div>
-
-      {/* Right side - Film Strip */}
-      <div className="flex-1 flex justify-center lg:justify-end h-screen">
-        <div className="w-64 lg:w-80">
-          <FilmStrip sources={sources} />
-        </div>
       </div>
     </section>
   );

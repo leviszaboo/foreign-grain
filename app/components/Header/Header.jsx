@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { headerAnimation } from "@/app/lib/animations";
 import { cn } from "@/app/lib/cn";
 import { usePathname } from "next/navigation";
+import { useMenuStore } from "@/app/context/UIContext";
 import Link from "next/link";
 import Image from "next/image";
 import MenuButton from "../Menu/MenuButton/MenuButton";
@@ -12,6 +13,7 @@ import MenuButton from "../Menu/MenuButton/MenuButton";
 export default function Header() {
   const [activeLink, setActiveLink] = useState(null);
   const currentPathname = usePathname();
+  const { isMenuVisible } = useMenuStore();
 
   useEffect(() => {
     setActiveLink(currentPathname);
@@ -26,8 +28,11 @@ export default function Header() {
         className="fixed h-22 w-screen z-[10000] flex"
         {...headerAnimation}
       >
-        {/* Logo */}
-        <div className="flex items-center justify-center mr-auto ml-8 max-md:mr-4 max-md:ml-auto">
+        {/* Logo - hidden on mobile when menu is open */}
+        <div className={cn(
+          "flex items-center justify-center mr-auto ml-8 max-md:mr-4 max-md:ml-auto transition-opacity duration-300",
+          isMenuVisible && "max-md:opacity-0 max-md:pointer-events-none"
+        )}>
           <Link href="/" className="block">
             <Image
               src="/logo.png"

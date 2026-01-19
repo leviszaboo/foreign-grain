@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "../Image";
+import Image from "next/image";
 
 export default function FilmStrip({ sources }) {
   const images = sources.slice(0, 6);
@@ -8,7 +8,7 @@ export default function FilmStrip({ sources }) {
   const duplicatedImages = [...images, ...images];
 
   return (
-    <div className="h-screen overflow-hidden">
+    <div className="h-full w-full overflow-hidden">
       <div className="animate-scroll-up flex flex-col">
         {duplicatedImages.map((source, index) => (
           <div
@@ -18,9 +18,9 @@ export default function FilmStrip({ sources }) {
             <Image
               src={source.url}
               alt=""
-              width={800}
-              height={800 / (source.aspectRatio || 0.67)}
-              className="w-full h-auto object-cover"
+              fill
+              className="!relative w-full h-auto object-cover"
+              sizes="100vw"
             />
           </div>
         ))}
@@ -35,7 +35,7 @@ export default function FilmStrip({ sources }) {
           }
         }
         .animate-scroll-up {
-          animation: scroll-up 20s linear infinite;
+          animation: scroll-up 30s linear infinite;
         }
       `}</style>
     </div>
