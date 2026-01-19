@@ -1,6 +1,6 @@
 export const homeFlowerContainerProps = {
   flower1: {
-    className: "fixed top-12 right-12 w-20 md:w-24 lg:w-28 z-10",
+    className: "fixed top-28 right-12 w-20 md:w-24 lg:w-28 z-10",
     imageSrc: "/images/galleries/flower.png",
     floatDelay: 0,
     initial: {

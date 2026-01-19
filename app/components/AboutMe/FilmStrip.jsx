@@ -9,17 +9,17 @@ export default function FilmStrip({ sources }) {
 
   return (
     <div className="h-screen overflow-hidden">
-      <div className="animate-scroll-up flex flex-col gap-3">
+      <div className="animate-scroll-up flex flex-col">
         {duplicatedImages.map((source, index) => (
           <div
             key={`${source.url}-${index}`}
-            className="relative p-1 bg-white shrink-0"
+            className="relative shrink-0 w-full"
           >
             <Image
               src={source.url}
               alt=""
-              width={400}
-              height={400 / (source.aspectRatio || 0.67)}
+              width={800}
+              height={800 / (source.aspectRatio || 0.67)}
               className="w-full h-auto object-cover"
             />
           </div>

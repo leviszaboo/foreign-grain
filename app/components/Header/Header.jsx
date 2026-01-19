@@ -6,6 +6,7 @@ import { headerAnimation } from "@/app/lib/animations";
 import { cn } from "@/app/lib/cn";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import MenuButton from "../Menu/MenuButton/MenuButton";
 
 export default function Header() {
@@ -27,11 +28,15 @@ export default function Header() {
       >
         {/* Logo */}
         <div className="flex items-center justify-center mr-auto ml-8 max-md:mr-4 max-md:ml-auto">
-          <Link
-            href="/"
-            className="text-white text-sm uppercase tracking-[0.2em] no-underline hover:text-[#ffd700] transition-colors font-bold"
-          >
-            Luigi Simiani
+          <Link href="/" className="block">
+            <Image
+              src="/logo.png"
+              alt="Luigi Simiani"
+              width={120}
+              height={40}
+              className="h-8 w-auto invert opacity-90 hover:opacity-100 transition-opacity"
+              priority
+            />
           </Link>
         </div>
 
