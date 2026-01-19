@@ -32,7 +32,7 @@ function Flower({ config }) {
 
   return (
     <motion.div
-      className={`cursor-grab active:cursor-grabbing ${className}`}
+      className={`cursor-grab active:cursor-grabbing select-none ${className}`}
       style={{ x: springX, y: springY }}
       initial={motionProps.initial}
       animate={motionProps.animate}

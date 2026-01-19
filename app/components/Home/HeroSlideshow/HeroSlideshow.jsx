@@ -27,7 +27,7 @@ export default function HeroSlideshow({ images }) {
     <AnimatePresence>
       {!isMenuVisible && (
         <motion.section
-          className="relative h-screen w-full overflow-hidden"
+          className="relative h-screen w-full overflow-hidden select-none"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -48,8 +48,9 @@ export default function HeroSlideshow({ images }) {
                 alt=""
                 fill
                 priority={currentIndex === 0}
-                className="object-cover"
+                className="object-cover pointer-events-none"
                 sizes="100vw"
+                draggable={false}
               />
               {/* Gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60" />
