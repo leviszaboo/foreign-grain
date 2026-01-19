@@ -134,17 +134,39 @@ export const fetchUrls = cache(async (ref: string): Promise<string[]> => {
 });
 
 /**
+ * Normalize tags - handles both array elements and comma-separated strings
+ */
+function normalizeTags(tags?: string[]): string[] {
+  if (!tags) return [];
+  const normalized: string[] = [];
+  for (const tag of tags) {
+    // Split by comma and trim whitespace
+    const parts = tag.split(",").map((t) => t.trim().toLowerCase());
+    normalized.push(...parts.filter(Boolean));
+  }
+  return normalized;
+}
+
+/**
+ * Check if a gallery has a specific tag
+ */
+export function hasTag(gallery: Gallery, tag: string): boolean {
+  const tags = normalizeTags(gallery.tags);
+  return tags.includes(tag.toLowerCase());
+}
+
+/**
  * Check if a gallery is hidden (has "hidden" tag)
  */
 export function isHidden(gallery: Gallery): boolean {
-  return gallery.tags?.includes("hidden") ?? false;
+  return hasTag(gallery, "hidden");
 }
 
 /**
  * Check if a gallery is downloadable (has "downloadable" tag)
  */
 export function isDownloadable(gallery: Gallery): boolean {
-  return gallery.tags?.includes("downloadable") ?? false;
+  return hasTag(gallery, "downloadable");
 }
 
 /**

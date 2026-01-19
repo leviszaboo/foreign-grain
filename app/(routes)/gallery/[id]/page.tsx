@@ -5,6 +5,7 @@ import {
   fetchGalleryById,
   isPasswordProtected,
   isDownloadable,
+  hasTag,
 } from "@/app/lib/content";
 import ProtectedGallery from "@/app/components/Gallery/ProtectedGallery";
 import { notFound } from "next/navigation";
@@ -47,7 +48,7 @@ export default async function GalleryDetailPage({
 
   const isProtected = isPasswordProtected(gallery);
   const canDownload = isDownloadable(gallery);
-  const hasProtectTag = gallery.tags?.includes("protect") ?? false;
+  const hasProtectTag = hasTag(gallery, "protect");
 
   // Remove password from gallery before passing to client
   const safeGallery = isProtected

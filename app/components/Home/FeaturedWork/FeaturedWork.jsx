@@ -6,6 +6,17 @@ import Link from "next/link";
 import Image from "next/image";
 import { useMenuStore } from "@/app/context/UIContext";
 
+// Normalize tags - handles both array elements and comma-separated strings
+function hasTag(gallery, tag) {
+  if (!gallery.tags) return false;
+  const normalized = [];
+  for (const t of gallery.tags) {
+    const parts = t.split(",").map((p) => p.trim().toLowerCase());
+    normalized.push(...parts.filter(Boolean));
+  }
+  return normalized.includes(tag.toLowerCase());
+}
+
 // Generate deterministic vertical offset for staggered look
 function getVerticalOffset(id, index) {
   const hash = id.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0);
@@ -93,7 +104,7 @@ export default function FeaturedWork({ galleries, quotes = [] }) {
               }
 
               const gallery = item.data;
-              const isHero = gallery.tags?.includes("hero");
+              const isHero = hasTag(gallery, "hero");
 
               return (
                 <motion.article
