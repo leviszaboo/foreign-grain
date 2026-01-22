@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: leviszaboo/luigisimiani.com
-  branch: main
+  branch: master
   base_url: https://sveltia-cms-auth.leviszaboo.workers.dev
 
 local_backend: true
