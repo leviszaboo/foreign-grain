@@ -7,10 +7,10 @@ import Image from "../Image";
 
 export default function AboutMeGallery({ sources }) {
   return (
-    <motion.div className="aboutme-gallery-wrapper" {...fadeInAnimationProps}>
+    <motion.div className="flex-1 flex flex-col gap-8 items-center" {...fadeInAnimationProps}>
       {sources.map((source) => {
         return (
-          <FadeIn key={source.url} className="aboutme-picture-wrapper">
+          <FadeIn key={source.url} className="w-full flex justify-center">
             <Image
               src={source.url}
               alt=""
@@ -18,7 +18,7 @@ export default function AboutMeGallery({ sources }) {
               height={1000 / source.aspectRatio}
               placeholder="blur"
               blurDataURL={source.base64}
-              style={{ width: "80%" }}
+              className="w-4/5 h-auto"
             />
           </FadeIn>
         );

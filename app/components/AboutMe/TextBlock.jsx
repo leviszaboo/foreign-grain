@@ -2,11 +2,10 @@ import { motion } from "framer-motion"
 import MainTitle from "./MainTitle"
 import Paragraph from "./Paragraph"
 import { textBlockAnimationProps } from "./animation"
-import LinkToContact from "./LinkToContact"
 
 export default function TextBlock({ paragraphs }) {
   return (
-    <motion.div className="aboutme-text-wrapper" {...textBlockAnimationProps}>
+    <motion.div className="flex-1 space-y-8" {...textBlockAnimationProps}>
       <MainTitle />
       {paragraphs.map((paragraph, i) => {
         return (

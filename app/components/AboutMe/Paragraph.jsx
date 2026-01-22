@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { motion, useScroll } from 'framer-motion';
 import Word from './Word';
 
@@ -16,9 +16,10 @@ export default function Paragraph({ text }) {
   const len = words.length < 25 ? 25 : words.length
 
   return (
-    <motion.div className="aboutme-textblock" >
-      <motion.p 
+    <motion.div className="text-sm leading-relaxed">
+      <motion.p
         ref={element}
+        className="flex flex-wrap"
       >
         {
           words.map((word, i) => {
@@ -26,13 +27,13 @@ export default function Paragraph({ text }) {
             const end = start + (1 / ( len))
 
             return (
-              <Word 
-                key={i} 
-                range={[start, end]} 
-                progress={scrollYProgress} 
-                color={text.color} 
+              <Word
+                key={i}
+                range={[start, end]}
+                progress={scrollYProgress}
+                color={text.color}
               >
-                {word} 
+                {word}
               </Word>
             )
           })

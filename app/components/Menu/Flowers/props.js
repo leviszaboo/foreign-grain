@@ -2,7 +2,7 @@ export const menuFlowerContainerProps = [
   {
     className: "flower-container-5",
     imageClassName: "flower-5",
-    imageSrc: "/Media/flowers/flower-2.png",
+    imageSrc: "/images/galleries/flower-2.png",
     id: "1",
     initial: {
       scale: 0.65,
@@ -28,7 +28,7 @@ export const menuFlowerContainerProps = [
   {
     className: "flower-container-6",
     imageClassName: "flower-6",
-    imageSrc: "/Media/flowers/flower-3.png",
+    imageSrc: "/images/galleries/flower-3.png",
     id: "2",
     initial: {
       scale: 0.65,
@@ -56,7 +56,7 @@ export const menuFlowerContainerProps = [
   {
     className: "flower-container-7",
     imageClassName: "flower-7",
-    imageSrc: "/Media/flowers/flower-2.png",
+    imageSrc: "/images/galleries/flower-2.png",
     id: "1",
     initial: {
       scale: 0.65,

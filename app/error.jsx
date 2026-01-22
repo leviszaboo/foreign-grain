@@ -2,63 +2,27 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
+import { Button } from "@/components/ui/8bit/button";
 
 export default function Error({ error, reset }) {
   useEffect(() => {
-    // Log error to error reporting service (e.g., Sentry)
     console.error("Application error:", error);
   }, [error]);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        minHeight: "100vh",
-        padding: "2rem",
-        textAlign: "center",
-        color: "white",
-      }}
-    >
-      <h1 style={{ fontSize: "4rem", marginBottom: "1rem" }}>Oops!</h1>
-      <h2 style={{ fontSize: "1.5rem", marginBottom: "2rem" }}>
-        Something went wrong
-      </h2>
-      <p style={{ marginBottom: "2rem", maxWidth: "500px" }}>
+    <div className="flex flex-col items-center justify-center min-h-screen p-8 text-center text-white">
+      <h1 className="text-6xl mb-4">Oops!</h1>
+      <h2 className="text-2xl mb-8">Something went wrong</h2>
+      <p className="mb-8 max-w-md">
         We apologize for the inconvenience. An unexpected error has occurred.
       </p>
-      <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-        <button
-          onClick={() => reset()}
-          style={{
-            padding: "0.75rem 1.5rem",
-            fontSize: "1rem",
-            backgroundColor: "white",
-            color: "black",
-            border: "none",
-            cursor: "pointer",
-            borderRadius: "4px",
-          }}
-        >
+      <div className="flex gap-4 flex-wrap justify-center">
+        <Button onClick={() => reset()} variant="default">
           Try again
-        </button>
-        <Link
-          href="/"
-          style={{
-            padding: "0.75rem 1.5rem",
-            fontSize: "1rem",
-            backgroundColor: "transparent",
-            color: "white",
-            border: "2px solid white",
-            textDecoration: "none",
-            borderRadius: "4px",
-            display: "inline-block",
-          }}
-        >
-          Go home
-        </Link>
+        </Button>
+        <Button asChild variant="outline" className="text-white border-white hover:bg-white hover:text-black">
+          <Link href="/">Go home</Link>
+        </Button>
       </div>
     </div>
   );

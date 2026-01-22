@@ -1,10 +1,11 @@
 import AboutMePage from "@/app/components/AboutMe/AboutMePage";
 import Menu from "@/app/components/Menu/Menu/Menu";
 import MemorizePosition from "@/app/components/Work/MemorizePosition";
-import { fetchDocs } from "@/app/service/fetchDocs";
+import { fetchDocs } from "@/app/lib/content";
 import { fetchFeaturedBlurDataUrls } from "@/app/utils/getBase64";
 
-export const revalidate = 0;
+// Use ISR with 1 hour revalidation
+export const revalidate = 3600;
 
 export const metadata = {
   title: "About Me",
@@ -19,10 +20,8 @@ export const metadata = {
 };
 
 export default async function AboutMe() {
-  const paragraphRef = `${process.env.NEXT_PUBLIC_USER_UID}/about-me/paragraphs`;
-  const sourcesRef = `${process.env.NEXT_PUBLIC_USER_UID}/featured/about-me`;
-  const paragraphs = await fetchDocs(paragraphRef);
-  const sources = await fetchDocs(sourcesRef);
+  const paragraphs = await fetchDocs("bio");
+  const sources = await fetchDocs("film-strip");
 
   const blurData = await fetchFeaturedBlurDataUrls(sources);
 

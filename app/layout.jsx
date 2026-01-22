@@ -1,11 +1,14 @@
-import "@/app/styles/helpers.css";
-import "@/app/styles/_global.css";
-import "@/app/styles/mainpage.css";
-import "@/app/styles/work.css";
-import "@/app/styles/contact.css";
-import "@/app/styles/aboutme.css";
+import "@/app/styles/globals.css";
 import Header from "./components/Header/Header";
+import { UIProvider } from "./context/UIContext";
 import Script from "next/script";
+import { Press_Start_2P } from "next/font/google";
+
+const pressStart2P = Press_Start_2P({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-retro",
+});
 
 const SITE_URL = "https://luigisimiani.com";
 const SITE_NAME = "Luigi Simiani";
@@ -115,14 +118,16 @@ const jsonLd = {
 export default async function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <body className={pressStart2P.variable}>
         <Script
           id="structured-data"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <Header />
-        {children}
+        <UIProvider>
+          <Header />
+          {children}
+        </UIProvider>
       </body>
     </html>
   );

@@ -1,10 +1,9 @@
 "use client"
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useMenuStore } from "@/app/hooks/useMenuStore";
-import { fadeInAnimationProps } from "./animation";
-import AboutMeGallery from "./AboutMeGallery";
-import TextBlock from './TextBlock';
+import { useMenuStore } from "@/app/context/UIContext";
+import HeroSection from "./HeroSection";
+import ScrollingQuote from "./ScrollingQuote";
 import LinkToContact from './LinkToContact';
 
 export default function AboutMePage({ paragraphs, sources }) {
@@ -13,13 +12,16 @@ export default function AboutMePage({ paragraphs, sources }) {
   return (
     <AnimatePresence>
       {!isMenuVisible && (
-        <div>
-          <motion.div className="aboutme-wrapper">
-            <TextBlock paragraphs={paragraphs} />
-            <AboutMeGallery sources={sources} />
-          </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <HeroSection sources={sources} />
+          <ScrollingQuote paragraphs={paragraphs} />
           <LinkToContact />
-        </div>
+        </motion.div>
       )}
     </AnimatePresence>
   )

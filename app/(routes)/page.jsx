@@ -1,43 +1,43 @@
-import "@/app/styles/mainpage.css";
-import "@/app/styles/work.css";
 import Menu from "../components/Menu/Menu/Menu.jsx";
-import Slideshow from "../components/Home/Slideshow/Slideshow.jsx";
-import Startbutton from "../components/Home/StartButton/StartButton.jsx";
-import Intro from "../components/Home/Intro/Intro.jsx";
+import HeroSlideshow from "../components/Home/HeroSlideshow/HeroSlideshow.jsx";
 import HomeFlowers from "../components/Home/Flowers/HomeFlowers.jsx";
-import ShowSlideshow from "../components/ShowSlideshow.jsx";
-import { fetchDocs, fetchUrls } from "../service/fetchDocs.js";
-import { fetchFeaturedBlurDataUrls } from "../utils/getBase64.js";
+import FeaturedWork from "../components/Home/FeaturedWork/FeaturedWork.jsx";
+import {
+  fetchDoc,
+  fetchGalleryById,
+  fetchFeaturedGalleriesWithLayout,
+} from "@/app/lib/content";
 
-export const revalidate = 0;
+export const revalidate = 3600;
 
 export default async function Home() {
-  const verticalRef = `${process.env.NEXT_PUBLIC_USER_UID}/featured/vertical`;
-  const horizontalRef = `${process.env.NEXT_PUBLIC_USER_UID}/featured/horizontal`;
-  const introRef = `${process.env.NEXT_PUBLIC_USER_UID}/featured/intro`;
+  const featured = await fetchDoc("featured");
+  const quotesData = await fetchDoc("quotes");
+  const featuredGalleries = await fetchFeaturedGalleriesWithLayout();
 
-  const verticalUrls = await fetchUrls(verticalRef);
-  const horizontalUrls = await fetchUrls(horizontalRef);
-  const introDocs = await fetchDocs(introRef);
+  // Get hero images from gallery references
+  const galleryIds = featured.galleries || [];
+  const heroImages = [];
 
-  const docs = introDocs.slice(-5) || introDocs;
+  for (const id of galleryIds) {
+    const gallery = await fetchGalleryById(id);
+    if (gallery) {
+      heroImages.push({
+        url: gallery.coverPhoto || gallery.imageUrls?.[0],
+        galleryId: gallery.id,
+      });
+    }
+  }
 
-  const blurData = await fetchFeaturedBlurDataUrls(docs);
-
-  docs.forEach((doc, i) => (doc.base64 = blurData[i]));
+  // Get quotes
+  const quotes = quotesData.quotes || [];
 
   return (
     <>
       <Menu />
-      <ShowSlideshow>
-        <Slideshow
-          verticalUrls={verticalUrls}
-          horizontalUrls={horizontalUrls}
-        />
-        <Startbutton />
-      </ShowSlideshow>
+      <HeroSlideshow images={heroImages} />
       <HomeFlowers />
-      <Intro docs={docs} />
+      <FeaturedWork galleries={featuredGalleries} quotes={quotes} />
     </>
   );
 }

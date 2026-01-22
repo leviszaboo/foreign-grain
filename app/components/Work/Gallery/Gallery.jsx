@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 
-import { useMenuStore } from "@/app/hooks/useMenuStore";
+import { useMenuStore } from "@/app/context/UIContext";
 
 import { galleryAnimationProps } from "./animation";
 import GalleryRow from "../GalleryRows/GalleryRow";

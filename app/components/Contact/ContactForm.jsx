@@ -1,15 +1,17 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { sendEmail } from "@/app/actions/sendEmail";
 import { contactFormAnimationProps } from "./animation";
 import ContactFormFooter from "./ContactFormFooter";
 import { contactFormSchema } from "@/app/schema/contactFormSchema";
+import { Input, Textarea } from "@/components/ui/8bit/input";
 
 export default function ContactForm() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [message, setMessage] = useState(null);
+  const formRef = useRef(null);
 
   useEffect(() => {
     if (error || message) {
@@ -37,9 +39,7 @@ export default function ContactForm() {
         setError(res.error || "Something went wrong.");
       } else {
         setMessage("Talk to you soon!");
-        // Reset form on success
-        const form = document.querySelector(".contact-form");
-        if (form) form.reset();
+        if (formRef.current) formRef.current.reset();
       }
     } catch (err) {
       if (err.name === "ZodError") {
@@ -54,53 +54,50 @@ export default function ContactForm() {
   }
 
   return (
-    <motion.div {...contactFormAnimationProps}>
-      <div className="form-wrapper">
-        <form className="contact-form" action={onSubmit}>
-          <label className="form-label">NAME</label>
-          <input
-            className="form-input"
-            placeholder="ENTER YOUR NAME"
-            name="name"
-            type="text"
-            required
-            disabled={loading}
-            minLength={2}
-            maxLength={100}
-          />
-          <label className="form-label">EMAIL</label>
-          <input
-            className="form-input"
-            placeholder="ENTER YOUR EMAIL"
-            name="email"
-            type="email"
-            required
-            disabled={loading}
-            maxLength={255}
-          />
-          <label className="form-label">MESSAGE</label>
-          <textarea
-            className="form-input"
-            placeholder="ENTER YOUR MESSAGE"
-            name="message"
-            required
-            disabled={loading}
-            minLength={10}
-            maxLength={5000}
-            rows={6}
-          />
-          {/* Honeypot field - hidden from users, catches bots */}
+    <motion.div className="flex-1" {...contactFormAnimationProps}>
+      <div className="w-full border-2 border-white/30 p-6">
+        <form ref={formRef} className="flex flex-col gap-6" action={onSubmit}>
+          <div>
+            <label className="retro text-[10px] uppercase tracking-wider text-white/70 mb-2 block">NAME</label>
+            <Input
+              placeholder="Enter your name"
+              name="name"
+              type="text"
+              required
+              disabled={loading}
+              minLength={2}
+              maxLength={100}
+            />
+          </div>
+          <div>
+            <label className="retro text-[10px] uppercase tracking-wider text-white/70 mb-2 block">EMAIL</label>
+            <Input
+              placeholder="Enter your email"
+              name="email"
+              type="email"
+              required
+              disabled={loading}
+              maxLength={255}
+            />
+          </div>
+          <div>
+            <label className="retro text-[10px] uppercase tracking-wider text-white/70 mb-2 block">MESSAGE</label>
+            <Textarea
+              placeholder="Enter your message"
+              name="message"
+              required
+              disabled={loading}
+              minLength={10}
+              maxLength={5000}
+              rows={6}
+            />
+          </div>
           <input
             type="text"
             name="website"
             tabIndex={-1}
             autoComplete="off"
-            style={{
-              position: "absolute",
-              left: "-9999px",
-              width: "1px",
-              height: "1px",
-            }}
+            className="absolute -left-[9999px] w-px h-px"
             aria-hidden="true"
           />
           <ContactFormFooter

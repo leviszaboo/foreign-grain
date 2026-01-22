@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react";
+import { cn } from "@/lib/utils";
 
 export default function RollingButton({ text, handleClick, className, type, disabled }) {
   const [buttonText, setButtonText] = useState(text);
@@ -15,18 +16,19 @@ export default function RollingButton({ text, handleClick, className, type, disa
 
     const interval = setInterval(() => {
       setButtonText(
-        buttonText
+        text
         .split("")
         .map((letter, index) => {
           if (index + 1 < iterations) {
-          return letter;
+          return text[index];
           }
           return chars[Math.floor(Math.random() * chars.length)];
         }).join("")
       );
 
-      if (iterations > buttonText.length + 1) {
+      if (iterations > text.length + 1) {
         clearInterval(interval);
+        setButtonText(text);
         setAnimationStarted(false);
     }
       iterations += 1/2;
@@ -34,8 +36,17 @@ export default function RollingButton({ text, handleClick, className, type, disa
   }
 
   return (
-    <button className={className} onClick={handleClick || null} onMouseEnter={handleMouseEnter} type={type || null} disabled={disabled || null}>
-      <h2 className="start-h2">{buttonText}</h2>
+    <button
+      className={cn(
+        "retro bg-white text-black px-4 py-2 text-[10px] tracking-wider hover:bg-white/70 active:translate-y-0.5 transition-all duration-200",
+        className
+      )}
+      onClick={handleClick || undefined}
+      onMouseEnter={handleMouseEnter}
+      type={type || "button"}
+      disabled={disabled || false}
+    >
+      {buttonText}
     </button>
   )
 }
