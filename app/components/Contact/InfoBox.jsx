@@ -12,9 +12,9 @@ export default function InfoBox({ contactInfo }) {
       {contactInfo.email && (
         <Link
           href={`mailto:${contactInfo.email}`}
-          className="flex items-center gap-4 text-white/80 hover:text-[#ffd700] transition-colors group"
+          className="flex items-center gap-4 text-white/80 hover:text-[#ffdba5] transition-colors group"
         >
-          <div className="p-2 border-2 border-white/30 group-hover:border-[#ffd700] transition-colors">
+          <div className="p-2 border-2 border-white/30 group-hover:border-[#ffdba5] transition-colors">
             <PixelMail size={20} />
           </div>
           <div>
@@ -42,9 +42,9 @@ export default function InfoBox({ contactInfo }) {
         <Link
           href={`https://instagram.com/${contactInfo.instagram}`}
           target="_blank"
-          className="flex items-center gap-4 text-white/80 hover:text-[#ffd700] transition-colors group"
+          className="flex items-center gap-4 text-white/80 hover:text-[#ffdba5] transition-colors group"
         >
-          <div className="p-2 border-2 border-white/30 group-hover:border-[#ffd700] transition-colors">
+          <div className="p-2 border-2 border-white/30 group-hover:border-[#ffdba5] transition-colors">
             <PixelInstagram size={20} />
           </div>
           <div>
@@ -59,9 +59,9 @@ export default function InfoBox({ contactInfo }) {
         <Link
           href={contactInfo.linkedin}
           target="_blank"
-          className="flex items-center gap-4 text-white/80 hover:text-[#ffd700] transition-colors group"
+          className="flex items-center gap-4 text-white/80 hover:text-[#ffdba5] transition-colors group"
         >
-          <div className="p-2 border-2 border-white/30 group-hover:border-[#ffd700] transition-colors">
+          <div className="p-2 border-2 border-white/30 group-hover:border-[#ffdba5] transition-colors">
             <PixelLinkedin size={20} />
           </div>
           <div>

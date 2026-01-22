@@ -5,7 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useMenuStore } from "@/app/context/UIContext";
 
-const SLIDE_DURATION = 5000;
+const SLIDE_DURATION = 6000;
+const FADE_DURATION = 2;
 
 export default function HeroSlideshow({ images }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -33,15 +34,21 @@ export default function HeroSlideshow({ images }) {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
         >
-          {/* Slides */}
-          <AnimatePresence mode="wait">
+          {/* Slides - crossfade mode allows overlap */}
+          <AnimatePresence mode="sync">
             <motion.div
               key={currentIndex}
               className="absolute inset-0"
-              initial={{ opacity: 0, scale: 1.05 }}
-              animate={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0 }}
+              animate={{
+                opacity: 1,
+                scale: [1.10, 1],
+              }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 1.2, ease: "easeInOut" }}
+              transition={{
+                opacity: { duration: FADE_DURATION, ease: "easeInOut" },
+                scale: { duration: SLIDE_DURATION / 1000 + FADE_DURATION, ease: [0.05, 0.2, 0.6, 0.92] }
+              }}
             >
               <Image
                 src={images[currentIndex].url}

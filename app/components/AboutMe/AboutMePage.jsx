@@ -5,6 +5,7 @@ import { useMenuStore } from "@/app/context/UIContext";
 import HeroSection from "./HeroSection";
 import ScrollingQuote from "./ScrollingQuote";
 import LinkToContact from './LinkToContact';
+import FilmStrip from "./FilmStrip";
 
 export default function AboutMePage({ paragraphs, sources }) {
   const { isMenuVisible } = useMenuStore();
@@ -18,9 +19,19 @@ export default function AboutMePage({ paragraphs, sources }) {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <HeroSection sources={sources} />
-          <ScrollingQuote paragraphs={paragraphs} />
-          <LinkToContact />
+          {/* Fixed background film strip that covers the entire page */}
+          <div className="fixed inset-0 z-0">
+            <FilmStrip sources={sources} />
+            {/* Overlay gradient for readability */}
+            <div className="absolute inset-0 bg-black/60" />
+          </div>
+
+          {/* Scrollable content */}
+          <div className="relative z-10">
+            <HeroSection />
+            <ScrollingQuote paragraphs={paragraphs} />
+            <LinkToContact />
+          </div>
         </motion.div>
       )}
     </AnimatePresence>

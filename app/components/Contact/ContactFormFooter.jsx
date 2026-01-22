@@ -20,7 +20,7 @@ export default function ContactFormFooter({ message, error }) {
       <AnimatePresence>
       {message && (
           <motion.div {...fadeInScaleAnimationProps} className="ml-auto">
-          <h2 className="text-sm text-[#ffd700]">{message}</h2>
+          <h2 className="text-sm text-[#ffdba5]">{message}</h2>
           </motion.div>
       )}
       </AnimatePresence>

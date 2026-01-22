@@ -20,7 +20,7 @@ function QuoteParagraph({ text, highlightWords = [] }) {
   const element = useRef(null);
   const { scrollYProgress } = useScroll({
     target: element,
-    offset: ["start 0.95", "start 0.1"],
+    offset: ["start 0.9", "start 0.25"],
   });
 
   const words = text.split(" ");
@@ -57,3 +57,4 @@ export default function ScrollingQuote({ paragraphs }) {
     </section>
   );
 }
+

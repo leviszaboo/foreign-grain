@@ -33,13 +33,13 @@ export default function Header() {
           "flex items-center justify-center mr-auto ml-8 max-md:mr-4 max-md:ml-auto transition-opacity duration-300",
           isMenuVisible && "max-md:opacity-0 max-md:pointer-events-none"
         )}>
-          <Link href="/" className="block">
+          <Link href="/" className="block cursor-pointer">
             <Image
               src="/logo.png"
               alt="Luigi Simiani"
               width={120}
               height={40}
-              className="h-8 w-auto brightness-0 invert opacity-90 hover:opacity-100 transition-opacity"
+              className="h-8 w-auto brightness-0 invert opacity-95 hover:opacity-100 transition-opacity"
               priority
             />
           </Link>

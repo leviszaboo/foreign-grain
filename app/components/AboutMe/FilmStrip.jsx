@@ -1,43 +1,70 @@
 "use client";
 
 import Image from "next/image";
+import { motion, useScroll, useTransform, useMotionValue } from "framer-motion";
+import { useEffect } from "react";
 
 export default function FilmStrip({ sources }) {
   const images = sources.slice(0, 6);
   // Duplicate for seamless loop
   const duplicatedImages = [...images, ...images];
 
+  const { scrollYProgress } = useScroll();
+
+  // Continuous drift - never stops
+  const driftOffset = useMotionValue(0);
+
+  // Parallax derived from scroll (0 to -25%)
+  const parallaxY = useTransform(scrollYProgress, [0, 1], [0, -25]);
+
+  // Always drift - never pause
+  useEffect(() => {
+    let animationId;
+    const speed = 0.006;
+
+    const tick = () => {
+      const current = driftOffset.get();
+      let next = current - speed;
+      // Loop seamlessly
+      if (next < -50) next += 50;
+      driftOffset.set(next);
+      animationId = requestAnimationFrame(tick);
+    };
+
+    animationId = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(animationId);
+  }, [driftOffset]);
+
+  // Combine: constant drift + parallax layered on top
+  const combinedY = useTransform(
+    [driftOffset, parallaxY],
+    ([drift, parallax]) => `${drift + parallax}%`
+  );
+
   return (
     <div className="h-full w-full overflow-hidden">
-      <div className="animate-scroll-up flex flex-col">
+      <motion.div
+        className="flex flex-col will-change-transform"
+        style={{ y: combinedY }}
+      >
         {duplicatedImages.map((source, index) => (
           <div
             key={`${source.url}-${index}`}
-            className="relative shrink-0 w-full"
+            className="relative shrink-0 w-full aspect-[3/4]"
           >
             <Image
               src={source.url}
               alt=""
               fill
-              className="!relative w-full h-auto object-cover"
+              className="object-cover"
               sizes="100vw"
+              placeholder={source.base64 ? "blur" : "empty"}
+              blurDataURL={source.base64}
+              priority={index < 2}
             />
           </div>
         ))}
-      </div>
-      <style jsx>{`
-        @keyframes scroll-up {
-          0% {
-            transform: translateY(0);
-          }
-          100% {
-            transform: translateY(-50%);
-          }
-        }
-        .animate-scroll-up {
-          animation: scroll-up 30s linear infinite;
-        }
-      `}</style>
+      </motion.div>
     </div>
   );
 }
