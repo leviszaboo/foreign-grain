@@ -1,13 +1,13 @@
-import Menu from "@/app/components/Menu/Menu/Menu";
-import MemorizePosition from "@/app/components/Work/MemorizePosition";
+import Menu from "@/app/components/menu/Menu";
+import MemorizePosition from "@/app/components/work/MemorizePosition";
 import {
   fetchGalleries,
   fetchGalleryById,
   isPasswordProtected,
   isDownloadable,
   hasTag,
-} from "@/app/lib/content";
-import ProtectedGallery from "@/app/components/Gallery/ProtectedGallery";
+} from "@/lib/content";
+import ProtectedGallery from "@/app/components/gallery/ProtectedGallery";
 import { notFound } from "next/navigation";
 
 export const revalidate = 3600;

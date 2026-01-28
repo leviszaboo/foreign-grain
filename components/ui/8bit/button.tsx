@@ -43,7 +43,7 @@ export interface BitButtonProps
 function Button({ children, asChild, ...props }: BitButtonProps) {
   const { variant, size, className, font } = props;
 
-  const hasBorder =
+  const _hasBorder =
     variant !== "ghost" && variant !== "link" && size !== "icon";
 
   return (

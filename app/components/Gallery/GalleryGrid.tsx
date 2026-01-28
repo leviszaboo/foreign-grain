@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { useMenuStore } from "@/app/context/UIContext";
+import { useUI } from "@/app/context/UIContext";
 import type { Gallery } from "@/app/types/content";
 
 interface GalleryGridProps {
@@ -11,7 +11,7 @@ interface GalleryGridProps {
 }
 
 export default function GalleryGrid({ galleries }: GalleryGridProps) {
-  const { isMenuVisible } = useMenuStore();
+  const { isMenuVisible } = useUI();
 
   return (
     <AnimatePresence>

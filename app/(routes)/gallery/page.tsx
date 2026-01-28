@@ -1,7 +1,7 @@
-import Menu from "@/app/components/Menu/Menu/Menu";
-import MemorizePosition from "@/app/components/Work/MemorizePosition";
-import { fetchGalleries } from "@/app/lib/content";
-import GalleryGrid from "@/app/components/Gallery/GalleryGrid";
+import Menu from "@/app/components/menu/Menu";
+import MemorizePosition from "@/app/components/work/MemorizePosition";
+import { fetchGalleries } from "@/lib/content";
+import GalleryGrid from "@/app/components/gallery/GalleryGrid";
 
 export const revalidate = 3600;
 

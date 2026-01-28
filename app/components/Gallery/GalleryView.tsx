@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import JSZip from "jszip";
-import { useMenuStore } from "@/app/context/UIContext";
+import { useUI } from "@/app/context/UIContext";
 import type { Gallery } from "@/app/types/content";
 
 interface GalleryViewProps {
@@ -20,7 +20,7 @@ export default function GalleryView({
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [isDownloading, setIsDownloading] = useState(false);
   const [downloadProgress, setDownloadProgress] = useState(0);
-  const { isMenuVisible } = useMenuStore();
+  const { isMenuVisible } = useUI();
 
   const openLightbox = (index: number) => setSelectedIndex(index);
   const closeLightbox = () => setSelectedIndex(null);

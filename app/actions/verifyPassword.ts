@@ -4,7 +4,7 @@ import {
   verifyGalleryPassword,
   fetchGalleryById,
   isPasswordProtected,
-} from "@/app/lib/content";
+} from "@/lib/content";
 import type { Gallery } from "@/app/types/content";
 
 export interface VerifyPasswordResult {
