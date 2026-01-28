@@ -20,3 +20,5 @@ export const contactFormSchema = z.object({
   // Honeypot field for bot protection (should be empty)
   website: z.string().max(0).optional(),
 });
+
+export type ContactFormData = z.infer<typeof contactFormSchema>;

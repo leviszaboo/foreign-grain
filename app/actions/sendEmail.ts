@@ -2,11 +2,17 @@
 
 import { Resend } from "resend";
 import { contactFormSchema } from "@/app/schema/contactFormSchema";
+import { ZodError } from "zod";
 
 // CRITICAL: Use server-side only env variable (no NEXT_PUBLIC_ prefix)
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function sendEmail(formData) {
+interface SendEmailResult {
+  success: boolean;
+  error: string | null;
+}
+
+export async function sendEmail(formData: FormData): Promise<SendEmailResult> {
   try {
     // Extract and validate form data
     const rawData = {
@@ -64,7 +70,7 @@ export async function sendEmail(formData) {
     console.error("Email send error:", err);
 
     // Don't expose internal errors to client
-    if (err.name === "ZodError") {
+    if (err instanceof ZodError) {
       return {
         success: false,
         error: "Please check your form inputs and try again.",
