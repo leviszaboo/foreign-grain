@@ -30,8 +30,8 @@ export default function Header() {
       >
         {/* Logo - hidden on mobile when menu is open */}
         <div className={cn(
-          "flex items-center justify-center mr-auto ml-8 max-md:mr-4 max-md:ml-auto transition-opacity duration-300",
-          isMenuVisible && "max-md:opacity-0 max-md:pointer-events-none"
+          "logo-wrapper flex items-center justify-center mr-auto ml-8 transition-opacity duration-300",
+          isMenuVisible && "menu-open-logo-hide"
         )}>
           <Link href="/" className="block cursor-pointer">
             <Image
@@ -46,7 +46,7 @@ export default function Header() {
         </div>
 
         {/* Navigation */}
-        <nav className="mr-8 gap-4 ml-auto flex items-center justify-center max-md:hidden">
+        <nav className="header-nav mr-8 gap-4 ml-auto flex items-center justify-center">
           <h2>
             <Link
               href="/gallery"

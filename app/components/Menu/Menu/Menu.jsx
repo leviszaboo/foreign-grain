@@ -22,28 +22,32 @@ export default function Menu() {
             {...menuAnimation}
           >
             <MenuItem
-              href="/gallery"
-              label="Work"
-              toggleMenu={toggleMenu}
-              delay={0.1}
-            />
-            <MenuItem
+              className="menu-item-home"
               href="/"
               label="Home"
               toggleMenu={toggleMenu}
-              delay={0.15}
+              delay={0.35}
             />
             <MenuItem
+              className="menu-item-work"
+              href="/gallery"
+              label="Work"
+              toggleMenu={toggleMenu}
+              delay={0.3}
+            />
+            <MenuItem
+              className="menu-item-info"
               href="/about-me"
               label="About me"
               toggleMenu={toggleMenu}
-              delay={0.2}
+              delay={0.3}
             />
             <MenuItem
+              className="menu-item-contact"
               href="/contact"
               label="Contact"
               toggleMenu={toggleMenu}
-              delay={0.2}
+              delay={0.5}
             />
           </motion.ul>
           <MenuFlowers />

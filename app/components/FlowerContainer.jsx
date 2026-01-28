@@ -15,7 +15,7 @@ export default function FlowerContainer({
   return (
     <motion.div
       id={id}
-      className={`cursor-pointer transition-transform duration-300 ${className}`}
+      className={className}
       initial={initial}
       animate={animate}
       exit={exit}
@@ -23,7 +23,7 @@ export default function FlowerContainer({
       onClick={onClick}
       ref={forwardedRef}
     >
-      <img className={`w-full h-auto ${imageClassName}`} src={imageSrc} alt="" />
+      <img className={`flower ${imageClassName}`} src={imageSrc} alt="flower" />
     </motion.div>
   );
 }

@@ -3,13 +3,13 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-export default function MenuItem({ href, label, toggleMenu, delay = 0 }) {
+export default function MenuItem({ href, label, toggleMenu, delay = 0, className = "" }) {
   return (
     <motion.li
-      className="animate-fade-in"
-      style={{ animationDelay: `${delay}s` }}
+      className={className}
       exit={{
         scale: 0.6,
+        originX: 0.37,
         opacity: 0,
         transition: { duration: 0.5, delay: delay }
       }}
@@ -17,7 +17,7 @@ export default function MenuItem({ href, label, toggleMenu, delay = 0 }) {
       <Link
         href={href}
         onClick={toggleMenu}
-        className="relative font-light inline-block py-4 no-underline text-left z-[120] text-white hover:text-[#ffd700] transition-colors max-sm:py-3 tracking-wider"
+        className="menu-link relative font-semibold inline-block py-4 no-underline text-left z-[120] max-sm:py-3 tracking-wider max-sm:text-[35px]"
       >
         {label}
       </Link>
